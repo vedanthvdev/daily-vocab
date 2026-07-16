@@ -82,7 +82,7 @@ object DailyWordStore {
   ): DailySnapshot? {
     if (words.isEmpty()) return null
     val today = localDateString(now)
-    if (state != null && state.localDate == today && state.level == level) {
+    if (state != null && state.localDate == today) {
       return state
     }
 
@@ -112,7 +112,11 @@ object DailyWordStore {
   fun resolveForWidget(context: Context): DailySnapshot? {
     val existing = loadSnapshot(context)
     val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-    val level = existing?.level ?: prefs.getString(LEVEL_KEY, null) ?: "beginner"
+    val today = localDateString()
+    if (existing != null && existing.localDate == today) {
+      return existing
+    }
+    val level = prefs.getString(LEVEL_KEY, null) ?: existing?.level ?: "beginner"
     val words = loadCatalog(context, level)
     val next = ensureTodaysWord(level, words, existing) ?: return existing
     if (next.wordId != existing?.wordId || next.localDate != existing.localDate) {

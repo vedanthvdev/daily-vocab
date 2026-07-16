@@ -60,7 +60,7 @@ describe('ensureTodaysWord', () => {
     expect(next.wordId).toBe('b3');
   });
 
-  it('picks from the new list when the level changes the same day', () => {
+  it('keeps the same word when the level changes the same day', () => {
     const state: DailyState = {
       level: 'beginner',
       localDate: '2026-07-16',
@@ -68,17 +68,17 @@ describe('ensureTodaysWord', () => {
       word: 'happy',
       oneLiner: 'Feeling joy.',
     };
+    const randomInt = vi.fn(() => 1);
     const next = ensureTodaysWord({
       level: 'hard',
       catalog,
       state,
       now: new Date('2026-07-16T12:00:00.000Z'),
-      randomInt: () => 1,
+      randomInt,
       timeZone: 'UTC',
     });
-    expect(next.level).toBe('hard');
-    expect(next.wordId).toBe('h2');
-    expect(next.localDate).toBe('2026-07-16');
+    expect(next).toEqual(state);
+    expect(randomInt).not.toHaveBeenCalled();
   });
 
   it('avoids repeating the previous wordId when possible', () => {

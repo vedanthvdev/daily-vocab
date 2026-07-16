@@ -73,7 +73,7 @@ enum DailyWordStore {
   ) -> DailySnapshot? {
     guard !words.isEmpty else { return nil }
     let today = localDateString(now: now)
-    if let state, state.localDate == today, state.level == level {
+    if let state, state.localDate == today {
       return state
     }
 
@@ -101,7 +101,11 @@ enum DailyWordStore {
 
   static func resolveForWidget(now: Date = Date(), bundle: Bundle = .main) -> DailySnapshot? {
     let existing = loadSnapshot()
-    let level = existing?.level ?? defaults.string(forKey: levelKey) ?? "beginner"
+    let today = localDateString(now: now)
+    if let existing, existing.localDate == today {
+      return existing
+    }
+    let level = defaults.string(forKey: levelKey) ?? existing?.level ?? "beginner"
     let words = loadCatalog(level: level, bundle: bundle)
     guard let next = ensureTodaysWord(level: level, words: words, state: existing, now: now) else {
       return existing

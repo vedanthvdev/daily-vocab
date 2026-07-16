@@ -7,8 +7,14 @@ module.exports = (config) => ({
   bundleIdentifier: '.DailyVocabWidget',
   frameworks: ['SwiftUI', 'WidgetKit'],
   colors: {
-    $accent: '#2F6F4E',
-    $widgetBackground: '#F7F3EA',
+    $accent: {
+      light: '#8FBF9A',
+      dark: '#A8D4B4',
+    },
+    $widgetBackground: {
+      light: '#E6EDE0E6',
+      dark: '#1F2824E0',
+    },
   },
   entitlements: {
     'com.apple.security.application-groups':

@@ -20,7 +20,7 @@ export function ensureTodaysWord(input: EnsureTodaysWordInput): DailyState {
 
   const today = formatLocalDate(now, timeZone);
 
-  if (state && state.localDate === today && state.level === level) {
+  if (state && state.localDate === today) {
     return state;
   }
 

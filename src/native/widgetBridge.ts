@@ -1,4 +1,4 @@
-import type { DailyState } from '../domain/types';
+import type { DailyState, Level } from '../domain/types';
 import WidgetBridgeModule from '../../modules/widget-bridge/src/WidgetBridgeModule';
 
 export type DailySnapshot = {
@@ -19,14 +19,20 @@ function toSnapshot(state: DailyState): DailySnapshot {
   };
 }
 
-/** Persist today's word for native widgets. Safe no-op in Expo Go. */
 export async function pushDailySnapshot(state: DailyState): Promise<void> {
   if (!WidgetBridgeModule) return;
   try {
     await WidgetBridgeModule.setDailySnapshot(toSnapshot(state));
     await WidgetBridgeModule.reloadWidgets();
   } catch {
-    // Native calls can fail before a widget is installed — ignore.
+  }
+}
+
+export async function pushActiveLevel(level: Level): Promise<void> {
+  if (!WidgetBridgeModule) return;
+  try {
+    await WidgetBridgeModule.setActiveLevel(level);
+  } catch {
   }
 }
 

@@ -18,10 +18,18 @@ class WidgetBridgeModule : Module() {
       for ((key, value) in snapshot) {
         json.put(key, value)
       }
-      val editor = context.getSharedPreferences(prefsName, Context.MODE_PRIVATE).edit()
-      editor.putString(snapshotKey, json.toString())
-      snapshot["level"]?.let { editor.putString("activeLevel", it) }
-      editor.apply()
+      context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
+        .edit()
+        .putString(snapshotKey, json.toString())
+        .apply()
+    }
+
+    AsyncFunction("setActiveLevel") { level: String ->
+      val context = appContext.reactContext ?: return@AsyncFunction
+      context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
+        .edit()
+        .putString("activeLevel", level)
+        .apply()
     }
 
     AsyncFunction("getDailySnapshot") {

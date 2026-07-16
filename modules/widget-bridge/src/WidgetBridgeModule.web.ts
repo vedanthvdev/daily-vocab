@@ -6,11 +6,12 @@ export default {
   async setDailySnapshot(snapshot: DailySnapshot): Promise<void> {
     memory.set('dailySnapshot', JSON.stringify(snapshot));
   },
+  async setActiveLevel(level: string): Promise<void> {
+    memory.set('activeLevel', level);
+  },
   async getDailySnapshot(): Promise<DailySnapshot | null> {
     const raw = memory.get('dailySnapshot');
     return raw ? (JSON.parse(raw) as DailySnapshot) : null;
   },
-  async reloadWidgets(): Promise<void> {
-    // no-op on web
-  },
+  async reloadWidgets(): Promise<void> {},
 };

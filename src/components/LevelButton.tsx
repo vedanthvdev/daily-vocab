@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -8,7 +8,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import type { Level } from '../domain/types';
-import { colors } from '../theme/colors';
+import { fonts } from '../theme/typography';
+import { useThemeColors } from '../theme/useThemeColors';
 
 const LABELS: Record<Level, string> = {
   beginner: 'Beginner',
@@ -16,11 +17,8 @@ const LABELS: Record<Level, string> = {
   hard: 'Hard',
 };
 
-const FILL: Record<Level, string> = {
-  beginner: colors.beginner,
-  intermediate: colors.intermediate,
-  hard: colors.hard,
-};
+const SELECTED_SCALE = 1.05;
+const IDLE_SCALE = 1;
 
 type Props = {
   level: Level;
@@ -31,19 +29,43 @@ type Props = {
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
+const jellySpring = { damping: 8, stiffness: 200, mass: 0.65 };
+
 export function LevelButton({ level, selected, index, onPress }: Props) {
+  const colors = useThemeColors();
   const enter = useSharedValue(0);
-  const scale = useSharedValue(1);
+  const press = useSharedValue(1);
+  const selectedScale = useSharedValue(selected ? SELECTED_SCALE : IDLE_SCALE);
+
+  const accent =
+    level === 'beginner'
+      ? colors.beginner
+      : level === 'intermediate'
+        ? colors.intermediate
+        : colors.hard;
+  const soft =
+    level === 'beginner'
+      ? colors.beginnerSoft
+      : level === 'intermediate'
+        ? colors.intermediateSoft
+        : colors.hardSoft;
 
   useEffect(() => {
-    enter.value = withDelay(index * 90, withTiming(1, { duration: 420 }));
+    enter.value = withDelay(index * 70, withTiming(1, { duration: 380 }));
   }, [enter, index]);
+
+  useEffect(() => {
+    selectedScale.value = withSpring(
+      selected ? SELECTED_SCALE : IDLE_SCALE,
+      jellySpring,
+    );
+  }, [selected, selectedScale]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: enter.value,
     transform: [
-      { translateY: (1 - enter.value) * 18 },
-      { scale: scale.value },
+      { translateY: (1 - enter.value) * 12 },
+      { scale: selectedScale.value * press.value },
     ],
   }));
 
@@ -52,40 +74,60 @@ export function LevelButton({ level, selected, index, onPress }: Props) {
       accessibilityRole="button"
       accessibilityState={{ selected }}
       onPressIn={() => {
-        scale.value = withSpring(0.96, { damping: 14, stiffness: 220 });
+        press.value = withSpring(0.96, { damping: 16, stiffness: 280 });
       }}
       onPressOut={() => {
-        scale.value = withSpring(1, { damping: 14, stiffness: 220 });
+        press.value = withSpring(1, jellySpring);
       }}
       onPress={() => onPress(level)}
       style={[
-        styles.button,
-        { backgroundColor: FILL[level] },
-        selected && styles.selected,
+        styles.chip,
+        {
+          backgroundColor: selected ? soft : colors.chipIdle,
+          borderColor: selected ? accent : colors.surfaceBorder,
+        },
         animatedStyle,
       ]}
     >
-      <Text style={styles.label}>{LABELS[level]}</Text>
+      <View style={[styles.dot, { backgroundColor: accent }]} />
+      <Text
+        style={[
+          styles.label,
+          {
+            color: selected ? colors.ink : colors.chipIdleText,
+            fontFamily: selected ? fonts.bodyBold : fonts.bodySemi,
+          },
+        ]}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.8}
+      >
+        {LABELS[level]}
+      </Text>
     </AnimatedPressable>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
-    borderRadius: 28,
-    paddingVertical: 22,
-    paddingHorizontal: 20,
+  chip: {
+    flex: 1,
+    minHeight: 52,
+    borderRadius: 18,
+    borderWidth: 1.5,
+    paddingVertical: 12,
+    paddingHorizontal: 8,
     alignItems: 'center',
-    marginBottom: 14,
+    justifyContent: 'center',
+    gap: 6,
   },
-  selected: {
-    borderWidth: 3,
-    borderColor: colors.ink,
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
   },
   label: {
-    color: colors.buttonText,
-    fontSize: 22,
-    fontWeight: '700',
-    letterSpacing: 0.2,
+    fontSize: 13,
+    letterSpacing: 0.1,
+    textAlign: 'center',
   },
 });

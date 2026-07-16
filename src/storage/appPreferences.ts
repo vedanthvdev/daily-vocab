@@ -4,12 +4,25 @@ import type { DailyState, Level } from '../domain/types';
 const LEVEL_KEY = 'dailyvocab.level';
 const STATE_KEY = 'dailyvocab.dailyState';
 
+function isLevel(value: unknown): value is Level {
+  return value === 'beginner' || value === 'intermediate' || value === 'hard';
+}
+
+function isDailyState(value: unknown): value is DailyState {
+  if (!value || typeof value !== 'object') return false;
+  const state = value as Record<string, unknown>;
+  return (
+    isLevel(state.level) &&
+    typeof state.localDate === 'string' &&
+    typeof state.wordId === 'string' &&
+    typeof state.word === 'string' &&
+    typeof state.oneLiner === 'string'
+  );
+}
+
 export async function loadLevel(): Promise<Level | null> {
   const value = await AsyncStorage.getItem(LEVEL_KEY);
-  if (value === 'beginner' || value === 'intermediate' || value === 'hard') {
-    return value;
-  }
-  return null;
+  return isLevel(value) ? value : null;
 }
 
 export async function saveLevel(level: Level): Promise<void> {
@@ -20,7 +33,8 @@ export async function loadDailyState(): Promise<DailyState | null> {
   const raw = await AsyncStorage.getItem(STATE_KEY);
   if (!raw) return null;
   try {
-    return JSON.parse(raw) as DailyState;
+    const parsed: unknown = JSON.parse(raw);
+    return isDailyState(parsed) ? parsed : null;
   } catch {
     return null;
   }
