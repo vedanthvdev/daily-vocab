@@ -1,0 +1,4002 @@
+[
+  {
+    "word": "consider",
+    "gloss": "deem to be"
+  },
+  {
+    "word": "minute",
+    "gloss": "infinitely or immeasurably small"
+  },
+  {
+    "word": "accord",
+    "gloss": "concurrence of opinion"
+  },
+  {
+    "word": "evident",
+    "gloss": "clearly revealed to the mind or the senses or judgment"
+  },
+  {
+    "word": "practice",
+    "gloss": "a customary way of operation or behavior"
+  },
+  {
+    "word": "intend",
+    "gloss": "have in mind as a purpose"
+  },
+  {
+    "word": "concern",
+    "gloss": "something that interests you because it is important"
+  },
+  {
+    "word": "commit",
+    "gloss": "perform an act, usually with a negative connotation"
+  },
+  {
+    "word": "issue",
+    "gloss": "some situation or event that is thought about"
+  },
+  {
+    "word": "approach",
+    "gloss": "move towards"
+  },
+  {
+    "word": "establish",
+    "gloss": "set up or found"
+  },
+  {
+    "word": "utter",
+    "gloss": "without qualification"
+  },
+  {
+    "word": "conduct",
+    "gloss": "direct the course of; manage or control"
+  },
+  {
+    "word": "engage",
+    "gloss": "consume all of one's attention or time"
+  },
+  {
+    "word": "obtain",
+    "gloss": "come into possession of"
+  },
+  {
+    "word": "scarce",
+    "gloss": "deficient in quantity or number compared with the demand"
+  },
+  {
+    "word": "policy",
+    "gloss": "a plan of action adopted by an individual or social group"
+  },
+  {
+    "word": "straight",
+    "gloss": "successive, without a break"
+  },
+  {
+    "word": "stock",
+    "gloss": "capital raised by a corporation through the issue of shares"
+  },
+  {
+    "word": "apparent",
+    "gloss": "clearly revealed to the mind or the senses or judgment"
+  },
+  {
+    "word": "property",
+    "gloss": "a basic or essential attribute shared by members of a class"
+  },
+  {
+    "word": "fancy",
+    "gloss": "imagine; conceive of; see in one's mind"
+  },
+  {
+    "word": "concept",
+    "gloss": "an abstract or general idea inferred from specific instances"
+  },
+  {
+    "word": "court",
+    "gloss": "an assembly to conduct judicial business"
+  },
+  {
+    "word": "appoint",
+    "gloss": "assign a duty, responsibility, or obligation to"
+  },
+  {
+    "word": "passage",
+    "gloss": "a section of text, particularly a section of medium length"
+  },
+  {
+    "word": "vain",
+    "gloss": "unproductive of success"
+  },
+  {
+    "word": "instance",
+    "gloss": "an occurrence of something"
+  },
+  {
+    "word": "coast",
+    "gloss": "the shore of a sea or ocean"
+  },
+  {
+    "word": "project",
+    "gloss": "a planned undertaking"
+  },
+  {
+    "word": "commission",
+    "gloss": "a special group delegated to consider some matter"
+  },
+  {
+    "word": "constant",
+    "gloss": "a quantity that does not vary"
+  },
+  {
+    "word": "circumstances",
+    "gloss": "one's overall condition in life"
+  },
+  {
+    "word": "constitute",
+    "gloss": "compose or represent"
+  },
+  {
+    "word": "level",
+    "gloss": "a relative position or degree of value in a graded group"
+  },
+  {
+    "word": "affect",
+    "gloss": "have an influence upon"
+  },
+  {
+    "word": "institute",
+    "gloss": "set up or lay the groundwork for"
+  },
+  {
+    "word": "render",
+    "gloss": "give an interpretation of"
+  },
+  {
+    "word": "appeal",
+    "gloss": "be attractive to"
+  },
+  {
+    "word": "generate",
+    "gloss": "bring into existence"
+  },
+  {
+    "word": "theory",
+    "gloss": "a well-substantiated explanation of some aspect of the world"
+  },
+  {
+    "word": "range",
+    "gloss": "a variety of different things or activities"
+  },
+  {
+    "word": "campaign",
+    "gloss": "a race between candidates for elective office"
+  },
+  {
+    "word": "league",
+    "gloss": "an association of sports teams that organizes matches"
+  },
+  {
+    "word": "labor",
+    "gloss": "any piece of work that is undertaken or attempted"
+  },
+  {
+    "word": "confer",
+    "gloss": "have a meeting in order to talk something over"
+  },
+  {
+    "word": "grant",
+    "gloss": "allow to have"
+  },
+  {
+    "word": "dwell",
+    "gloss": "think moodily or anxiously about something"
+  },
+  {
+    "word": "entertain",
+    "gloss": "provide amusement for"
+  },
+  {
+    "word": "contract",
+    "gloss": "a binding agreement that is enforceable by law"
+  },
+  {
+    "word": "earnest",
+    "gloss": "characterized by a firm, sincere belief in one's opinions"
+  },
+  {
+    "word": "yield",
+    "gloss": "give or supply"
+  },
+  {
+    "word": "wander",
+    "gloss": "move or cause to move in a sinuous or circular course"
+  },
+  {
+    "word": "insist",
+    "gloss": "be emphatic or resolute and refuse to budge"
+  },
+  {
+    "word": "knight",
+    "gloss": "a person of noble birth trained to arms and chivalry"
+  },
+  {
+    "word": "convince",
+    "gloss": "make realize the truth or validity of something"
+  },
+  {
+    "word": "inspire",
+    "gloss": "serve as the inciting cause of"
+  },
+  {
+    "word": "convention",
+    "gloss": "a large formal assembly"
+  },
+  {
+    "word": "skill",
+    "gloss": "an ability that has been acquired by training"
+  },
+  {
+    "word": "harry",
+    "gloss": "annoy continually or chronically"
+  },
+  {
+    "word": "financial",
+    "gloss": "involving fiscal matters"
+  },
+  {
+    "word": "reflect",
+    "gloss": "show an image of"
+  },
+  {
+    "word": "novel",
+    "gloss": "an extended fictional work in prose"
+  },
+  {
+    "word": "furnish",
+    "gloss": "provide with objects or articles that make a room usable"
+  },
+  {
+    "word": "compel",
+    "gloss": "force somebody to do something"
+  },
+  {
+    "word": "venture",
+    "gloss": "proceed somewhere despite the risk of possible dangers"
+  },
+  {
+    "word": "territory",
+    "gloss": "the geographical area under the jurisdiction of a state"
+  },
+  {
+    "word": "temper",
+    "gloss": "a characteristic state of feeling"
+  },
+  {
+    "word": "bent",
+    "gloss": "fixed in your purpose"
+  },
+  {
+    "word": "intimate",
+    "gloss": "marked by close acquaintance, association, or familiarity"
+  },
+  {
+    "word": "undertake",
+    "gloss": "enter upon an activity or enterprise"
+  },
+  {
+    "word": "majority",
+    "gloss": "more than half of the votes in an election"
+  },
+  {
+    "word": "assert",
+    "gloss": "declare or affirm solemnly and formally as true"
+  },
+  {
+    "word": "crew",
+    "gloss": "the people who work on a vehicle"
+  },
+  {
+    "word": "chamber",
+    "gloss": "a natural or artificial enclosed space"
+  },
+  {
+    "word": "humble",
+    "gloss": "marked by meekness or modesty; not arrogant or prideful"
+  },
+  {
+    "word": "scheme",
+    "gloss": "an elaborate and systematic plan of action"
+  },
+  {
+    "word": "keen",
+    "gloss": "demonstrating ability to recognize or draw fine distinctions"
+  },
+  {
+    "word": "liberal",
+    "gloss": "having political views favoring reform and progress"
+  },
+  {
+    "word": "despair",
+    "gloss": "a state in which all hope is lost or absent"
+  },
+  {
+    "word": "tide",
+    "gloss": "the periodic rise and fall of the sea level"
+  },
+  {
+    "word": "attitude",
+    "gloss": "a complex mental state involving beliefs and feelings"
+  },
+  {
+    "word": "justify",
+    "gloss": "show to be reasonable or provide adequate ground for"
+  },
+  {
+    "word": "flag",
+    "gloss": "a rectangular piece of cloth of distinctive design"
+  },
+  {
+    "word": "merit",
+    "gloss": "any admirable or beneficial attribute"
+  },
+  {
+    "word": "manifest",
+    "gloss": "reveal its presence or make an appearance"
+  },
+  {
+    "word": "notion",
+    "gloss": "a general inclusive concept"
+  },
+  {
+    "word": "scale",
+    "gloss": "relative magnitude"
+  },
+  {
+    "word": "formal",
+    "gloss": "characteristic of or befitting a person in authority"
+  },
+  {
+    "word": "resource",
+    "gloss": "a new or reserve supply that can be drawn upon when needed"
+  },
+  {
+    "word": "persist",
+    "gloss": "continue to exist"
+  },
+  {
+    "word": "contempt",
+    "gloss": "lack of respect accompanied by a feeling of intense dislike"
+  },
+  {
+    "word": "tour",
+    "gloss": "a route all the way around a particular place or area"
+  },
+  {
+    "word": "plead",
+    "gloss": "enter a defendant's answer"
+  },
+  {
+    "word": "weigh",
+    "gloss": "be oppressive or burdensome"
+  },
+  {
+    "word": "mode",
+    "gloss": "how something is done or how it happens"
+  },
+  {
+    "word": "distinction",
+    "gloss": "a discrimination between things as different"
+  },
+  {
+    "word": "inclined",
+    "gloss": "at an angle to the horizontal or vertical position"
+  },
+  {
+    "word": "attribute",
+    "gloss": "a quality belonging to or characteristic of an entity"
+  },
+  {
+    "word": "exert",
+    "gloss": "make a great effort at a mental or physical task"
+  },
+  {
+    "word": "oppress",
+    "gloss": "come down on or keep down by unjust use of one's authority"
+  },
+  {
+    "word": "contend",
+    "gloss": "compete for something"
+  },
+  {
+    "word": "stake",
+    "gloss": "a strong wooden or metal post driven into the ground"
+  },
+  {
+    "word": "toil",
+    "gloss": "work hard"
+  },
+  {
+    "word": "perish",
+    "gloss": "pass from physical life"
+  },
+  {
+    "word": "disposition",
+    "gloss": "your usual mood"
+  },
+  {
+    "word": "rail",
+    "gloss": "complain bitterly"
+  },
+  {
+    "word": "cardinal",
+    "gloss": "one of a group of prominent bishops in the Sacred College"
+  },
+  {
+    "word": "boast",
+    "gloss": "talk about oneself with excessive pride or self-regard"
+  },
+  {
+    "word": "advocate",
+    "gloss": "a person who pleads for a person, cause, or idea"
+  },
+  {
+    "word": "present",
+    "gloss": "He bestowed public buildings and river improvements in return for votes. Gilbert, Clinton W. (Clinton Wallace)"
+  },
+  {
+    "word": "allege",
+    "gloss": "report or maintain"
+  },
+  {
+    "word": "notwithstanding",
+    "gloss": "despite anything to the contrary"
+  },
+  {
+    "word": "lofty",
+    "gloss": "of imposing height; especially standing out above others"
+  },
+  {
+    "word": "multitude",
+    "gloss": "a large indefinite number"
+  },
+  {
+    "word": "steep",
+    "gloss": "having a sharp inclination"
+  },
+  {
+    "word": "heed",
+    "gloss": "pay close attention to"
+  },
+  {
+    "word": "modest",
+    "gloss": "not large but sufficient in size or amount"
+  },
+  {
+    "word": "partial",
+    "gloss": "being or affecting only a segment"
+  },
+  {
+    "word": "apt",
+    "gloss": "naturally disposed toward"
+  },
+  {
+    "word": "esteem",
+    "gloss": "the condition of being honored"
+  },
+  {
+    "word": "credible",
+    "gloss": "appearing to merit belief or acceptance"
+  },
+  {
+    "word": "provoke",
+    "gloss": "provide the needed stimulus for"
+  },
+  {
+    "word": "tread",
+    "gloss": "a step in walking or running"
+  },
+  {
+    "word": "ascertain",
+    "gloss": "learn or discover with confidence"
+  },
+  {
+    "word": "fare",
+    "gloss": "proceed, get along, or succeed"
+  },
+  {
+    "word": "cede",
+    "gloss": "relinquish possession or control over"
+  },
+  {
+    "word": "perpetual",
+    "gloss": "continuing forever or indefinitely"
+  },
+  {
+    "word": "decree",
+    "gloss": "a legally binding command or decision"
+  },
+  {
+    "word": "contrive",
+    "gloss": "make or work out a plan for; devise"
+  },
+  {
+    "word": "derived",
+    "gloss": "formed or developed from something else; not original"
+  },
+  {
+    "word": "elaborate",
+    "gloss": "marked by complexity and richness of detail"
+  },
+  {
+    "word": "substantial",
+    "gloss": "real; having a material or factual existence"
+  },
+  {
+    "word": "frontier",
+    "gloss": "a wilderness at the edge of a settled area of a country"
+  },
+  {
+    "word": "facile",
+    "gloss": "arrived at without due care or effort; lacking depth"
+  },
+  {
+    "word": "cite",
+    "gloss": "make reference to"
+  },
+  {
+    "word": "warrant",
+    "gloss": "show to be reasonable or provide adequate ground for"
+  },
+  {
+    "word": "sob",
+    "gloss": "weep convulsively"
+  },
+  {
+    "word": "rider",
+    "gloss": "a traveler who actively sits and travels on an animal"
+  },
+  {
+    "word": "dense",
+    "gloss": "permitting little if any light to pass through"
+  },
+  {
+    "word": "afflict",
+    "gloss": "cause physical pain or suffering in"
+  },
+  {
+    "word": "flourish",
+    "gloss": "grow vigorously"
+  },
+  {
+    "word": "ordain",
+    "gloss": "invest with ministerial or priestly authority"
+  },
+  {
+    "word": "pious",
+    "gloss": "having or showing or expressing reverence for a deity"
+  },
+  {
+    "word": "vex",
+    "gloss": "disturb, especially by minor irritations"
+  },
+  {
+    "word": "gravity",
+    "gloss": "the force of attraction between all masses in the universe"
+  },
+  {
+    "word": "suspended",
+    "gloss": "supported or kept from sinking or falling by buoyancy"
+  },
+  {
+    "word": "conspicuous",
+    "gloss": "obvious to the eye or mind"
+  },
+  {
+    "word": "retort",
+    "gloss": "a quick reply to a question or remark"
+  },
+  {
+    "word": "jet",
+    "gloss": "an airplane powered by gas turbines"
+  },
+  {
+    "word": "bolt",
+    "gloss": "run away"
+  },
+  {
+    "word": "assent",
+    "gloss": "agree or express agreement"
+  },
+  {
+    "word": "purse",
+    "gloss": "a sum spoken of as the contents of a money container"
+  },
+  {
+    "word": "plus",
+    "gloss": "the arithmetic operation of summing"
+  },
+  {
+    "word": "sanction",
+    "gloss": "give authority or permission to"
+  },
+  {
+    "word": "proceeding",
+    "gloss": "a sequence of steps by which legal judgments are invoked"
+  },
+  {
+    "word": "exalt",
+    "gloss": "praise, glorify, or honor"
+  },
+  {
+    "word": "siege",
+    "gloss": "an action of an armed force that surrounds a fortified place"
+  },
+  {
+    "word": "malice",
+    "gloss": "the desire to see others suffer"
+  },
+  {
+    "word": "extravagant",
+    "gloss": "recklessly wasteful"
+  },
+  {
+    "word": "wax",
+    "gloss": "increase in phase"
+  },
+  {
+    "word": "throng",
+    "gloss": "press tightly together or cram"
+  },
+  {
+    "word": "venerate",
+    "gloss": "regard with feelings of respect and reverence"
+  },
+  {
+    "word": "assail",
+    "gloss": "attack someone physically or emotionally"
+  },
+  {
+    "word": "sublime",
+    "gloss": "of high moral or intellectual value"
+  },
+  {
+    "word": "exploit",
+    "gloss": "draw from; make good use of"
+  },
+  {
+    "word": "exertion",
+    "gloss": "use of physical or mental energy; hard work"
+  },
+  {
+    "word": "kindle",
+    "gloss": "catch fire"
+  },
+  {
+    "word": "endow",
+    "gloss": "furnish with a capital fund"
+  },
+  {
+    "word": "imposed",
+    "gloss": "set forth authoritatively as obligatory"
+  },
+  {
+    "word": "humiliate",
+    "gloss": "cause to feel shame"
+  },
+  {
+    "word": "suffrage",
+    "gloss": "a legal right to vote"
+  },
+  {
+    "word": "ensue",
+    "gloss": "take place or happen afterward or as a result"
+  },
+  {
+    "word": "brook",
+    "gloss": "a natural stream of water smaller than a river"
+  },
+  {
+    "word": "gale",
+    "gloss": "a strong wind moving 34\u201340 knots"
+  },
+  {
+    "word": "muse",
+    "gloss": "reflect deeply on a subject"
+  },
+  {
+    "word": "satire",
+    "gloss": "witty language used to convey insults or scorn"
+  },
+  {
+    "word": "intrigue",
+    "gloss": "cause to be interested or curious"
+  },
+  {
+    "word": "indication",
+    "gloss": "something that serves to suggest"
+  },
+  {
+    "word": "dispatch",
+    "gloss": "send away towards a designated goal"
+  },
+  {
+    "word": "cower",
+    "gloss": "crouch or curl up"
+  },
+  {
+    "word": "wont",
+    "gloss": "an established custom"
+  },
+  {
+    "word": "tract",
+    "gloss": "a system of body parts that serves some specialized purpose"
+  },
+  {
+    "word": "canon",
+    "gloss": "a collection of books accepted as holy scripture"
+  },
+  {
+    "word": "impel",
+    "gloss": "cause to move forward with force"
+  },
+  {
+    "word": "latitude",
+    "gloss": "freedom from normal restraints in conduct"
+  },
+  {
+    "word": "vacate",
+    "gloss": "leave behind empty; move out of"
+  },
+  {
+    "word": "undertaking",
+    "gloss": "any piece of work that is attempted"
+  },
+  {
+    "word": "slay",
+    "gloss": "kill intentionally and with premeditation"
+  },
+  {
+    "word": "predecessor",
+    "gloss": "one who goes before you in time"
+  },
+  {
+    "word": "delicacy",
+    "gloss": "the quality of being exquisitely fine in appearance"
+  },
+  {
+    "word": "forsake",
+    "gloss": "leave someone who needs or counts on you; leave in the lurch"
+  },
+  {
+    "word": "beseech",
+    "gloss": "ask for or request earnestly"
+  },
+  {
+    "word": "philosophical",
+    "gloss": "relating to the investigation of existence and knowledge"
+  },
+  {
+    "word": "grove",
+    "gloss": "a small growth of trees without underbrush"
+  },
+  {
+    "word": "frustrate",
+    "gloss": "hinder or prevent, as an effort, plan, or desire"
+  },
+  {
+    "word": "illustrious",
+    "gloss": "widely known and esteemed"
+  },
+  {
+    "word": "device",
+    "gloss": "an instrumentality invented for a particular purpose"
+  },
+  {
+    "word": "pomp",
+    "gloss": "cheap or pretentious or vain display"
+  },
+  {
+    "word": "entreat",
+    "gloss": "ask for or request earnestly"
+  },
+  {
+    "word": "impart",
+    "gloss": "transmit, as knowledge or a skill"
+  },
+  {
+    "word": "propriety",
+    "gloss": "correct behavior"
+  },
+  {
+    "word": "consecrate",
+    "gloss": "render holy by means of religious rites"
+  },
+  {
+    "word": "proceeds",
+    "gloss": "the income or profit arising from a transaction"
+  },
+  {
+    "word": "fathom",
+    "gloss": "come to understand"
+  },
+  {
+    "word": "objective",
+    "gloss": "the goal intended to be attained"
+  },
+  {
+    "word": "clad",
+    "gloss": "wearing or provided with clothing"
+  },
+  {
+    "word": "partisan",
+    "gloss": "devoted to a cause or political group"
+  },
+  {
+    "word": "faction",
+    "gloss": "a dissenting clique"
+  },
+  {
+    "word": "contrived",
+    "gloss": "artificially formal"
+  },
+  {
+    "word": "venerable",
+    "gloss": "impressive by reason of age"
+  },
+  {
+    "word": "restrained",
+    "gloss": "not showy or obtrusive"
+  },
+  {
+    "word": "besiege",
+    "gloss": "harass, as with questions or requests"
+  },
+  {
+    "word": "manifestation",
+    "gloss": "a clear appearance"
+  },
+  {
+    "word": "rebuke",
+    "gloss": "an act or expression of criticism and censure"
+  },
+  {
+    "word": "insurgent",
+    "gloss": "in opposition to a civil authority or government"
+  },
+  {
+    "word": "rhetoric",
+    "gloss": "using language effectively to please or persuade"
+  },
+  {
+    "word": "scrupulous",
+    "gloss": "having ethical or moral principles"
+  },
+  {
+    "word": "ratify",
+    "gloss": "approve and express assent, responsibility, or obligation"
+  },
+  {
+    "word": "stump",
+    "gloss": "cause to be perplexed or confounded"
+  },
+  {
+    "word": "discreet",
+    "gloss": "marked by prudence or modesty and wise self-restraint"
+  },
+  {
+    "word": "imposing",
+    "gloss": "impressive in appearance"
+  },
+  {
+    "word": "wistful",
+    "gloss": "showing pensive sadness"
+  },
+  {
+    "word": "mortify",
+    "gloss": "cause to feel shame"
+  },
+  {
+    "word": "ripple",
+    "gloss": "stir up so as to form small waves"
+  },
+  {
+    "word": "premise",
+    "gloss": "a statement that is held to be true"
+  },
+  {
+    "word": "subside",
+    "gloss": "wear off or die down"
+  },
+  {
+    "word": "adverse",
+    "gloss": "contrary to your interests or welfare"
+  },
+  {
+    "word": "caprice",
+    "gloss": "a sudden desire"
+  },
+  {
+    "word": "muster",
+    "gloss": "summon up, call forth, or bring together"
+  },
+  {
+    "word": "comprehensive",
+    "gloss": "broad in scope"
+  },
+  {
+    "word": "accede",
+    "gloss": "yield to another's wish or opinion"
+  },
+  {
+    "word": "fervent",
+    "gloss": "characterized by intense emotion"
+  },
+  {
+    "word": "cohere",
+    "gloss": "cause to form a united, orderly, and consistent whole"
+  },
+  {
+    "word": "tribunal",
+    "gloss": "an assembly to conduct judicial business"
+  },
+  {
+    "word": "austere",
+    "gloss": "severely simple"
+  },
+  {
+    "word": "recovering",
+    "gloss": "returning to health after illness or debility"
+  },
+  {
+    "word": "stratum",
+    "gloss": "a group of people sharing similar wealth and status"
+  },
+  {
+    "word": "conscientious",
+    "gloss": "characterized by extreme care and great effort"
+  },
+  {
+    "word": "arbitrary",
+    "gloss": "based on or subject to individual discretion or preference"
+  },
+  {
+    "word": "irritate",
+    "gloss": "Shopkeepers, exasperated at the impact of higher taxes and reduced consumer spending, are planning to close down for the day."
+  },
+  {
+    "word": "conjure",
+    "gloss": "summon into action or bring into existence"
+  },
+  {
+    "word": "ominous",
+    "gloss": "threatening or foreshadowing evil or tragic developments"
+  },
+  {
+    "word": "edifice",
+    "gloss": "a structure that has a roof and walls"
+  },
+  {
+    "word": "elude",
+    "gloss": "escape, either physically or mentally"
+  },
+  {
+    "word": "pervade",
+    "gloss": "spread or diffuse through"
+  },
+  {
+    "word": "foster",
+    "gloss": "promote the growth of"
+  },
+  {
+    "word": "admonish",
+    "gloss": "scold or reprimand; take to task"
+  },
+  {
+    "word": "repeal",
+    "gloss": "cancel officially"
+  },
+  {
+    "word": "retiring",
+    "gloss": "not arrogant or presuming"
+  },
+  {
+    "word": "incidental",
+    "gloss": "not of prime or central importance"
+  },
+  {
+    "word": "acquiesce",
+    "gloss": "agree or express agreement"
+  },
+  {
+    "word": "slew",
+    "gloss": "a large number or amount or extent"
+  },
+  {
+    "word": "usurp",
+    "gloss": "seize and take control without authority"
+  },
+  {
+    "word": "sentinel",
+    "gloss": "a person employed to keep watch for some anticipated event"
+  },
+  {
+    "word": "precision",
+    "gloss": "the quality of being exact"
+  },
+  {
+    "word": "depose",
+    "gloss": "force to leave an office"
+  },
+  {
+    "word": "wanton",
+    "gloss": "unprovoked or without motive or justification"
+  },
+  {
+    "word": "odium",
+    "gloss": "state of disgrace resulting from detestable behavior"
+  },
+  {
+    "word": "precept",
+    "gloss": "a rule of personal conduct"
+  },
+  {
+    "word": "deference",
+    "gloss": "a courteous expression of esteem or regard"
+  },
+  {
+    "word": "fray",
+    "gloss": "a noisy fight"
+  },
+  {
+    "word": "candid",
+    "gloss": "openly straightforward and direct without secretiveness"
+  },
+  {
+    "word": "unceasing",
+    "gloss": "What makes the galumphing hubby such an enduring stock character?"
+  },
+  {
+    "word": "impertinent",
+    "gloss": "improperly forward or bold"
+  },
+  {
+    "word": "bland",
+    "gloss": "lacking stimulating characteristics; uninteresting"
+  },
+  {
+    "word": "insinuate",
+    "gloss": "suggest in an indirect or covert way; give to understand"
+  },
+  {
+    "word": "nominal",
+    "gloss": "insignificantly small; a matter of form only"
+  },
+  {
+    "word": "suppliant",
+    "gloss": "humbly entreating"
+  },
+  {
+    "word": "languid",
+    "gloss": "lacking spirit or liveliness"
+  },
+  {
+    "word": "rave",
+    "gloss": "praise enthusiastically"
+  },
+  {
+    "word": "monetary",
+    "gloss": "relating to or involving money"
+  },
+  {
+    "word": "headlong",
+    "gloss": "in a hasty and foolhardy manner"
+  },
+  {
+    "word": "infallible",
+    "gloss": "incapable of failure or error"
+  },
+  {
+    "word": "coax",
+    "gloss": "influence or persuade by gentle and persistent urging"
+  },
+  {
+    "word": "explicate",
+    "gloss": "elaborate, as of theories and hypotheses"
+  },
+  {
+    "word": "gaunt",
+    "gloss": "very thin, especially from disease or hunger or cold"
+  },
+  {
+    "word": "morbid",
+    "gloss": "suggesting the horror of death and decay"
+  },
+  {
+    "word": "ranging",
+    "gloss": "wandering freely"
+  },
+  {
+    "word": "pacify",
+    "gloss": "ease the anger, agitation, or strong emotion of"
+  },
+  {
+    "word": "pastoral",
+    "gloss": "idyllically rustic"
+  },
+  {
+    "word": "dogged",
+    "gloss": "stubbornly unyielding"
+  },
+  {
+    "word": "ebb",
+    "gloss": "fall away or decline"
+  },
+  {
+    "word": "aide",
+    "gloss": "someone who acts as an assistant"
+  },
+  {
+    "word": "appease",
+    "gloss": "cause to be more favorably inclined; gain the good will of"
+  },
+  {
+    "word": "stipulate",
+    "gloss": "make an express demand or provision in an agreement"
+  },
+  {
+    "word": "recourse",
+    "gloss": "something or someone turned to for assistance or security"
+  },
+  {
+    "word": "constrained",
+    "gloss": "lacking spontaneity; not natural"
+  },
+  {
+    "word": "bate",
+    "gloss": "moderate or restrain; lessen the force of"
+  },
+  {
+    "word": "aversion",
+    "gloss": "a feeling of intense dislike"
+  },
+  {
+    "word": "conceit",
+    "gloss": "an artistic device or effect"
+  },
+  {
+    "word": "loath",
+    "gloss": "strongly opposed"
+  },
+  {
+    "word": "rampart",
+    "gloss": "an embankment built around a space for defensive purposes"
+  },
+  {
+    "word": "extort",
+    "gloss": "obtain by coercion or intimidation"
+  },
+  {
+    "word": "tarry",
+    "gloss": "leave slowly and hesitantly"
+  },
+  {
+    "word": "perpetrate",
+    "gloss": "perform an act, usually with a negative connotation"
+  },
+  {
+    "word": "decorum",
+    "gloss": "propriety in manners and conduct"
+  },
+  {
+    "word": "luxuriant",
+    "gloss": "produced or growing in extreme abundance"
+  },
+  {
+    "word": "cant",
+    "gloss": "insincere talk about religion or morals"
+  },
+  {
+    "word": "enjoin",
+    "gloss": "give instructions to or direct somebody to do something"
+  },
+  {
+    "word": "avarice",
+    "gloss": "extreme greed for material wealth"
+  },
+  {
+    "word": "edict",
+    "gloss": "a formal or authoritative proclamation"
+  },
+  {
+    "word": "disconcert",
+    "gloss": "cause to lose one's composure"
+  },
+  {
+    "word": "symmetry",
+    "gloss": "balance among the parts of something"
+  },
+  {
+    "word": "capitulate",
+    "gloss": "surrender under agreed conditions"
+  },
+  {
+    "word": "arbitrate",
+    "gloss": "act between parties with a view to reconciling differences"
+  },
+  {
+    "word": "cleave",
+    "gloss": "separate or cut with a tool, such as a sharp instrument"
+  },
+  {
+    "word": "append",
+    "gloss": "add to the very end"
+  },
+  {
+    "word": "visage",
+    "gloss": "the human face"
+  },
+  {
+    "word": "horde",
+    "gloss": "a moving crowd"
+  },
+  {
+    "word": "parable",
+    "gloss": "a short moral story"
+  },
+  {
+    "word": "chastise",
+    "gloss": "scold or criticize severely"
+  },
+  {
+    "word": "foil",
+    "gloss": "hinder or prevent, as an effort, plan, or desire"
+  },
+  {
+    "word": "veritable",
+    "gloss": "being truly so called; real or genuine"
+  },
+  {
+    "word": "grapple",
+    "gloss": "work hard to come to terms with or deal with something"
+  },
+  {
+    "word": "gentry",
+    "gloss": "the most powerful members of a society"
+  },
+  {
+    "word": "pall",
+    "gloss": "a sudden feeling of dread or gloominess"
+  },
+  {
+    "word": "maxim",
+    "gloss": "a saying that is widely accepted on its own merits"
+  },
+  {
+    "word": "projection",
+    "gloss": "a prediction made by extrapolating from past observations"
+  },
+  {
+    "word": "prowess",
+    "gloss": "a superior skill learned by study and practice"
+  },
+  {
+    "word": "dingy",
+    "gloss": "thickly covered with ingrained dirt or soot"
+  },
+  {
+    "word": "semblance",
+    "gloss": "the outward or apparent appearance or form of something"
+  },
+  {
+    "word": "tout",
+    "gloss": "advertise in strongly positive terms"
+  },
+  {
+    "word": "fortitude",
+    "gloss": "strength of mind that enables one to endure adversity"
+  },
+  {
+    "word": "asunder",
+    "gloss": "into parts or pieces"
+  },
+  {
+    "word": "rout",
+    "gloss": "an overwhelming defeat"
+  },
+  {
+    "word": "staid",
+    "gloss": "characterized by dignity and propriety"
+  },
+  {
+    "word": "beguile",
+    "gloss": "influence by slyness"
+  },
+  {
+    "word": "purport",
+    "gloss": "have the often misleading appearance of being or intending"
+  },
+  {
+    "word": "deprave",
+    "gloss": "corrupt morally or by intemperance or sensuality"
+  },
+  {
+    "word": "bequeath",
+    "gloss": "leave or give, especially by will after one's death"
+  },
+  {
+    "word": "enigma",
+    "gloss": "something that baffles understanding and cannot be explained"
+  },
+  {
+    "word": "assiduous",
+    "gloss": "marked by care and persistent effort"
+  },
+  {
+    "word": "vassal",
+    "gloss": "a person who owes allegiance and service to a feudal lord"
+  },
+  {
+    "word": "quail",
+    "gloss": "draw back, as with fear or pain"
+  },
+  {
+    "word": "outskirts",
+    "gloss": "area relatively far from the center, as of a city or town"
+  },
+  {
+    "word": "bulwark",
+    "gloss": "a protective structure of stone or concrete"
+  },
+  {
+    "word": "swerve",
+    "gloss": "an erratic turn from an intended course"
+  },
+  {
+    "word": "gird",
+    "gloss": "prepare oneself for action or a confrontation"
+  },
+  {
+    "word": "betrothed",
+    "gloss": "pledged to be married"
+  },
+  {
+    "word": "prospective",
+    "gloss": "of or concerned with or related to the future"
+  },
+  {
+    "word": "advert",
+    "gloss": "make reference to"
+  },
+  {
+    "word": "peremptory",
+    "gloss": "not allowing contradiction or refusal"
+  },
+  {
+    "word": "rudiment",
+    "gloss": "the elementary stage of any subject"
+  },
+  {
+    "word": "deduce",
+    "gloss": "reason from the general to the particular"
+  },
+  {
+    "word": "halting",
+    "gloss": "proceeding in a fragmentary, hesitant, or ineffective way"
+  },
+  {
+    "word": "ignominy",
+    "gloss": "a state of dishonor"
+  },
+  {
+    "word": "ideology",
+    "gloss": "an orientation that characterizes the thinking of a group"
+  },
+  {
+    "word": "pallid",
+    "gloss": "lacking in vitality or interest or effectiveness"
+  },
+  {
+    "word": "chagrin",
+    "gloss": "strong feelings of embarrassment"
+  },
+  {
+    "word": "obtrude",
+    "gloss": "thrust oneself in as if by force"
+  },
+  {
+    "word": "audacious",
+    "gloss": "disposed to venture or take risks"
+  },
+  {
+    "word": "construe",
+    "gloss": "make sense of; assign a meaning to"
+  },
+  {
+    "word": "ford",
+    "gloss": "cross a river where it's shallow"
+  },
+  {
+    "word": "repast",
+    "gloss": "the food served and eaten at one time"
+  },
+  {
+    "word": "stint",
+    "gloss": "an unbroken period of time during which you do something"
+  },
+  {
+    "word": "fresco",
+    "gloss": "a mural done with watercolors on wet plaster"
+  },
+  {
+    "word": "dutiful",
+    "gloss": "willingly obedient out of a sense of respect"
+  },
+  {
+    "word": "hew",
+    "gloss": "make or shape as with an axe"
+  },
+  {
+    "word": "parity",
+    "gloss": "functional equality"
+  },
+  {
+    "word": "affable",
+    "gloss": "diffusing warmth and friendliness"
+  },
+  {
+    "word": "interminable",
+    "gloss": "tiresomely long; seemingly without end"
+  },
+  {
+    "word": "pillage",
+    "gloss": "steal goods; take as spoils"
+  },
+  {
+    "word": "foreboding",
+    "gloss": "a feeling of evil to come"
+  },
+  {
+    "word": "rend",
+    "gloss": "tear or be torn violently"
+  },
+  {
+    "word": "livelihood",
+    "gloss": "the financial means whereby one supports oneself"
+  },
+  {
+    "word": "deign",
+    "gloss": "do something that one considers to be below one's dignity"
+  },
+  {
+    "word": "capricious",
+    "gloss": "determined by chance or impulse rather than by necessity"
+  },
+  {
+    "word": "stupendous",
+    "gloss": "so great in size, force, or extent as to elicit awe"
+  },
+  {
+    "word": "chaff",
+    "gloss": "material consisting of seed coverings and pieces of stem"
+  },
+  {
+    "word": "innate",
+    "gloss": "not established by conditioning or learning"
+  },
+  {
+    "word": "reverie",
+    "gloss": "an abstracted state of absorption"
+  },
+  {
+    "word": "wrangle",
+    "gloss": "quarrel noisily, angrily, or disruptively"
+  },
+  {
+    "word": "crevice",
+    "gloss": "a long narrow opening"
+  },
+  {
+    "word": "ostensible",
+    "gloss": "appearing as such but not necessarily so"
+  },
+  {
+    "word": "craven",
+    "gloss": "lacking even the rudiments of courage; abjectly fearful"
+  },
+  {
+    "word": "vestige",
+    "gloss": "an indication that something has been present"
+  },
+  {
+    "word": "plumb",
+    "gloss": "examine thoroughly and in great depth"
+  },
+  {
+    "word": "reticent",
+    "gloss": "not inclined to talk or provide information"
+  },
+  {
+    "word": "propensity",
+    "gloss": "an inclination to do something"
+  },
+  {
+    "word": "chide",
+    "gloss": "scold or reprimand severely or angrily"
+  },
+  {
+    "word": "espouse",
+    "gloss": "choose and follow a theory, idea, policy, etc."
+  },
+  {
+    "word": "raiment",
+    "gloss": "especially fine or decorative clothing"
+  },
+  {
+    "word": "intrepid",
+    "gloss": "invulnerable to fear or intimidation"
+  },
+  {
+    "word": "seemly",
+    "gloss": "according with custom or propriety"
+  },
+  {
+    "word": "allay",
+    "gloss": "lessen the intensity of or calm"
+  },
+  {
+    "word": "fitful",
+    "gloss": "occurring in spells and often abruptly"
+  },
+  {
+    "word": "erode",
+    "gloss": "become ground down or deteriorate"
+  },
+  {
+    "word": "unaffected",
+    "gloss": "free of artificiality; sincere and genuine"
+  },
+  {
+    "word": "canto",
+    "gloss": "a major division of a long poem"
+  },
+  {
+    "word": "docile",
+    "gloss": "easily handled or managed"
+  },
+  {
+    "word": "patronize",
+    "gloss": "treat condescendingly"
+  },
+  {
+    "word": "teem",
+    "gloss": "be full of or abuzz with"
+  },
+  {
+    "word": "estrange",
+    "gloss": "arouse hostility or indifference in"
+  },
+  {
+    "word": "spat",
+    "gloss": "a quarrel about petty points"
+  },
+  {
+    "word": "warble",
+    "gloss": "sing or play with trills"
+  },
+  {
+    "word": "mien",
+    "gloss": "a person's appearance, manner, or demeanor"
+  },
+  {
+    "word": "sate",
+    "gloss": "fill to contentment"
+  },
+  {
+    "word": "constituency",
+    "gloss": "the body of voters who elect a representative for their area"
+  },
+  {
+    "word": "patrician",
+    "gloss": "characteristic of the nobility or aristocracy"
+  },
+  {
+    "word": "parry",
+    "gloss": "avoid or try to avoid fulfilling, answering, or performing"
+  },
+  {
+    "word": "practitioner",
+    "gloss": "someone who carries out a learned profession"
+  },
+  {
+    "word": "ravel",
+    "gloss": "disentangle or separate out"
+  },
+  {
+    "word": "infest",
+    "gloss": "occupy in large numbers or live on a host"
+  },
+  {
+    "word": "actuate",
+    "gloss": "give an incentive for doing something"
+  },
+  {
+    "word": "surly",
+    "gloss": "unfriendly and inclined toward anger or irritation"
+  },
+  {
+    "word": "convalesce",
+    "gloss": "get over an illness or shock"
+  },
+  {
+    "word": "demoralize",
+    "gloss": "lower someone's spirits; make downhearted"
+  },
+  {
+    "word": "devolve",
+    "gloss": "grow worse"
+  },
+  {
+    "word": "alacrity",
+    "gloss": "liveliness and eagerness"
+  },
+  {
+    "word": "waive",
+    "gloss": "do without or cease to hold or adhere to"
+  },
+  {
+    "word": "unwonted",
+    "gloss": "out of the ordinary"
+  },
+  {
+    "word": "seethe",
+    "gloss": "be in an agitated emotional state"
+  },
+  {
+    "word": "scrutinize",
+    "gloss": "look at critically or searchingly, or in minute detail"
+  },
+  {
+    "word": "diffident",
+    "gloss": "lacking self-confidence"
+  },
+  {
+    "word": "execrate",
+    "gloss": "curse or declare to be evil or anathema"
+  },
+  {
+    "word": "implacable",
+    "gloss": "incapable of being appeased or pacified"
+  },
+  {
+    "word": "pique",
+    "gloss": "a sudden outburst of anger"
+  },
+  {
+    "word": "mite",
+    "gloss": "a slight but appreciable amount"
+  },
+  {
+    "word": "encumber",
+    "gloss": "hold back, impede, or weigh down"
+  },
+  {
+    "word": "uncouth",
+    "gloss": "lacking refinement or cultivation or taste"
+  },
+  {
+    "word": "petulant",
+    "gloss": "easily irritated or annoyed"
+  },
+  {
+    "word": "expiate",
+    "gloss": "make amends for"
+  },
+  {
+    "word": "cavalier",
+    "gloss": "showing a lack of concern or seriousness"
+  },
+  {
+    "word": "banter",
+    "gloss": "light teasing repartee"
+  },
+  {
+    "word": "bluster",
+    "gloss": "act in an arrogant, overly self-assured, or conceited manner"
+  },
+  {
+    "word": "debase",
+    "gloss": "corrupt morally or by intemperance or sensuality"
+  },
+  {
+    "word": "retainer",
+    "gloss": "a person working in the service of another"
+  },
+  {
+    "word": "subjugate",
+    "gloss": "make subservient; force to submit or subdue"
+  },
+  {
+    "word": "extol",
+    "gloss": "praise, glorify, or honor"
+  },
+  {
+    "word": "fraught",
+    "gloss": "filled with or attended with"
+  },
+  {
+    "word": "august",
+    "gloss": "profoundly honored"
+  },
+  {
+    "word": "fissure",
+    "gloss": "a long narrow depression in a surface"
+  },
+  {
+    "word": "knoll",
+    "gloss": "a small natural mound"
+  },
+  {
+    "word": "callous",
+    "gloss": "emotionally hardened"
+  },
+  {
+    "word": "inculcate",
+    "gloss": "teach and impress by frequent repetitions or admonitions"
+  },
+  {
+    "word": "nettle",
+    "gloss": "disturb, especially by minor irritations"
+  },
+  {
+    "word": "blanch",
+    "gloss": "turn pale, as if in fear"
+  },
+  {
+    "word": "inscrutable",
+    "gloss": "difficult or impossible to understand"
+  },
+  {
+    "word": "tenacious",
+    "gloss": "stubbornly unyielding"
+  },
+  {
+    "word": "thrall",
+    "gloss": "the state of being under the control of another person"
+  },
+  {
+    "word": "exigency",
+    "gloss": "a pressing or urgent situation"
+  },
+  {
+    "word": "disconsolate",
+    "gloss": "sad beyond comforting; incapable of being soothed"
+  },
+  {
+    "word": "impetus",
+    "gloss": "a force that makes something happen"
+  },
+  {
+    "word": "imposition",
+    "gloss": "an uncalled-for burden"
+  },
+  {
+    "word": "auspices",
+    "gloss": "kindly endorsement and guidance"
+  },
+  {
+    "word": "sonorous",
+    "gloss": "full and loud and deep"
+  },
+  {
+    "word": "exploitation",
+    "gloss": "an act that victimizes someone"
+  },
+  {
+    "word": "bane",
+    "gloss": "something causing misery or death"
+  },
+  {
+    "word": "dint",
+    "gloss": "force or effort"
+  },
+  {
+    "word": "ignominious",
+    "gloss": "deserving or bringing disgrace or shame"
+  },
+  {
+    "word": "amicable",
+    "gloss": "characterized by friendship and good will"
+  },
+  {
+    "word": "onset",
+    "gloss": "the beginning or early stages"
+  },
+  {
+    "word": "conservatory",
+    "gloss": "a schoolhouse with special facilities for fine arts"
+  },
+  {
+    "word": "zenith",
+    "gloss": "the highest point of something"
+  },
+  {
+    "word": "voluble",
+    "gloss": "marked by a ready flow of speech"
+  },
+  {
+    "word": "yeoman",
+    "gloss": "a free man who cultivates his own land"
+  },
+  {
+    "word": "levity",
+    "gloss": "a manner lacking seriousness"
+  },
+  {
+    "word": "rapt",
+    "gloss": "feeling great delight and interest"
+  },
+  {
+    "word": "sultry",
+    "gloss": "characterized by oppressive heat and humidity"
+  },
+  {
+    "word": "pinion",
+    "gloss": "restrain or bind"
+  },
+  {
+    "word": "axiom",
+    "gloss": "a proposition that is not susceptible of proof or disproof"
+  },
+  {
+    "word": "descry",
+    "gloss": "catch sight of"
+  },
+  {
+    "word": "retinue",
+    "gloss": "the group following and attending to some important person"
+  },
+  {
+    "word": "functionary",
+    "gloss": "a worker who holds or is invested with an office"
+  },
+  {
+    "word": "imbibe",
+    "gloss": "take in liquids"
+  },
+  {
+    "word": "diversified",
+    "gloss": "having variety of character or form or components"
+  },
+  {
+    "word": "maraud",
+    "gloss": "raid and rove in search of plunder"
+  },
+  {
+    "word": "grudging",
+    "gloss": "petty or reluctant in giving or spending"
+  },
+  {
+    "word": "partiality",
+    "gloss": "a predisposition to like something"
+  },
+  {
+    "word": "philology",
+    "gloss": "the humanistic study of language and literature"
+  },
+  {
+    "word": "wry",
+    "gloss": "humorously sarcastic or mocking"
+  },
+  {
+    "word": "caucus",
+    "gloss": "meet to select a candidate or promote a policy"
+  },
+  {
+    "word": "permeate",
+    "gloss": "spread or diffuse through"
+  },
+  {
+    "word": "propitious",
+    "gloss": "presenting favorable circumstances"
+  },
+  {
+    "word": "salient",
+    "gloss": "conspicuous, prominent, or important"
+  },
+  {
+    "word": "propitiate",
+    "gloss": "make peace with"
+  },
+  {
+    "word": "excise",
+    "gloss": "remove by cutting"
+  },
+  {
+    "word": "betoken",
+    "gloss": "be a signal for or a symptom of"
+  },
+  {
+    "word": "palatable",
+    "gloss": "acceptable to the taste or mind"
+  },
+  {
+    "word": "upbraid",
+    "gloss": "express criticism towards"
+  },
+  {
+    "word": "renegade",
+    "gloss": "someone who rebels and becomes an outlaw"
+  },
+  {
+    "word": "ancient",
+    "gloss": "The device of the trapped young person saved by books is a hoary one, but Ms. Winterson makes it seem new, and sulfurous."
+  },
+  {
+    "word": "pedantic",
+    "gloss": "marked by a narrow focus on or display of learning"
+  },
+  {
+    "word": "coy",
+    "gloss": "showing marked and often playful evasiveness or reluctance"
+  },
+  {
+    "word": "troth",
+    "gloss": "a solemn pledge of fidelity"
+  },
+  {
+    "word": "encroachment",
+    "gloss": "entry to another's property without right or permission"
+  },
+  {
+    "word": "belie",
+    "gloss": "be in contradiction with"
+  },
+  {
+    "word": "armada",
+    "gloss": "a large fleet"
+  },
+  {
+    "word": "succor",
+    "gloss": "assistance in time of difficulty"
+  },
+  {
+    "word": "imperturbable",
+    "gloss": "marked by extreme calm and composure"
+  },
+  {
+    "word": "irresolute",
+    "gloss": "uncertain how to act or proceed"
+  },
+  {
+    "word": "knack",
+    "gloss": "a special way of doing something"
+  },
+  {
+    "word": "unseemly",
+    "gloss": "not in keeping with accepted standards of what is proper"
+  },
+  {
+    "word": "accentuate",
+    "gloss": "stress or single out as important"
+  },
+  {
+    "word": "divulge",
+    "gloss": "make known to the public information previously kept secret"
+  },
+  {
+    "word": "brawn",
+    "gloss": "the trait of possessing muscular strength"
+  },
+  {
+    "word": "burnish",
+    "gloss": "polish and make shiny"
+  },
+  {
+    "word": "palpitate",
+    "gloss": "beat rapidly"
+  },
+  {
+    "word": "promiscuous",
+    "gloss": "not selective of a single class or person"
+  },
+  {
+    "word": "dissemble",
+    "gloss": "make believe with the intent to deceive"
+  },
+  {
+    "word": "flotilla",
+    "gloss": "a fleet of small craft"
+  },
+  {
+    "word": "invective",
+    "gloss": "abusive language used to express blame or censure"
+  },
+  {
+    "word": "hermitage",
+    "gloss": "the abode of a recluse"
+  },
+  {
+    "word": "despoil",
+    "gloss": "destroy and strip of its possession"
+  },
+  {
+    "word": "sully",
+    "gloss": "make dirty or spotty"
+  },
+  {
+    "word": "malevolent",
+    "gloss": "having or exerting a malignant influence"
+  },
+  {
+    "word": "irksome",
+    "gloss": "tedious or irritating"
+  },
+  {
+    "word": "prattle",
+    "gloss": "speak about unimportant matters rapidly and incessantly"
+  },
+  {
+    "word": "subaltern",
+    "gloss": "inferior in rank or status"
+  },
+  {
+    "word": "welt",
+    "gloss": "a raised mark on the skin"
+  },
+  {
+    "word": "wreak",
+    "gloss": "cause to happen or to occur as a consequence"
+  },
+  {
+    "word": "tenable",
+    "gloss": "based on sound reasoning or evidence"
+  },
+  {
+    "word": "matchless",
+    "gloss": "Leave aside Spain, where Barcelona breeds its own, inimitable style, and the answer might be that we are rushing toward uniformity."
+  },
+  {
+    "word": "depredation",
+    "gloss": "a destructive action"
+  },
+  {
+    "word": "amalgamate",
+    "gloss": "bring or combine together or with something else"
+  },
+  {
+    "word": "immutable",
+    "gloss": "not subject or susceptible to change or variation"
+  },
+  {
+    "word": "proxy",
+    "gloss": "a person authorized to act for another"
+  },
+  {
+    "word": "dote",
+    "gloss": "shower with love; show excessive affection for"
+  },
+  {
+    "word": "reactionary",
+    "gloss": "extremely conservative or resistant to change"
+  },
+  {
+    "word": "rationalism",
+    "gloss": "the doctrine that reason is the basis for regulating conduct"
+  },
+  {
+    "word": "endue",
+    "gloss": "give qualities or abilities to"
+  },
+  {
+    "word": "discriminating",
+    "gloss": "showing or indicating careful judgment and discernment"
+  },
+  {
+    "word": "brooch",
+    "gloss": "a decorative pin"
+  },
+  {
+    "word": "pert",
+    "gloss": "characterized by a lightly saucy or impudent quality"
+  },
+  {
+    "word": "disembark",
+    "gloss": "exit from a ship, vehicle, or aircraft"
+  },
+  {
+    "word": "aria",
+    "gloss": "an elaborate song for solo voice"
+  },
+  {
+    "word": "trappings",
+    "gloss": "ornaments; embellishments to or characteristic signs of"
+  },
+  {
+    "word": "abet",
+    "gloss": "assist or encourage, usually in some wrongdoing"
+  },
+  {
+    "word": "clandestine",
+    "gloss": "conducted with or marked by hidden aims or methods"
+  },
+  {
+    "word": "distend",
+    "gloss": "swell from or as if from internal pressure"
+  },
+  {
+    "word": "glib",
+    "gloss": "having only superficial plausibility"
+  },
+  {
+    "word": "pucker",
+    "gloss": "gather something into small wrinkles or folds"
+  },
+  {
+    "word": "rejoinder",
+    "gloss": "a quick reply to a question or remark"
+  },
+  {
+    "word": "spangle",
+    "gloss": "adornment consisting of a small piece of shiny material"
+  },
+  {
+    "word": "blighted",
+    "gloss": "affected by something that prevents growth or prosperity"
+  },
+  {
+    "word": "nicety",
+    "gloss": "conformity with some standard of correctness or propriety"
+  },
+  {
+    "word": "aggrieve",
+    "gloss": "infringe on the rights of"
+  },
+  {
+    "word": "vestment",
+    "gloss": "a gown worn by the clergy"
+  },
+  {
+    "word": "urbane",
+    "gloss": "showing a high degree of refinement"
+  },
+  {
+    "word": "defray",
+    "gloss": "bear the expenses of"
+  },
+  {
+    "word": "spectral",
+    "gloss": "resembling or characteristic of a phantom"
+  },
+  {
+    "word": "munificent",
+    "gloss": "given or giving freely, generously, or without restriction"
+  },
+  {
+    "word": "dictum",
+    "gloss": "an authoritative declaration"
+  },
+  {
+    "word": "fad",
+    "gloss": "an interest followed with exaggerated zeal"
+  },
+  {
+    "word": "scabbard",
+    "gloss": "a sheath for a sword or dagger or bayonet"
+  },
+  {
+    "word": "adulterate",
+    "gloss": "make impure by adding a foreign or inferior substance"
+  },
+  {
+    "word": "beleaguer",
+    "gloss": "annoy persistently"
+  },
+  {
+    "word": "complain",
+    "gloss": "If America is going to gripe about the yuan\u2019s rate, then China will complain about the dollar\u2019s role."
+  },
+  {
+    "word": "remission",
+    "gloss": "an abatement in intensity or degree"
+  },
+  {
+    "word": "exorbitant",
+    "gloss": "greatly exceeding bounds of reason or moderation"
+  },
+  {
+    "word": "invocation",
+    "gloss": "the act of appealing for help"
+  },
+  {
+    "word": "cajole",
+    "gloss": "influence or urge by gentle urging, caressing, or flattering"
+  },
+  {
+    "word": "inclusive",
+    "gloss": "encompassing much or everything"
+  },
+  {
+    "word": "interdict",
+    "gloss": "command against"
+  },
+  {
+    "word": "abase",
+    "gloss": "cause to feel shame"
+  },
+  {
+    "word": "obviate",
+    "gloss": "do away with"
+  },
+  {
+    "word": "hurtle",
+    "gloss": "move with or as if with a rushing sound"
+  },
+  {
+    "word": "unanimity",
+    "gloss": "everyone being of one mind"
+  },
+  {
+    "word": "mettle",
+    "gloss": "the courage to carry on"
+  },
+  {
+    "word": "interpolate",
+    "gloss": "insert words into texts, often falsifying it thereby"
+  },
+  {
+    "word": "surreptitious",
+    "gloss": "marked by quiet and caution and secrecy"
+  },
+  {
+    "word": "dissimulate",
+    "gloss": "hide feelings from other people"
+  },
+  {
+    "word": "ruse",
+    "gloss": "a deceptive maneuver, especially to avoid capture"
+  },
+  {
+    "word": "specious",
+    "gloss": "plausible but false"
+  },
+  {
+    "word": "revulsion",
+    "gloss": "intense aversion"
+  },
+  {
+    "word": "hale",
+    "gloss": "exhibiting or restored to vigorous good health"
+  },
+  {
+    "word": "palliate",
+    "gloss": "lessen or to try to lessen the seriousness or extent of"
+  },
+  {
+    "word": "obtuse",
+    "gloss": "lacking in insight or discernment"
+  },
+  {
+    "word": "querulous",
+    "gloss": "habitually complaining"
+  },
+  {
+    "word": "vagary",
+    "gloss": "an unexpected and inexplicable change in something"
+  },
+  {
+    "word": "incipient",
+    "gloss": "only partly in existence; imperfectly formed"
+  },
+  {
+    "word": "obdurate",
+    "gloss": "stubbornly persistent in wrongdoing"
+  },
+  {
+    "word": "grovel",
+    "gloss": "show submission or fear"
+  },
+  {
+    "word": "refractory",
+    "gloss": "stubbornly resistant to authority or control"
+  },
+  {
+    "word": "dregs",
+    "gloss": "sediment that has settled at the bottom of a liquid"
+  },
+  {
+    "word": "ascendancy",
+    "gloss": "the state when one person or group has power over another"
+  },
+  {
+    "word": "supercilious",
+    "gloss": "having or showing arrogant superiority"
+  },
+  {
+    "word": "pundit",
+    "gloss": "someone who has been admitted to membership in a field"
+  },
+  {
+    "word": "commiserate",
+    "gloss": "feel or express sympathy or compassion"
+  },
+  {
+    "word": "alcove",
+    "gloss": "a small recess opening off a large room or garden"
+  },
+  {
+    "word": "assay",
+    "gloss": "make an effort or attempt"
+  },
+  {
+    "word": "parochial",
+    "gloss": "narrowly restricted in outlook or scope"
+  },
+  {
+    "word": "conjugal",
+    "gloss": "relating to the relationship between a wife and husband"
+  },
+  {
+    "word": "abjure",
+    "gloss": "formally reject or disavow a formerly held belief"
+  },
+  {
+    "word": "frieze",
+    "gloss": "an ornament consisting of a horizontal sculptured band"
+  },
+  {
+    "word": "ornate",
+    "gloss": "marked by complexity and richness of detail"
+  },
+  {
+    "word": "inflammatory",
+    "gloss": "inciting action or rebellion"
+  },
+  {
+    "word": "machination",
+    "gloss": "a crafty and involved plot to achieve your ends"
+  },
+  {
+    "word": "mendicant",
+    "gloss": "a pauper who lives by begging"
+  },
+  {
+    "word": "meander",
+    "gloss": "move or cause to move in a winding or curving course"
+  },
+  {
+    "word": "bullion",
+    "gloss": "gold or silver in bars or ingots"
+  },
+  {
+    "word": "diffidence",
+    "gloss": "lack of self-assurance"
+  },
+  {
+    "word": "makeshift",
+    "gloss": "done or made using whatever is available"
+  },
+  {
+    "word": "husbandry",
+    "gloss": "the practice of cultivating the land or raising stock"
+  },
+  {
+    "word": "podium",
+    "gloss": "a platform raised above the surrounding level"
+  },
+  {
+    "word": "dearth",
+    "gloss": "an insufficient quantity or number"
+  },
+  {
+    "word": "granary",
+    "gloss": "a storehouse for threshed grain or animal feed"
+  },
+  {
+    "word": "whet",
+    "gloss": "make keen or more acute"
+  },
+  {
+    "word": "imposture",
+    "gloss": "pretending to be another person"
+  },
+  {
+    "word": "diadem",
+    "gloss": "an ornamental jeweled headdress signifying sovereignty"
+  },
+  {
+    "word": "fallow",
+    "gloss": "undeveloped but potentially useful"
+  },
+  {
+    "word": "hubbub",
+    "gloss": "loud confused noise from many sources"
+  },
+  {
+    "word": "dispassionate",
+    "gloss": "unaffected by strong emotion or prejudice"
+  },
+  {
+    "word": "harrowing",
+    "gloss": "causing extreme distress"
+  },
+  {
+    "word": "askance",
+    "gloss": "with suspicion or disapproval"
+  },
+  {
+    "word": "lancet",
+    "gloss": "a surgical knife with a pointed double-edged blade"
+  },
+  {
+    "word": "rankle",
+    "gloss": "make resentful or angry"
+  },
+  {
+    "word": "ramify",
+    "gloss": "have or develop complicating consequences"
+  },
+  {
+    "word": "gainsay",
+    "gloss": "take exception to"
+  },
+  {
+    "word": "polity",
+    "gloss": "a governmentally organized unit"
+  },
+  {
+    "word": "credence",
+    "gloss": "the mental attitude that something is believable"
+  },
+  {
+    "word": "indemnify",
+    "gloss": "make amends for; pay compensation for"
+  },
+  {
+    "word": "ingratiate",
+    "gloss": "gain favor with somebody by deliberate efforts"
+  },
+  {
+    "word": "declivity",
+    "gloss": "a downward slope or bend"
+  },
+  {
+    "word": "importunate",
+    "gloss": "making persistent or urgent requests"
+  },
+  {
+    "word": "passe",
+    "gloss": "out of fashion"
+  },
+  {
+    "word": "whittle",
+    "gloss": "cut small bits or pare shavings from"
+  },
+  {
+    "word": "repine",
+    "gloss": "express discontent"
+  },
+  {
+    "word": "flay",
+    "gloss": "strip the skin off"
+  },
+  {
+    "word": "larder",
+    "gloss": "a small storeroom for storing foods or wines"
+  },
+  {
+    "word": "threadbare",
+    "gloss": "thin and tattered with age"
+  },
+  {
+    "word": "grisly",
+    "gloss": "shockingly repellent; inspiring horror"
+  },
+  {
+    "word": "untoward",
+    "gloss": "not in keeping with accepted standards of what is proper"
+  },
+  {
+    "word": "idiosyncrasy",
+    "gloss": "a behavioral attribute peculiar to an individual"
+  },
+  {
+    "word": "quip",
+    "gloss": "make jokes or witty remarks"
+  },
+  {
+    "word": "blatant",
+    "gloss": "without any attempt at concealment; completely obvious"
+  },
+  {
+    "word": "stanch",
+    "gloss": "stop the flow of a liquid"
+  },
+  {
+    "word": "incongruity",
+    "gloss": "the quality of disagreeing"
+  },
+  {
+    "word": "perfidious",
+    "gloss": "tending to betray"
+  },
+  {
+    "word": "platitude",
+    "gloss": "a trite or obvious remark"
+  },
+  {
+    "word": "revelry",
+    "gloss": "unrestrained merrymaking"
+  },
+  {
+    "word": "delve",
+    "gloss": "turn up, loosen, or remove earth"
+  },
+  {
+    "word": "extenuate",
+    "gloss": "lessen or to try to lessen the seriousness or degree of"
+  },
+  {
+    "word": "polemic",
+    "gloss": "a verbal or written attack, especially of a belief or dogma"
+  },
+  {
+    "word": "enrapture",
+    "gloss": "hold spellbound"
+  },
+  {
+    "word": "virtuoso",
+    "gloss": "someone who is dazzlingly skilled in any field"
+  },
+  {
+    "word": "glower",
+    "gloss": "look angry or sullen as if to signal disapproval"
+  },
+  {
+    "word": "mundane",
+    "gloss": "found in the ordinary course of events"
+  },
+  {
+    "word": "fatuous",
+    "gloss": "devoid of intelligence"
+  },
+  {
+    "word": "incorrigible",
+    "gloss": "impervious to correction by punishment"
+  },
+  {
+    "word": "postulate",
+    "gloss": "maintain or assert"
+  },
+  {
+    "word": "gist",
+    "gloss": "the central meaning or theme of a speech or literary work"
+  },
+  {
+    "word": "vociferous",
+    "gloss": "conspicuously and offensively loud"
+  },
+  {
+    "word": "purvey",
+    "gloss": "supply with provisions"
+  },
+  {
+    "word": "baleful",
+    "gloss": "deadly or sinister"
+  },
+  {
+    "word": "gibe",
+    "gloss": "laugh at with contempt and derision"
+  },
+  {
+    "word": "dyspeptic",
+    "gloss": "irritable as if suffering from indigestion"
+  },
+  {
+    "word": "prude",
+    "gloss": "a person excessively concerned about propriety and decorum"
+  },
+  {
+    "word": "luminary",
+    "gloss": "a celebrity who is an inspiration to others"
+  },
+  {
+    "word": "amenable",
+    "gloss": "disposed or willing to comply"
+  },
+  {
+    "word": "willful",
+    "gloss": "habitually disposed to disobedience and opposition"
+  },
+  {
+    "word": "overbearing",
+    "gloss": "having or showing arrogant superiority"
+  },
+  {
+    "word": "dais",
+    "gloss": "a platform raised above the surrounding level"
+  },
+  {
+    "word": "automate",
+    "gloss": "operate or make run by machines rather than human action"
+  },
+  {
+    "word": "enervate",
+    "gloss": "weaken physically, mentally, or morally"
+  },
+  {
+    "word": "wheedle",
+    "gloss": "influence or urge by gentle urging, caressing, or flattering"
+  },
+  {
+    "word": "gusto",
+    "gloss": "vigorous and enthusiastic enjoyment"
+  },
+  {
+    "word": "bouillon",
+    "gloss": "a clear seasoned broth"
+  },
+  {
+    "word": "omniscient",
+    "gloss": "knowing, seeing, or understanding everything"
+  },
+  {
+    "word": "apostate",
+    "gloss": "not faithful to religion or party or cause"
+  },
+  {
+    "word": "carrion",
+    "gloss": "the dead and rotting body of an animal; unfit for human food"
+  },
+  {
+    "word": "emolument",
+    "gloss": "compensation received by virtue of holding an office"
+  },
+  {
+    "word": "ungainly",
+    "gloss": "lacking grace in movement or posture"
+  },
+  {
+    "word": "impiety",
+    "gloss": "unrighteousness by virtue of lacking respect for a god"
+  },
+  {
+    "word": "decadence",
+    "gloss": "the state of being degenerate in mental or moral qualities"
+  },
+  {
+    "word": "homily",
+    "gloss": "a sermon on a moral or religious topic"
+  },
+  {
+    "word": "avocation",
+    "gloss": "an auxiliary activity"
+  },
+  {
+    "word": "circumvent",
+    "gloss": "avoid or try to avoid fulfilling, answering, or performing"
+  },
+  {
+    "word": "syllogism",
+    "gloss": "reasoning in which a conclusion is derived from two premises"
+  },
+  {
+    "word": "collation",
+    "gloss": "assembling in proper numerical or logical sequence"
+  },
+  {
+    "word": "haggle",
+    "gloss": "wrangle, as over a price or terms of an agreement"
+  },
+  {
+    "word": "waylay",
+    "gloss": "wait in hiding to attack"
+  },
+  {
+    "word": "savant",
+    "gloss": "a learned person"
+  },
+  {
+    "word": "cohort",
+    "gloss": "a group of people having approximately the same age"
+  },
+  {
+    "word": "unction",
+    "gloss": "excessive but superficial compliments with affected charm"
+  },
+  {
+    "word": "adjure",
+    "gloss": "command solemnly"
+  },
+  {
+    "word": "acrimony",
+    "gloss": "a rough and bitter manner"
+  },
+  {
+    "word": "clarion",
+    "gloss": "loud and clear"
+  },
+  {
+    "word": "turbid",
+    "gloss": "clouded as with sediment"
+  },
+  {
+    "word": "cupidity",
+    "gloss": "extreme greed for material wealth"
+  },
+  {
+    "word": "disaffected",
+    "gloss": "discontented as toward authority"
+  },
+  {
+    "word": "preternatural",
+    "gloss": "surpassing the ordinary or normal"
+  },
+  {
+    "word": "eschew",
+    "gloss": "avoid and stay away from deliberately"
+  },
+  {
+    "word": "expatiate",
+    "gloss": "add details to clarify an idea"
+  },
+  {
+    "word": "didactic",
+    "gloss": "instructive, especially excessively"
+  },
+  {
+    "word": "sinuous",
+    "gloss": "curved or curving in and out"
+  },
+  {
+    "word": "rancor",
+    "gloss": "a feeling of deep and bitter anger and ill-will"
+  },
+  {
+    "word": "powerful",
+    "gloss": "The ship was not fighting now, but yielding\u2014a complacent leviathan held captive by a most puissant and ruthless enemy. Tracy, Louis"
+  },
+  {
+    "word": "homespun",
+    "gloss": "characteristic of country life"
+  },
+  {
+    "word": "embroil",
+    "gloss": "force into some kind of situation or course of action"
+  },
+  {
+    "word": "pathological",
+    "gloss": "caused by or evidencing a mentally disturbed condition"
+  },
+  {
+    "word": "resonant",
+    "gloss": "characterized by a loud deep sound"
+  },
+  {
+    "word": "libretto",
+    "gloss": "the words of an opera or musical play"
+  },
+  {
+    "word": "flail",
+    "gloss": "thrash about"
+  },
+  {
+    "word": "bandy",
+    "gloss": "discuss lightly"
+  },
+  {
+    "word": "gratis",
+    "gloss": "costing nothing"
+  },
+  {
+    "word": "upshot",
+    "gloss": "a phenomenon that is caused by some previous phenomenon"
+  },
+  {
+    "word": "aphorism",
+    "gloss": "a short pithy instructive saying"
+  },
+  {
+    "word": "redoubtable",
+    "gloss": "worthy of respect or honor"
+  },
+  {
+    "word": "corpulent",
+    "gloss": "excessively large"
+  },
+  {
+    "word": "benighted",
+    "gloss": "lacking enlightenment or knowledge or culture"
+  },
+  {
+    "word": "sententious",
+    "gloss": "abounding in or given to pompous or aphoristic moralizing"
+  },
+  {
+    "word": "cabal",
+    "gloss": "a clique that seeks power usually through intrigue"
+  },
+  {
+    "word": "paraphernalia",
+    "gloss": "equipment consisting of miscellaneous articles"
+  },
+  {
+    "word": "vitiate",
+    "gloss": "make imperfect"
+  },
+  {
+    "word": "adulation",
+    "gloss": "exaggerated flattery or praise"
+  },
+  {
+    "word": "quaff",
+    "gloss": "swallow hurriedly or greedily or in one draught"
+  },
+  {
+    "word": "unassuming",
+    "gloss": "not arrogant"
+  },
+  {
+    "word": "libertine",
+    "gloss": "a dissolute person"
+  },
+  {
+    "word": "maul",
+    "gloss": "injure badly"
+  },
+  {
+    "word": "adage",
+    "gloss": "a condensed but memorable saying embodying an important fact"
+  },
+  {
+    "word": "expostulation",
+    "gloss": "the act of expressing earnest opposition or protest"
+  },
+  {
+    "word": "tawdry",
+    "gloss": "tastelessly showy"
+  },
+  {
+    "word": "trite",
+    "gloss": "repeated too often; overfamiliar through overuse"
+  },
+  {
+    "word": "hireling",
+    "gloss": "a person who works only for money"
+  },
+  {
+    "word": "ensconce",
+    "gloss": "fix firmly"
+  },
+  {
+    "word": "egregious",
+    "gloss": "conspicuously and outrageously bad or reprehensible"
+  },
+  {
+    "word": "cogent",
+    "gloss": "powerfully persuasive"
+  },
+  {
+    "word": "incisive",
+    "gloss": "demonstrating ability to recognize or draw fine distinctions"
+  },
+  {
+    "word": "errant",
+    "gloss": "straying from the right course or from accepted standards"
+  },
+  {
+    "word": "sedulous",
+    "gloss": "marked by care and persistent effort"
+  },
+  {
+    "word": "incandescent",
+    "gloss": "characterized by ardent emotion, intensity, or brilliance"
+  },
+  {
+    "word": "derelict",
+    "gloss": "in deplorable condition"
+  },
+  {
+    "word": "entomology",
+    "gloss": "the branch of zoology that studies insects"
+  },
+  {
+    "word": "execrable",
+    "gloss": "unequivocally detestable"
+  },
+  {
+    "word": "sluice",
+    "gloss": "pour as if from a conduit that carries a rapid flow of water"
+  },
+  {
+    "word": "moot",
+    "gloss": "of no legal significance, as having been previously decided"
+  },
+  {
+    "word": "evanescent",
+    "gloss": "short-lived; tending to vanish or disappear"
+  },
+  {
+    "word": "vat",
+    "gloss": "a large open vessel for holding or storing liquids"
+  },
+  {
+    "word": "dapper",
+    "gloss": "marked by up-to-dateness in dress and manners"
+  },
+  {
+    "word": "asperity",
+    "gloss": "harshness of manner"
+  },
+  {
+    "word": "flair",
+    "gloss": "a natural talent"
+  },
+  {
+    "word": "mote",
+    "gloss": "a tiny piece of anything"
+  },
+  {
+    "word": "circumspect",
+    "gloss": "careful to consider potential consequences and avoid risk"
+  },
+  {
+    "word": "inimical",
+    "gloss": "tending to obstruct or cause harm"
+  },
+  {
+    "word": "apropos",
+    "gloss": "of a suitable, fitting, or pertinent nature"
+  },
+  {
+    "word": "gruel",
+    "gloss": "a thin porridge"
+  },
+  {
+    "word": "gentility",
+    "gloss": "elegance by virtue of fineness of manner and expression"
+  },
+  {
+    "word": "disapprobation",
+    "gloss": "an expression of strong disapproval"
+  },
+  {
+    "word": "cameo",
+    "gloss": "engraving or carving in low relief on a stone"
+  },
+  {
+    "word": "gouge",
+    "gloss": "swindle; obtain by coercion"
+  },
+  {
+    "word": "oratorio",
+    "gloss": "a musical composition for voices and orchestra"
+  },
+  {
+    "word": "inclement",
+    "gloss": "severe, of weather"
+  },
+  {
+    "word": "scintilla",
+    "gloss": "a tiny or scarcely detectable amount"
+  },
+  {
+    "word": "confluence",
+    "gloss": "a flowing together"
+  },
+  {
+    "word": "squalor",
+    "gloss": "sordid dirtiness"
+  },
+  {
+    "word": "stricture",
+    "gloss": "severe criticism"
+  },
+  {
+    "word": "emblazon",
+    "gloss": "decorate with heraldic arms"
+  },
+  {
+    "word": "augury",
+    "gloss": "an event indicating important things to come"
+  },
+  {
+    "word": "abut",
+    "gloss": "lie adjacent to another or share a boundary"
+  },
+  {
+    "word": "banal",
+    "gloss": "repeated too often; overfamiliar through overuse"
+  },
+  {
+    "word": "congeal",
+    "gloss": "solidify, thicken, or come together"
+  },
+  {
+    "word": "pilfer",
+    "gloss": "make off with belongings of others"
+  },
+  {
+    "word": "malcontent",
+    "gloss": "a person who is unsatisfied or disgusted"
+  },
+  {
+    "word": "sublimate",
+    "gloss": "direct energy or urges into useful activities"
+  },
+  {
+    "word": "eugenic",
+    "gloss": "causing improvement in the offspring produced"
+  },
+  {
+    "word": "lineament",
+    "gloss": "the characteristic parts of a person's face"
+  },
+  {
+    "word": "firebrand",
+    "gloss": "someone who deliberately foments trouble"
+  },
+  {
+    "word": "fiasco",
+    "gloss": "a complete failure or collapse"
+  },
+  {
+    "word": "foolhardy",
+    "gloss": "marked by defiant disregard for danger or consequences"
+  },
+  {
+    "word": "retrench",
+    "gloss": "tighten one's belt; use resources carefully"
+  },
+  {
+    "word": "ulterior",
+    "gloss": "lying beyond what is openly revealed or avowed"
+  },
+  {
+    "word": "equable",
+    "gloss": "not varying"
+  },
+  {
+    "word": "inured",
+    "gloss": "made tough by habitual exposure"
+  },
+  {
+    "word": "invidious",
+    "gloss": "containing or implying a slight or showing prejudice"
+  },
+  {
+    "word": "unmitigated",
+    "gloss": "not diminished or moderated in intensity or severity"
+  },
+  {
+    "word": "concomitant",
+    "gloss": "an event or situation that happens at the same time"
+  },
+  {
+    "word": "cozen",
+    "gloss": "cheat or trick"
+  },
+  {
+    "word": "phlegmatic",
+    "gloss": "showing little emotion"
+  },
+  {
+    "word": "dormer",
+    "gloss": "a gabled extension built out from a sloping roof"
+  },
+  {
+    "word": "pontifical",
+    "gloss": "denoting or governed by or relating to a bishop or bishops"
+  },
+  {
+    "word": "disport",
+    "gloss": "occupy in an agreeable, entertaining or pleasant fashion"
+  },
+  {
+    "word": "apologist",
+    "gloss": "a person who argues to defend some policy or institution"
+  },
+  {
+    "word": "abeyance",
+    "gloss": "temporary cessation or suspension"
+  },
+  {
+    "word": "enclave",
+    "gloss": "an enclosed territory that is culturally distinct"
+  },
+  {
+    "word": "improvident",
+    "gloss": "not supplying something useful for the future"
+  },
+  {
+    "word": "disquisition",
+    "gloss": "an elaborate analytical or explanatory essay or discussion"
+  },
+  {
+    "word": "categorical",
+    "gloss": "not modified or restricted by reservations"
+  },
+  {
+    "word": "placate",
+    "gloss": "cause to be more favorably inclined"
+  },
+  {
+    "word": "redolent",
+    "gloss": "serving to bring to mind"
+  },
+  {
+    "word": "felicitous",
+    "gloss": "exhibiting an agreeably appropriate manner or style"
+  },
+  {
+    "word": "gusty",
+    "gloss": "blowing in puffs or short intermittent blasts"
+  },
+  {
+    "word": "natty",
+    "gloss": "marked by up-to-dateness in dress and manners"
+  },
+  {
+    "word": "pacifist",
+    "gloss": "opposed to war"
+  },
+  {
+    "word": "buxom",
+    "gloss": "healthily plump and vigorous"
+  },
+  {
+    "word": "heyday",
+    "gloss": "the period of greatest prosperity or productivity"
+  },
+  {
+    "word": "herculean",
+    "gloss": "displaying superhuman strength or power"
+  },
+  {
+    "word": "burgeon",
+    "gloss": "grow and flourish"
+  },
+  {
+    "word": "crone",
+    "gloss": "an ugly, evil-looking old woman"
+  },
+  {
+    "word": "prognosticate",
+    "gloss": "make a prediction about; tell in advance"
+  },
+  {
+    "word": "lout",
+    "gloss": "an awkward, foolish person"
+  },
+  {
+    "word": "simper",
+    "gloss": "smile in an insincere, unnatural, or coy way"
+  },
+  {
+    "word": "iniquitous",
+    "gloss": "characterized by injustice or wickedness"
+  },
+  {
+    "word": "rile",
+    "gloss": "disturb, especially by minor irritations"
+  },
+  {
+    "word": "sentient",
+    "gloss": "endowed with feeling and unstructured consciousness"
+  },
+  {
+    "word": "garish",
+    "gloss": "tastelessly showy"
+  },
+  {
+    "word": "readjustment",
+    "gloss": "the act of correcting again"
+  },
+  {
+    "word": "erstwhile",
+    "gloss": "belonging to some prior time"
+  },
+  {
+    "word": "aquiline",
+    "gloss": "curved down like an eagle's beak"
+  },
+  {
+    "word": "bilious",
+    "gloss": "irritable as if suffering from indigestion"
+  },
+  {
+    "word": "vilify",
+    "gloss": "spread negative information about"
+  },
+  {
+    "word": "nuance",
+    "gloss": "a subtle difference in meaning or opinion or attitude"
+  },
+  {
+    "word": "gawk",
+    "gloss": "look with amazement"
+  },
+  {
+    "word": "refectory",
+    "gloss": "a communal dining-hall, usually in a monastery"
+  },
+  {
+    "word": "palatial",
+    "gloss": "suitable for or like a large and stately residence"
+  },
+  {
+    "word": "mincing",
+    "gloss": "affectedly dainty or refined"
+  },
+  {
+    "word": "trenchant",
+    "gloss": "having keenness and forcefulness and penetration in thought"
+  },
+  {
+    "word": "emboss",
+    "gloss": "raise in a relief"
+  },
+  {
+    "word": "proletarian",
+    "gloss": "a member of the working class"
+  },
+  {
+    "word": "careen",
+    "gloss": "pitching dangerously to one side"
+  },
+  {
+    "word": "debacle",
+    "gloss": "a sound defeat"
+  },
+  {
+    "word": "sycophant",
+    "gloss": "a person who tries to please someone to gain an advantage"
+  },
+  {
+    "word": "crabbed",
+    "gloss": "annoyed and irritable"
+  },
+  {
+    "word": "archetype",
+    "gloss": "something that serves as a model"
+  },
+  {
+    "word": "cryptic",
+    "gloss": "of an obscure nature"
+  },
+  {
+    "word": "penchant",
+    "gloss": "a strong liking or preference"
+  },
+  {
+    "word": "bauble",
+    "gloss": "cheap showy jewelry or ornament"
+  },
+  {
+    "word": "mountebank",
+    "gloss": "a flamboyant deceiver"
+  },
+  {
+    "word": "fawning",
+    "gloss": "attempting to win favor by flattery"
+  },
+  {
+    "word": "hummock",
+    "gloss": "a small natural mound"
+  },
+  {
+    "word": "apotheosis",
+    "gloss": "model of excellence or perfection of a kind"
+  },
+  {
+    "word": "discretionary",
+    "gloss": "not earmarked; available for use as needed"
+  },
+  {
+    "word": "pithy",
+    "gloss": "concise and full of meaning"
+  },
+  {
+    "word": "comport",
+    "gloss": "behave in a certain manner"
+  },
+  {
+    "word": "checkered",
+    "gloss": "marked by changeable fortune"
+  },
+  {
+    "word": "ambrosia",
+    "gloss": "the food and drink of the gods"
+  },
+  {
+    "word": "factious",
+    "gloss": "dissenting with the majority opinion"
+  },
+  {
+    "word": "disgorge",
+    "gloss": "cause or allow to flow or run out or over"
+  },
+  {
+    "word": "filch",
+    "gloss": "make off with belongings of others"
+  },
+  {
+    "word": "wraith",
+    "gloss": "a ghostly figure, especially one seen shortly before death"
+  },
+  {
+    "word": "demonstrable",
+    "gloss": "capable of being proved"
+  },
+  {
+    "word": "pertinacious",
+    "gloss": "stubbornly unyielding"
+  },
+  {
+    "word": "emend",
+    "gloss": "make corrections to"
+  },
+  {
+    "word": "laggard",
+    "gloss": "someone who takes more time than necessary"
+  },
+  {
+    "word": "waffle",
+    "gloss": "pause or hold back in uncertainty or unwillingness"
+  },
+  {
+    "word": "loquacious",
+    "gloss": "full of trivial conversation"
+  },
+  {
+    "word": "venial",
+    "gloss": "easily excused or forgiven"
+  },
+  {
+    "word": "peon",
+    "gloss": "a laborer who is obliged to do menial work"
+  },
+  {
+    "word": "effulgence",
+    "gloss": "the quality of being bright and sending out rays of light"
+  },
+  {
+    "word": "lode",
+    "gloss": "a deposit of valuable ore"
+  },
+  {
+    "word": "fanfare",
+    "gloss": "a gaudy outward display"
+  },
+  {
+    "word": "dilettante",
+    "gloss": "showing frivolous or superficial interest; amateurish"
+  },
+  {
+    "word": "pusillanimous",
+    "gloss": "lacking in courage, strength, and resolution"
+  },
+  {
+    "word": "ingrained",
+    "gloss": "deeply rooted; firmly fixed or held"
+  },
+  {
+    "word": "quagmire",
+    "gloss": "a soft wet area of low-lying land that sinks underfoot"
+  },
+  {
+    "word": "reprobation",
+    "gloss": "severe disapproval"
+  },
+  {
+    "word": "mannered",
+    "gloss": "having unnatural behavioral attributes"
+  },
+  {
+    "word": "squeamish",
+    "gloss": "easily disturbed or disgusted by unpleasant things"
+  },
+  {
+    "word": "proclivity",
+    "gloss": "a natural inclination"
+  },
+  {
+    "word": "miserly",
+    "gloss": "characterized by or indicative of lack of generosity"
+  },
+  {
+    "word": "vapid",
+    "gloss": "lacking significance or liveliness or spirit or zest"
+  },
+  {
+    "word": "mercurial",
+    "gloss": "liable to sudden unpredictable change"
+  },
+  {
+    "word": "perspicuous",
+    "gloss": "transparently clear; easily understandable"
+  },
+  {
+    "word": "nonplus",
+    "gloss": "be a mystery or bewildering to"
+  },
+  {
+    "word": "attract",
+    "gloss": "Young Indian audiences are so enamored with reality television that they will not watch the soap operas and dramas that their parents or grandparents watch."
+  },
+  {
+    "word": "hackneyed",
+    "gloss": "repeated too often; overfamiliar through overuse"
+  },
+  {
+    "word": "spate",
+    "gloss": "a large number or amount or extent"
+  },
+  {
+    "word": "pedagogue",
+    "gloss": "someone who educates young people"
+  },
+  {
+    "word": "acme",
+    "gloss": "the highest level or degree attainable"
+  },
+  {
+    "word": "masticate",
+    "gloss": "bite and grind with the teeth"
+  },
+  {
+    "word": "sinecure",
+    "gloss": "a job that involves minimal duties"
+  },
+  {
+    "word": "indite",
+    "gloss": "produce a literary work"
+  },
+  {
+    "word": "emetic",
+    "gloss": "a medicine that induces nausea and vomiting"
+  },
+  {
+    "word": "temporize",
+    "gloss": "draw out a discussion or process in order to gain time"
+  },
+  {
+    "word": "unimpeachable",
+    "gloss": "beyond doubt or reproach"
+  },
+  {
+    "word": "genesis",
+    "gloss": "a coming into being"
+  },
+  {
+    "word": "mordant",
+    "gloss": "harshly ironic or sinister"
+  },
+  {
+    "word": "smattering",
+    "gloss": "a small number or amount"
+  },
+  {
+    "word": "suavity",
+    "gloss": "the quality of being charming and gracious in manner"
+  },
+  {
+    "word": "stentorian",
+    "gloss": "very loud or booming"
+  },
+  {
+    "word": "junket",
+    "gloss": "a trip taken by an official at public expense"
+  },
+  {
+    "word": "appurtenance",
+    "gloss": "a supplementary component that improves capability"
+  },
+  {
+    "word": "nostrum",
+    "gloss": "patent medicine whose efficacy is questionable"
+  },
+  {
+    "word": "immure",
+    "gloss": "lock up or confine, in or as in a jail"
+  },
+  {
+    "word": "astringent",
+    "gloss": "acidic or bitter in taste or smell"
+  },
+  {
+    "word": "unfaltering",
+    "gloss": "marked by firm determination or resolution; not shakable"
+  },
+  {
+    "word": "tutelage",
+    "gloss": "attention and management implying responsibility for safety"
+  },
+  {
+    "word": "testator",
+    "gloss": "a person who makes a will"
+  },
+  {
+    "word": "elysian",
+    "gloss": "of such excellence as to suggest inspiration by the gods"
+  },
+  {
+    "word": "fulminate",
+    "gloss": "criticize severely"
+  },
+  {
+    "word": "fractious",
+    "gloss": "easily irritated or annoyed"
+  },
+  {
+    "word": "pummel",
+    "gloss": "strike, usually with the fist"
+  },
+  {
+    "word": "manumit",
+    "gloss": "free from slavery or servitude"
+  },
+  {
+    "word": "unexceptionable",
+    "gloss": "completely acceptable; not open to reproach"
+  },
+  {
+    "word": "triumvirate",
+    "gloss": "a group of three people responsible for civil authority"
+  },
+  {
+    "word": "sybarite",
+    "gloss": "a person addicted to luxury and pleasures of the senses"
+  },
+  {
+    "word": "jibe",
+    "gloss": "be compatible, similar, or consistent"
+  },
+  {
+    "word": "magisterial",
+    "gloss": "offensively self-assured or exercising unwarranted power"
+  },
+  {
+    "word": "roseate",
+    "gloss": "of something having a dusty purplish pink color"
+  },
+  {
+    "word": "obloquy",
+    "gloss": "abusive, malicious, and condemnatory language"
+  },
+  {
+    "word": "hoodwink",
+    "gloss": "influence by slyness"
+  },
+  {
+    "word": "striate",
+    "gloss": "mark with stripes of contrasting color"
+  },
+  {
+    "word": "arrogate",
+    "gloss": "seize and take control without authority"
+  },
+  {
+    "word": "rarefied",
+    "gloss": "of high moral or intellectual value"
+  },
+  {
+    "word": "chary",
+    "gloss": "characterized by great caution"
+  },
+  {
+    "word": "credo",
+    "gloss": "any system of principles or beliefs"
+  },
+  {
+    "word": "superannuated",
+    "gloss": "too old to be useful"
+  },
+  {
+    "word": "impolitic",
+    "gloss": "lacking tact, shrewdness, or prudence"
+  },
+  {
+    "word": "aspersion",
+    "gloss": "a disparaging remark"
+  },
+  {
+    "word": "abysmal",
+    "gloss": "exceptionally bad or displeasing"
+  },
+  {
+    "word": "poignancy",
+    "gloss": "a quality that arouses emotions, especially pity or sorrow"
+  },
+  {
+    "word": "stilted",
+    "gloss": "artificially formal or stiff"
+  },
+  {
+    "word": "effete",
+    "gloss": "excessively self-indulgent, affected, or decadent"
+  },
+  {
+    "word": "provender",
+    "gloss": "food for domestic livestock"
+  },
+  {
+    "word": "endemic",
+    "gloss": "of a disease constantly present in a particular locality"
+  },
+  {
+    "word": "jocund",
+    "gloss": "full of or showing high-spirited merriment"
+  },
+  {
+    "word": "procedural",
+    "gloss": "of or relating to processes"
+  },
+  {
+    "word": "rakish",
+    "gloss": "marked by a carefree unconventionality or disreputableness"
+  },
+  {
+    "word": "skittish",
+    "gloss": "unpredictably excitable, especially of horses"
+  },
+  {
+    "word": "peroration",
+    "gloss": "a flowery and highly rhetorical address"
+  },
+  {
+    "word": "nonentity",
+    "gloss": "a person of no influence"
+  },
+  {
+    "word": "abstemious",
+    "gloss": "marked by temperance in indulgence"
+  },
+  {
+    "word": "viscid",
+    "gloss": "having the sticky properties of an adhesive"
+  },
+  {
+    "word": "doggerel",
+    "gloss": "a comic verse of irregular measure"
+  },
+  {
+    "word": "sleight",
+    "gloss": "adroitness in using the hands"
+  },
+  {
+    "word": "rubric",
+    "gloss": "category name"
+  },
+  {
+    "word": "plenitude",
+    "gloss": "a full supply"
+  },
+  {
+    "word": "rebus",
+    "gloss": "a puzzle consisting of pictures representing words"
+  },
+  {
+    "word": "wizened",
+    "gloss": "lean and wrinkled by shrinkage as from age or illness"
+  },
+  {
+    "word": "whorl",
+    "gloss": "a round shape formed by a series of concentric circles"
+  },
+  {
+    "word": "fracas",
+    "gloss": "a noisy, angry argument or fight between people"
+  },
+  {
+    "word": "iconoclast",
+    "gloss": "someone who attacks cherished ideas or institutions"
+  },
+  {
+    "word": "saturnine",
+    "gloss": "bitter or scornful"
+  },
+  {
+    "word": "madrigal",
+    "gloss": "an unaccompanied partsong for several voices"
+  },
+  {
+    "word": "discursive",
+    "gloss": "tending to cover a wide range of subjects"
+  },
+  {
+    "word": "zealot",
+    "gloss": "a fervent and even militant proponent of something"
+  },
+  {
+    "word": "moribund",
+    "gloss": "not growing or changing; without force or vitality"
+  },
+  {
+    "word": "modicum",
+    "gloss": "a small or moderate or token amount"
+  },
+  {
+    "word": "connotation",
+    "gloss": "an idea that is implied or suggested"
+  },
+  {
+    "word": "adventitious",
+    "gloss": "associated by chance and not an integral part"
+  },
+  {
+    "word": "recondite",
+    "gloss": "difficult to understand"
+  },
+  {
+    "word": "zephyr",
+    "gloss": "a slight wind"
+  },
+  {
+    "word": "countermand",
+    "gloss": "cancel officially"
+  },
+  {
+    "word": "captious",
+    "gloss": "tending to find and call attention to faults"
+  },
+  {
+    "word": "cognate",
+    "gloss": "having the same ancestral language"
+  },
+  {
+    "word": "forebear",
+    "gloss": "a person from whom you are descended"
+  },
+  {
+    "word": "cadaverous",
+    "gloss": "very thin, especially from disease or hunger or cold"
+  },
+  {
+    "word": "foist",
+    "gloss": "force onto another"
+  },
+  {
+    "word": "dotage",
+    "gloss": "mental infirmity as a consequence of old age"
+  },
+  {
+    "word": "nexus",
+    "gloss": "a connected series or group"
+  },
+  {
+    "word": "choleric",
+    "gloss": "characterized by anger"
+  },
+  {
+    "word": "garble",
+    "gloss": "distort or make false by mutilation or addition"
+  },
+  {
+    "word": "bucolic",
+    "gloss": "idyllically rustic"
+  },
+  {
+    "word": "denouement",
+    "gloss": "the outcome of a complex sequence of events"
+  },
+  {
+    "word": "animus",
+    "gloss": "a feeling of ill will arousing active hostility"
+  },
+  {
+    "word": "overweening",
+    "gloss": "unrestrained, especially with regard to feelings"
+  },
+  {
+    "word": "tyro",
+    "gloss": "someone new to a field or activity"
+  },
+  {
+    "word": "preen",
+    "gloss": "dress or groom with elaborate care"
+  },
+  {
+    "word": "largesse",
+    "gloss": "liberality in bestowing gifts"
+  },
+  {
+    "word": "retentive",
+    "gloss": "good at remembering"
+  },
+  {
+    "word": "unconscionable",
+    "gloss": "greatly exceeding bounds of reason or moderation"
+  },
+  {
+    "word": "badinage",
+    "gloss": "frivolous banter"
+  },
+  {
+    "word": "insensate",
+    "gloss": "devoid of feeling and consciousness and animation"
+  },
+  {
+    "word": "sherbet",
+    "gloss": "a frozen dessert made primarily of fruit juice and sugar"
+  },
+  {
+    "word": "beatific",
+    "gloss": "resembling or befitting an angel or saint"
+  },
+  {
+    "word": "bemuse",
+    "gloss": "cause to be confused emotionally"
+  },
+  {
+    "word": "microcosm",
+    "gloss": "a miniature model of something"
+  },
+  {
+    "word": "factitious",
+    "gloss": "not produced by natural forces; artificial or fake"
+  },
+  {
+    "word": "gestate",
+    "gloss": "develop in the mind; have the idea for"
+  },
+  {
+    "word": "traduce",
+    "gloss": "speak unfavorably about"
+  },
+  {
+    "word": "sextant",
+    "gloss": "an instrument for measuring angular distance"
+  },
+  {
+    "word": "coiffure",
+    "gloss": "the arrangement of the hair"
+  },
+  {
+    "word": "malleable",
+    "gloss": "easily influenced"
+  },
+  {
+    "word": "rococo",
+    "gloss": "having excessive asymmetrical ornamentation"
+  },
+  {
+    "word": "fructify",
+    "gloss": "become productive or fruitful"
+  },
+  {
+    "word": "nihilist",
+    "gloss": "someone who rejects all theories of morality"
+  },
+  {
+    "word": "ellipsis",
+    "gloss": "a mark indicating that words have been omitted"
+  },
+  {
+    "word": "accolade",
+    "gloss": "a tangible symbol signifying approval or distinction"
+  },
+  {
+    "word": "codicil",
+    "gloss": "a supplement to a will"
+  },
+  {
+    "word": "roil",
+    "gloss": "be agitated"
+  },
+  {
+    "word": "grandiloquent",
+    "gloss": "lofty in style"
+  },
+  {
+    "word": "inconsequential",
+    "gloss": "lacking worth or importance"
+  },
+  {
+    "word": "effervescence",
+    "gloss": "the property of giving off bubbles"
+  },
+  {
+    "word": "stultify",
+    "gloss": "deprive of strength or efficiency; make useless or worthless"
+  },
+  {
+    "word": "tureen",
+    "gloss": "a large deep serving dish with a cover"
+  },
+  {
+    "word": "pellucid",
+    "gloss": "transparently clear; easily understandable"
+  },
+  {
+    "word": "euphony",
+    "gloss": "any pleasing and harmonious sounds"
+  },
+  {
+    "word": "apocryphal",
+    "gloss": "being of questionable authenticity"
+  },
+  {
+    "word": "veracious",
+    "gloss": "precisely accurate"
+  },
+  {
+    "word": "pendulous",
+    "gloss": "hanging loosely or bending downward"
+  },
+  {
+    "word": "exegesis",
+    "gloss": "an explanation or critical interpretation"
+  },
+  {
+    "word": "effluvium",
+    "gloss": "a foul-smelling outflow or vapor"
+  },
+  {
+    "word": "apposite",
+    "gloss": "being of striking appropriateness and pertinence"
+  },
+  {
+    "word": "viscous",
+    "gloss": "having the sticky properties of an adhesive"
+  },
+  {
+    "word": "misanthrope",
+    "gloss": "someone who dislikes people in general"
+  },
+  {
+    "word": "vintner",
+    "gloss": "someone who makes wine"
+  },
+  {
+    "word": "halcyon",
+    "gloss": "idyllically calm and peaceful; suggesting happy tranquility"
+  },
+  {
+    "word": "anthropomorphic",
+    "gloss": "suggesting human features for animals or inanimate things"
+  },
+  {
+    "word": "turgid",
+    "gloss": "ostentatiously lofty in style"
+  },
+  {
+    "word": "malaise",
+    "gloss": "a feeling of mild sickness or depression"
+  },
+  {
+    "word": "polemical",
+    "gloss": "of or involving dispute or controversy"
+  },
+  {
+    "word": "gadfly",
+    "gloss": "a persistently annoying person"
+  },
+  {
+    "word": "atavism",
+    "gloss": "a reappearance of an earlier characteristic"
+  },
+  {
+    "word": "contusion",
+    "gloss": "an injury in which the skin is not broken"
+  },
+  {
+    "word": "parsimonious",
+    "gloss": "excessively unwilling to spend"
+  },
+  {
+    "word": "dulcet",
+    "gloss": "pleasing to the ear"
+  },
+  {
+    "word": "reprise",
+    "gloss": "a repetition of a short musical passage"
+  },
+  {
+    "word": "anodyne",
+    "gloss": "capable of relieving pain"
+  },
+  {
+    "word": "bemused",
+    "gloss": "perplexed by many conflicting situations or statements"
+  }
+]

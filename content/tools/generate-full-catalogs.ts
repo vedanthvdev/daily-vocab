@@ -38,5 +38,9 @@ function expand(level: Level): void {
 }
 
 for (const level of LEVELS) {
+  if (level === 'beginner') {
+    console.log('skipped beginner.json (curated catalog; use build-beginner-catalog.ts)');
+    continue;
+  }
   expand(level);
 }
