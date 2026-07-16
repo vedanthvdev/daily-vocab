@@ -7,8 +7,13 @@ import { BrandedLoader } from '../components/BrandedLoader';
 import { LevelButton } from '../components/LevelButton';
 import { catalogs } from '../domain/catalog';
 import { ensureTodaysWord } from '../domain/ensureTodaysWord';
+import { formatLocalDate } from '../domain/localDate';
 import type { DailyState, Level } from '../domain/types';
-import { pushActiveLevel, pushDailySnapshot } from '../native/widgetBridge';
+import {
+  readDailySnapshot,
+  syncWidgetState,
+  type DailySnapshot,
+} from '../native/widgetBridge';
 import {
   loadDailyState,
   loadLevel,
@@ -20,8 +25,37 @@ import { useThemeColors } from '../theme/useThemeColors';
 
 const LEVELS: Level[] = ['beginner', 'intermediate', 'hard'];
 
+const LEVEL_LABEL: Record<Level, string> = {
+  beginner: 'Beginner',
+  intermediate: 'Intermediate',
+  hard: 'Hard',
+};
+
 function randomInt(maxExclusive: number): number {
   return Math.floor(Math.random() * maxExclusive);
+}
+
+function isLevel(value: unknown): value is Level {
+  return value === 'beginner' || value === 'intermediate' || value === 'hard';
+}
+
+function snapshotToState(snapshot: DailySnapshot): DailyState | null {
+  if (
+    !isLevel(snapshot.level) ||
+    typeof snapshot.localDate !== 'string' ||
+    typeof snapshot.wordId !== 'string' ||
+    typeof snapshot.word !== 'string' ||
+    typeof snapshot.oneLiner !== 'string'
+  ) {
+    return null;
+  }
+  return {
+    level: snapshot.level,
+    localDate: snapshot.localDate,
+    wordId: snapshot.wordId,
+    word: snapshot.word,
+    oneLiner: snapshot.oneLiner,
+  };
 }
 
 function levelAccent(
@@ -51,26 +85,57 @@ export function HomeScreen() {
     let cancelled = false;
     (async () => {
       try {
-        const savedLevel = await loadLevel();
-        const savedState = await loadDailyState();
+        const [savedLevel, savedState, nativeSnapshot] = await Promise.all([
+          loadLevel(),
+          loadDailyState(),
+          readDailySnapshot(),
+        ]);
         if (cancelled) return;
-        if (savedLevel) {
-          const next = ensureTodaysWord({
-            level: savedLevel,
-            catalog: catalogs,
-            state: savedState,
-            now: new Date(),
-            randomInt,
-          });
-          if (cancelled) return;
-          setLevel(savedLevel);
-          setToday(next);
-          await Promise.all([
-            saveDailyState(next),
-            pushActiveLevel(savedLevel),
-            pushDailySnapshot(next),
-          ]);
+
+        const todayStr = formatLocalDate(new Date());
+        const nativeToday =
+          nativeSnapshot && nativeSnapshot.localDate === todayStr
+            ? snapshotToState(nativeSnapshot)
+            : null;
+        const prior = nativeToday ?? savedState;
+        const preference = savedLevel ?? nativeToday?.level ?? null;
+
+        if (!preference && !nativeToday) {
+          return;
         }
+
+        if (!preference && nativeToday) {
+          setLevel(nativeToday.level);
+          setToday(nativeToday);
+          await Promise.all([
+            saveLevel(nativeToday.level),
+            saveDailyState(nativeToday),
+            syncWidgetState({
+              state: nativeToday,
+              level: nativeToday.level,
+              reload: false,
+            }),
+          ]);
+          return;
+        }
+
+        if (!preference) return;
+
+        const next = ensureTodaysWord({
+          level: preference,
+          catalog: catalogs,
+          state: prior,
+          now: new Date(),
+          randomInt,
+        });
+        if (cancelled) return;
+        setLevel(preference);
+        setToday(next);
+        await Promise.all([
+          saveDailyState(next),
+          saveLevel(preference),
+          syncWidgetState({ state: next, level: preference, reload: true }),
+        ]);
       } finally {
         if (!cancelled) setReady(true);
       }
@@ -94,8 +159,6 @@ export function HomeScreen() {
           randomInt,
         });
         const levelChanged = level !== nextLevel;
-        const wordChanged =
-          prior?.wordId !== rolled.wordId || prior?.localDate !== rolled.localDate;
         setLevel(nextLevel);
         setToday(rolled);
         if (levelChanged) {
@@ -104,8 +167,11 @@ export function HomeScreen() {
         await Promise.all([
           saveLevel(nextLevel),
           saveDailyState(rolled),
-          pushActiveLevel(nextLevel),
-          wordChanged ? pushDailySnapshot(rolled) : Promise.resolve(),
+          syncWidgetState({
+            state: rolled,
+            level: nextLevel,
+            reload: true,
+          }),
         ]);
       } finally {
         setBusy(false);
@@ -124,6 +190,7 @@ export function HomeScreen() {
       : 'Tip: add the Daily Vocab widget to your home screen (lock screen where supported).';
 
   const accent = levelAccent(today?.level ?? level, colors);
+  const lockedLabel = today ? LEVEL_LABEL[today.level] : null;
 
   return (
     <LinearGradient
@@ -156,7 +223,7 @@ export function HomeScreen() {
             {today ? (
               <>
                 <Text style={[styles.todayLabel, { color: colors.inkMuted }]}>
-                  Today
+                  Today · {lockedLabel}
                 </Text>
                 <Text style={[styles.word, { color: colors.ink }]}>{today.word}</Text>
                 <Text style={[styles.oneLiner, { color: colors.tip }]}>
@@ -171,7 +238,7 @@ export function HomeScreen() {
           </View>
 
           <Text style={[styles.chooserLabel, { color: colors.inkMuted }]}>
-            Level
+            Level for tomorrow
           </Text>
           <View style={styles.buttons}>
             {LEVELS.map((item, index) => (

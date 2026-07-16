@@ -3,7 +3,7 @@ module.exports = (config) => ({
   type: 'widget',
   name: 'DailyVocabWidget',
   displayName: 'Daily Vocab',
-  deploymentTarget: '16.4',
+  deploymentTarget: '17.0',
   bundleIdentifier: '.DailyVocabWidget',
   frameworks: ['SwiftUI', 'WidgetKit'],
   colors: {
