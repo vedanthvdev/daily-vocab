@@ -9,6 +9,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { ONE_LINER_MAX, STRICT_WORD_COUNT, type Level } from './catalogSchema';
+import { ESL_DENYLIST, isBrokenOneLiner } from './oneLinerQuality';
 
 type PoolEntry = { word: string; gloss?: string; short?: string };
 type GreDef = { definition?: string; short?: string };
@@ -101,13 +102,16 @@ async function buildLevel(
     if (words.length >= STRICT_WORD_COUNT) break;
     const word = entry.word.toLowerCase().trim();
     if (!/^[a-z][a-z'-]*$/.test(word) || seen.has(word) || exclude.has(word)) continue;
+    if (ESL_DENYLIST.has(word)) continue;
 
     let oneLiner = shortenOneLiner(pickGloss(entry, gre));
-    if (!oneLiner || isWeak(oneLiner)) {
+    if (!oneLiner || isWeak(oneLiner) || isBrokenOneLiner(oneLiner)) {
       const wn = await wordNetGloss(wordpos, word);
       oneLiner = wn ? shortenOneLiner(wn) : '';
     }
-    if (!oneLiner || oneLiner.length > ONE_LINER_MAX || isWeak(oneLiner)) continue;
+    if (!oneLiner || oneLiner.length > ONE_LINER_MAX || isWeak(oneLiner) || isBrokenOneLiner(oneLiner)) {
+      continue;
+    }
 
     seen.add(word);
     words.push({

@@ -1,13 +1,13 @@
-#!/usr/bin/env tsx
 /**
- * Expands each level JSON to exactly 1000 unique entries for release builds.
- * Seeds from existing samples, then fills with level-tagged practice words.
+ * Expands leftover placeholder catalogs only. Curated beginner / intermediate /
+ * hard lists are never overwritten by this script.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { LEVELS, STRICT_WORD_COUNT, type Level } from './catalogSchema';
 
 const root = resolve(__dirname, '../words');
+const CURATED = new Set<Level>(['beginner', 'intermediate', 'hard']);
 
 function expand(level: Level): void {
   const filePath = resolve(root, `${level}.json`);
@@ -38,7 +38,7 @@ function expand(level: Level): void {
 }
 
 for (const level of LEVELS) {
-  if (level === 'beginner' || level === 'intermediate' || level === 'hard') {
+  if (CURATED.has(level)) {
     console.log(`skipped ${level}.json (curated catalog)`);
     continue;
   }
