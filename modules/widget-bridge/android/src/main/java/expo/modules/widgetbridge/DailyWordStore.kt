@@ -59,8 +59,7 @@ object DailyWordStore {
     context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
       .edit()
       .putString(SNAPSHOT_KEY, obj.toString())
-      .putString(LEVEL_KEY, snapshot.level)
-      .apply()
+      .commit()
   }
 
   fun loadCatalog(context: Context, level: String): List<CatalogWord> {
@@ -80,11 +79,11 @@ object DailyWordStore {
     now: Date = Date(),
     randomInt: (Int) -> Int = { Random.nextInt(it) },
   ): DailySnapshot? {
-    if (words.isEmpty()) return null
     val today = localDateString(now)
     if (state != null && state.localDate == today) {
       return state
     }
+    if (words.isEmpty()) return null
 
     var index = randomInt(words.size)
     val previous = state?.wordId

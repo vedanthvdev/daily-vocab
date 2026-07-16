@@ -3,6 +3,19 @@ import { createAudioPlayer, setAudioModeAsync, type AudioPlayer } from 'expo-aud
 let player: AudioPlayer | null = null;
 let ready: Promise<AudioPlayer | null> | null = null;
 
+async function waitUntilLoaded(instance: AudioPlayer, timeoutMs = 1500): Promise<void> {
+  if (instance.isLoaded) return;
+  const started = Date.now();
+  await new Promise<void>((resolve) => {
+    const timer = setInterval(() => {
+      if (instance.isLoaded || Date.now() - started >= timeoutMs) {
+        clearInterval(timer);
+        resolve();
+      }
+    }, 40);
+  });
+}
+
 async function getPlayer(): Promise<AudioPlayer | null> {
   if (player) return player;
   if (ready) return ready;
@@ -14,6 +27,7 @@ async function getPlayer(): Promise<AudioPlayer | null> {
       });
       player = createAudioPlayer(require('../../assets/sounds/jelly.wav'));
       player.volume = 0.7;
+      await waitUntilLoaded(player);
       return player;
     } catch {
       return null;
@@ -28,6 +42,7 @@ export async function playJelly(): Promise<void> {
   try {
     const instance = await getPlayer();
     if (!instance) return;
+    await waitUntilLoaded(instance);
     await instance.seekTo(0);
     instance.play();
   } catch {

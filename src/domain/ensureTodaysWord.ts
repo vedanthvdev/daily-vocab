@@ -6,22 +6,21 @@ export type EnsureTodaysWordInput = {
   catalog: CatalogByLevel;
   state: DailyState | null;
   now: Date;
-  /** Returns an integer in [0, maxExclusive). */
   randomInt: (maxExclusive: number) => number;
   timeZone?: string;
 };
 
 export function ensureTodaysWord(input: EnsureTodaysWordInput): DailyState {
   const { level, catalog, state, now, randomInt, timeZone } = input;
-  const words = catalog[level];
-  if (!words?.length) {
-    throw new Error(`Catalog for level "${level}" is empty`);
-  }
-
   const today = formatLocalDate(now, timeZone);
 
   if (state && state.localDate === today) {
     return state;
+  }
+
+  const words = catalog[level];
+  if (!words?.length) {
+    throw new Error(`Catalog for level "${level}" is empty`);
   }
 
   const previousId = state?.wordId;

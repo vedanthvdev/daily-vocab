@@ -19,21 +19,34 @@ function toSnapshot(state: DailyState): DailySnapshot {
   };
 }
 
-export async function pushDailySnapshot(state: DailyState): Promise<void> {
+export async function syncWidgetState(options: {
+  state?: DailyState | null;
+  level?: Level | null;
+  reload?: boolean;
+}): Promise<void> {
   if (!WidgetBridgeModule) return;
   try {
-    await WidgetBridgeModule.setDailySnapshot(toSnapshot(state));
-    await WidgetBridgeModule.reloadWidgets();
+    const snapshot = options.state ? toSnapshot(options.state) : null;
+    const level = options.level ?? null;
+    if (WidgetBridgeModule.syncWidgetState) {
+      await WidgetBridgeModule.syncWidgetState(snapshot, level);
+    } else {
+      if (level) await WidgetBridgeModule.setActiveLevel(level);
+      if (snapshot) await WidgetBridgeModule.setDailySnapshot(snapshot);
+    }
+    if (options.reload !== false && snapshot) {
+      await WidgetBridgeModule.reloadWidgets();
+    }
   } catch {
   }
 }
 
+export async function pushDailySnapshot(state: DailyState): Promise<void> {
+  await syncWidgetState({ state, reload: true });
+}
+
 export async function pushActiveLevel(level: Level): Promise<void> {
-  if (!WidgetBridgeModule) return;
-  try {
-    await WidgetBridgeModule.setActiveLevel(level);
-  } catch {
-  }
+  await syncWidgetState({ level, reload: false });
 }
 
 export async function readDailySnapshot(): Promise<DailySnapshot | null> {

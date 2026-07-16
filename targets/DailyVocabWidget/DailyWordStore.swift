@@ -49,7 +49,6 @@ enum DailyWordStore {
     guard let data = try? JSONEncoder().encode(snapshot),
           let json = String(data: data, encoding: .utf8) else { return }
     defaults.set(json, forKey: snapshotKey)
-    defaults.set(snapshot.level, forKey: levelKey)
     defaults.synchronize()
   }
 
@@ -71,11 +70,11 @@ enum DailyWordStore {
     now: Date = Date(),
     randomInt: (Int) -> Int = { Int.random(in: 0..<$0) }
   ) -> DailySnapshot? {
-    guard !words.isEmpty else { return nil }
     let today = localDateString(now: now)
     if let state, state.localDate == today {
       return state
     }
+    guard !words.isEmpty else { return nil }
 
     var index = randomInt(words.count)
     if words.count > 1, let previous = state?.wordId {

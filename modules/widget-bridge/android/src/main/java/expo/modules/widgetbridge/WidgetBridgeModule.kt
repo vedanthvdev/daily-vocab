@@ -8,9 +8,26 @@ import org.json.JSONObject
 class WidgetBridgeModule : Module() {
   private val prefsName = "dailyvocab_widget"
   private val snapshotKey = "dailySnapshot"
+  private val levelKey = "activeLevel"
 
   override fun definition() = ModuleDefinition {
     Name("WidgetBridge")
+
+    AsyncFunction("syncWidgetState") { snapshot: Map<String, String>?, level: String? ->
+      val context = appContext.reactContext ?: return@AsyncFunction
+      val editor = context.getSharedPreferences(prefsName, Context.MODE_PRIVATE).edit()
+      if (snapshot != null) {
+        val json = JSONObject()
+        for ((key, value) in snapshot) {
+          json.put(key, value)
+        }
+        editor.putString(snapshotKey, json.toString())
+      }
+      if (level != null) {
+        editor.putString(levelKey, level)
+      }
+      editor.commit()
+    }
 
     AsyncFunction("setDailySnapshot") { snapshot: Map<String, String> ->
       val context = appContext.reactContext ?: return@AsyncFunction
@@ -21,15 +38,15 @@ class WidgetBridgeModule : Module() {
       context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
         .edit()
         .putString(snapshotKey, json.toString())
-        .apply()
+        .commit()
     }
 
     AsyncFunction("setActiveLevel") { level: String ->
       val context = appContext.reactContext ?: return@AsyncFunction
       context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
         .edit()
-        .putString("activeLevel", level)
-        .apply()
+        .putString(levelKey, level)
+        .commit()
     }
 
     AsyncFunction("getDailySnapshot") {

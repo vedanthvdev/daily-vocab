@@ -25,31 +25,59 @@ class DailyVocabGlanceWidget : GlanceAppWidget() {
     val snapshot = DailyWordStore.resolveForWidget(context)
     val word = snapshot?.word ?: "Daily Vocab"
     val oneLiner = snapshot?.oneLiner ?: "Open the app and pick a level"
+    val level = snapshot?.level ?: "beginner"
+
+    val dayPanel = Color(0xE6E6EDE0)
+    val nightPanel = Color(0xE01F2824)
+    val dayInk = Color(0xE01C2B22)
+    val nightInk = Color(0xF2F2F5F1)
+    val dayMuted = Color(0xB31C2B22)
+    val nightMuted = Color(0xCCB7C2B9)
+    val dayAccent = when (level) {
+      "intermediate" -> Color(0xFFE0A278)
+      "hard" -> Color(0xFFE0909C)
+      else -> Color(0xFF7BC4A0)
+    }
+    val nightAccent = when (level) {
+      "intermediate" -> Color(0xFFEBB892)
+      "hard" -> Color(0xFFE6A0AA)
+      else -> Color(0xFFA8D4B4)
+    }
 
     provideContent {
       Column(
         modifier = GlanceModifier
           .fillMaxSize()
-          .background(ColorProvider(day = Color.Transparent, night = Color.Transparent))
+          .background(ColorProvider(day = dayPanel, night = nightPanel))
           .padding(12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalAlignment = Alignment.Start,
       ) {
+        Text(
+          text = level.uppercase(),
+          style = TextStyle(
+            fontWeight = FontWeight.Bold,
+            fontSize = 11.sp,
+            fontFamily = FontFamily.SansSerif,
+            color = ColorProvider(day = dayAccent, night = nightAccent),
+          ),
+        )
         Text(
           text = word,
           style = TextStyle(
             fontWeight = FontWeight.Bold,
             fontSize = 18.sp,
             fontFamily = FontFamily.SansSerif,
-            color = ColorProvider(day = Color(0xE01C2B22), night = Color(0xF2F2F5F1)),
+            color = ColorProvider(day = dayInk, night = nightInk),
           ),
+          modifier = GlanceModifier.padding(top = 4.dp),
         )
         Text(
           text = oneLiner,
           style = TextStyle(
             fontSize = 13.sp,
             fontFamily = FontFamily.SansSerif,
-            color = ColorProvider(day = Color(0xB31C2B22), night = Color(0xCCB7C2B9)),
+            color = ColorProvider(day = dayMuted, night = nightMuted),
           ),
           modifier = GlanceModifier.padding(top = 4.dp),
         )

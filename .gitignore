@@ -40,6 +40,10 @@ yarn-error.*
 /ios
 /android
 
+# Android local build caches
+**/.gradle/
+**/build/
+
 # local agent scaffolding from create-expo-app
 .claude/
 AGENTS.md

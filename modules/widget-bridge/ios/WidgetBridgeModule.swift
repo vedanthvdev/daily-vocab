@@ -6,9 +6,23 @@ import WidgetKit
 public class WidgetBridgeModule: Module {
   private let suiteName = "group.com.dailyvocab.app"
   private let snapshotKey = "dailySnapshot"
+  private let levelKey = "activeLevel"
 
   public func definition() -> ModuleDefinition {
     Name("WidgetBridge")
+
+    AsyncFunction("syncWidgetState") { (snapshot: [String: String]?, level: String?) in
+      let defaults = UserDefaults(suiteName: self.suiteName) ?? .standard
+      if let snapshot,
+         let data = try? JSONSerialization.data(withJSONObject: snapshot),
+         let json = String(data: data, encoding: .utf8) {
+        defaults.set(json, forKey: self.snapshotKey)
+      }
+      if let level {
+        defaults.set(level, forKey: self.levelKey)
+      }
+      defaults.synchronize()
+    }
 
     AsyncFunction("setDailySnapshot") { (snapshot: [String: String]) in
       let defaults = UserDefaults(suiteName: self.suiteName) ?? .standard
@@ -21,7 +35,7 @@ public class WidgetBridgeModule: Module {
 
     AsyncFunction("setActiveLevel") { (level: String) in
       let defaults = UserDefaults(suiteName: self.suiteName) ?? .standard
-      defaults.set(level, forKey: "activeLevel")
+      defaults.set(level, forKey: self.levelKey)
       defaults.synchronize()
     }
 
