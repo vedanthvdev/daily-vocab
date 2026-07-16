@@ -41,6 +41,7 @@
     "test": "vitest run",
     "content:validate": "tsx content/tools/validate-catalog.ts",
     "content:generate": "tsx content/tools/generate-full-catalogs.ts",
+    "content:build-beginner": "tsx content/tools/build-beginner-catalog.ts",
     "content:sync-android": "mkdir -p modules/widget-bridge/android/src/main/assets/words && cp content/words/*.json modules/widget-bridge/android/src/main/assets/words/",
     "content:validate:strict": "tsx content/tools/validate-catalog.ts --strict-count",
     "ios:device": "node scripts/ensure-macos.js \"npm run ios:device\" && expo run:ios",
