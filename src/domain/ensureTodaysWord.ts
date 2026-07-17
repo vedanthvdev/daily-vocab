@@ -61,6 +61,7 @@ function flatten(
     wordId: locked.wordId,
     word: locked.word,
     oneLiner: locked.oneLiner,
+    example: locked.example,
     byLevel,
   };
 }
@@ -106,6 +107,18 @@ function selectPool(
   return combined;
 }
 
+function hydrateLocked(
+  locked: LockedWord,
+  catalog: CatalogByLevel,
+): LockedWord {
+  if (locked.example?.trim()) return locked;
+  const entry = findInCatalog(catalog, locked.wordId);
+  if (entry?.example) {
+    return { ...locked, example: entry.example };
+  }
+  return locked;
+}
+
 export function ensureTodaysWord(input: EnsureTodaysWordInput): EnsureTodaysWordResult {
   const {
     level,
@@ -123,8 +136,12 @@ export function ensureTodaysWord(input: EnsureTodaysWordInput): EnsureTodaysWord
   const byLevel: Partial<Record<Level, LockedWord>> =
     state && state.localDate === today ? { ...state.byLevel } : {};
 
-  const existing = byLevel[level];
-  if (existing && isUsableLockedWord(existing, catalog)) {
+  const existingRaw = byLevel[level];
+  const existing = existingRaw
+    ? hydrateLocked(existingRaw, catalog)
+    : undefined;
+  if (existing && isUsableLockedWord(existing, catalog) && existing.example?.trim()) {
+    byLevel[level] = existing;
     shown = stampShownWord(shown, existing.wordId, now);
     return {
       state: flatten(today, level, existing, byLevel),
@@ -149,6 +166,7 @@ export function ensureTodaysWord(input: EnsureTodaysWordInput): EnsureTodaysWord
     wordId: entry.id,
     word: entry.word,
     oneLiner: entry.oneLiner,
+    example: entry.example,
   };
   byLevel[level] = locked;
   shown = stampShownWord(shown, locked.wordId, now);

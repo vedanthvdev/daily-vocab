@@ -16,8 +16,16 @@ function isLockedWord(value: unknown): value is LockedWord {
   return (
     typeof locked.wordId === 'string' &&
     typeof locked.word === 'string' &&
-    typeof locked.oneLiner === 'string'
+    typeof locked.oneLiner === 'string' &&
+    (typeof locked.example === 'string' || locked.example === undefined)
   );
+}
+
+function withExample(locked: LockedWord): LockedWord {
+  return {
+    ...locked,
+    example: typeof locked.example === 'string' ? locked.example : '',
+  };
 }
 
 function isYearDigit(value: unknown): value is YearDigit {
@@ -52,16 +60,19 @@ function normalizeDailyState(value: unknown): DailyState | null {
   if (state.byLevel && typeof state.byLevel === 'object') {
     for (const [key, locked] of Object.entries(state.byLevel as Record<string, unknown>)) {
       if (isLevel(key) && isLockedWord(locked)) {
-        byLevel[key] = locked;
+        byLevel[key] = withExample(locked);
       }
     }
   }
 
-  const active: LockedWord = {
+  const example =
+    typeof state.example === 'string' ? state.example : '';
+  const active: LockedWord = withExample({
     wordId: state.wordId,
     word: state.word,
     oneLiner: state.oneLiner,
-  };
+    example,
+  });
   if (!byLevel[state.level]) {
     byLevel[state.level] = active;
   }
@@ -72,6 +83,7 @@ function normalizeDailyState(value: unknown): DailyState | null {
     wordId: state.wordId,
     word: state.word,
     oneLiner: state.oneLiner,
+    example: active.example,
     byLevel,
   };
 }

@@ -1,6 +1,6 @@
 {
   "name": "daily-vocab",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "main": "index.ts",
   "dependencies": {
     "@bacons/apple-targets": "^4.0.7",
@@ -48,6 +48,8 @@
     "content:scrub": "tsx content/tools/scrub-catalog-quality.ts",
     "content:sync-android": "mkdir -p modules/widget-bridge/android/src/main/assets/words && cp content/words/*.json modules/widget-bridge/android/src/main/assets/words/",
     "content:validate:strict": "tsx content/tools/validate-catalog.ts --strict-count",
+    "content:build-frequency": "tsx content/tools/build-lemma-frequency.ts",
+    "content:retier": "tsx content/tools/retier-catalogs.ts",
     "ios:device": "node scripts/ensure-macos.js \"npm run ios:device\" && expo run:ios",
     "content:sync-ios-widget": "mkdir -p targets/DayinkWidget/assets && cp content/words/*.json targets/DayinkWidget/assets/",
     "prebuild:ios": "node scripts/ensure-macos.js \"npm run prebuild:ios\" && expo prebuild -p ios",

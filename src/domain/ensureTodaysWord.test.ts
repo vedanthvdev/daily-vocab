@@ -4,17 +4,27 @@ import type { CatalogByLevel, DailyState } from './types';
 
 const catalog: CatalogByLevel = {
   beginner: [
-    { id: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
-    { id: 'b2', word: 'quick', oneLiner: 'Moving fast.' },
-    { id: 'b3', word: 'calm', oneLiner: 'Peaceful.' },
+    { id: 'b1', word: 'happy', oneLiner: 'Feeling joy.', example: 'She felt happy after the call.' },
+    { id: 'b2', word: 'quick', oneLiner: 'Moving fast.', example: 'A quick lunch kept him going.' },
+    { id: 'b3', word: 'calm', oneLiner: 'Peaceful.', example: 'Stay calm during the exam.' },
   ],
   intermediate: [
-    { id: 'i1', word: 'compel', oneLiner: 'To force.' },
-    { id: 'i2', word: 'persist', oneLiner: 'To continue.' },
+    { id: 'i1', word: 'compel', oneLiner: 'To force.', example: 'Rules compel drivers to stop.' },
+    { id: 'i2', word: 'persist', oneLiner: 'To continue.', example: 'Symptoms may persist for days.' },
   ],
   hard: [
-    { id: 'h1', word: 'ephemeral', oneLiner: 'Short-lived.' },
-    { id: 'h2', word: 'laconic', oneLiner: 'Using few words.' },
+    {
+      id: 'h1',
+      word: 'ephemeral',
+      oneLiner: 'Short-lived.',
+      example: 'Fame can be ephemeral in sports.',
+    },
+    {
+      id: 'h2',
+      word: 'laconic',
+      oneLiner: 'Using few words.',
+      example: 'His laconic reply ended the debate.',
+    },
   ],
 };
 
@@ -26,8 +36,14 @@ describe('ensureTodaysWord', () => {
       wordId: 'b2',
       word: 'quick',
       oneLiner: 'Moving fast.',
+      example: 'A quick lunch kept him going.',
       byLevel: {
-        beginner: { wordId: 'b2', word: 'quick', oneLiner: 'Moving fast.' },
+        beginner: {
+          wordId: 'b2',
+          word: 'quick',
+          oneLiner: 'Moving fast.',
+          example: 'A quick lunch kept him going.',
+        },
       },
     };
     const randomInt = vi.fn(() => 0);
@@ -40,6 +56,7 @@ describe('ensureTodaysWord', () => {
       timeZone: 'UTC',
     });
     expect(next.state.wordId).toBe('b2');
+    expect(next.state.example).toContain('quick');
     expect(next.shownYearByWordId.b2).toBe(6);
     expect(randomInt).not.toHaveBeenCalled();
   });
@@ -51,8 +68,14 @@ describe('ensureTodaysWord', () => {
       wordId: 'b1',
       word: 'happy',
       oneLiner: 'Feeling joy.',
+      example: 'She felt happy after the call.',
       byLevel: {
-        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
+        beginner: {
+          wordId: 'b1',
+          word: 'happy',
+          oneLiner: 'Feeling joy.',
+          example: 'She felt happy after the call.',
+        },
       },
     };
     const next = ensureTodaysWord({
@@ -65,6 +88,7 @@ describe('ensureTodaysWord', () => {
     });
     expect(next.state.level).toBe('hard');
     expect(next.state.wordId).toBe('h2');
+    expect(next.state.example).toContain('laconic');
     expect(next.state.byLevel.beginner?.wordId).toBe('b1');
     expect(next.shownYearByWordId.h2).toBe(6);
   });
@@ -76,9 +100,20 @@ describe('ensureTodaysWord', () => {
       wordId: 'h2',
       word: 'laconic',
       oneLiner: 'Using few words.',
+      example: 'His laconic reply ended the debate.',
       byLevel: {
-        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
-        hard: { wordId: 'h2', word: 'laconic', oneLiner: 'Using few words.' },
+        beginner: {
+          wordId: 'b1',
+          word: 'happy',
+          oneLiner: 'Feeling joy.',
+          example: 'She felt happy after the call.',
+        },
+        hard: {
+          wordId: 'h2',
+          word: 'laconic',
+          oneLiner: 'Using few words.',
+          example: 'His laconic reply ended the debate.',
+        },
       },
     };
     const randomInt = vi.fn(() => 2);
@@ -114,7 +149,14 @@ describe('ensureTodaysWord', () => {
       catalog,
       packs: {
         v1: catalog.beginner,
-        v2: [{ id: 'b9', word: 'zesty', oneLiner: 'Full of energy.' }],
+        v2: [
+          {
+            id: 'b9',
+            word: 'zesty',
+            oneLiner: 'Full of energy.',
+            example: 'A zesty salad woke up the meal.',
+          },
+        ],
       },
       shownYearByWordId: { b1: 6, b2: 6, b3: 5 },
       state: null,
@@ -132,11 +174,13 @@ describe('ensureTodaysWord', () => {
       wordId: 'i0038',
       word: 'intermediate-word-38',
       oneLiner: 'Practice intermediate word number 38.',
+      example: '',
       byLevel: {
         intermediate: {
           wordId: 'i0038',
           word: 'intermediate-word-38',
           oneLiner: 'Practice intermediate word number 38.',
+          example: '',
         },
       },
     };
@@ -149,5 +193,33 @@ describe('ensureTodaysWord', () => {
       timeZone: 'UTC',
     });
     expect(next.state.word).toBe('persist');
+  });
+
+  it('hydrates example from catalog when locked state omits it', () => {
+    const state: DailyState = {
+      level: 'beginner',
+      localDate: '2026-07-16',
+      wordId: 'b2',
+      word: 'quick',
+      oneLiner: 'Moving fast.',
+      example: '',
+      byLevel: {
+        beginner: {
+          wordId: 'b2',
+          word: 'quick',
+          oneLiner: 'Moving fast.',
+          example: '',
+        },
+      },
+    };
+    const next = ensureTodaysWord({
+      level: 'beginner',
+      catalog,
+      state,
+      now: new Date('2026-07-16T15:00:00.000Z'),
+      randomInt: vi.fn(() => 0),
+      timeZone: 'UTC',
+    });
+    expect(next.state.example).toBe('A quick lunch kept him going.');
   });
 });

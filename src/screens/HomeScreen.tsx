@@ -58,6 +58,7 @@ function snapshotToState(snapshot: DailySnapshot): DailyState | null {
     wordId: snapshot.wordId,
     word: snapshot.word,
     oneLiner: snapshot.oneLiner,
+    example: '',
   };
   return {
     level: snapshot.level,
@@ -65,6 +66,7 @@ function snapshotToState(snapshot: DailySnapshot): DailyState | null {
     wordId: snapshot.wordId,
     word: snapshot.word,
     oneLiner: snapshot.oneLiner,
+    example: '',
     byLevel: { [snapshot.level]: locked },
   };
 }
@@ -346,6 +348,11 @@ export function HomeScreen({ onOpenHistory, onShownChange }: Props) {
                 <Text style={[styles.oneLiner, { color: colors.tip }]}>
                   {today.oneLiner}
                 </Text>
+                {today.example ? (
+                  <Text style={[styles.example, { color: colors.inkMuted }]}>
+                    {today.example}
+                  </Text>
+                ) : null}
               </>
             ) : (
               <Text style={[styles.empty, { color: colors.inkMuted }]}>
@@ -459,6 +466,13 @@ const styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 25,
     fontFamily: fonts.body,
+  },
+  example: {
+    marginTop: 12,
+    fontSize: 15,
+    lineHeight: 22,
+    fontFamily: fonts.body,
+    fontStyle: 'italic',
   },
   empty: {
     fontSize: 17,

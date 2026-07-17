@@ -1,4 +1,8 @@
 import { z } from 'zod';
+import {
+  EXAMPLE_MAX,
+  isBrokenExample,
+} from './exampleQuality';
 import { ESL_DENYLIST, ONE_LINER_MIN, isBrokenOneLiner } from './oneLinerQuality';
 
 export const LEVELS = ['beginner', 'intermediate', 'hard'] as const;
@@ -6,11 +10,13 @@ export type Level = (typeof LEVELS)[number];
 
 export const ONE_LINER_MAX = 80;
 export const STRICT_WORD_COUNT = 1000;
+export { EXAMPLE_MAX };
 
 export const WordEntrySchema = z.object({
   id: z.string().min(1),
   word: z.string().min(1),
   oneLiner: z.string().min(1).max(ONE_LINER_MAX),
+  example: z.string().min(1).max(EXAMPLE_MAX),
 });
 
 export const CatalogSchema = z.object({
@@ -81,6 +87,12 @@ export function validateCatalog(
         issues.push({
           path: `words[${index}].oneLiner`,
           message: `broken or truncated oneLiner for "${entry.word}"`,
+        });
+      }
+      if (isBrokenExample(entry.word, entry.example)) {
+        issues.push({
+          path: `words[${index}].example`,
+          message: `invalid example for "${entry.word}"`,
         });
       }
       if (

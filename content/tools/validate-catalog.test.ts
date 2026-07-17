@@ -9,8 +9,8 @@ const sample = (overrides: Partial<Catalog> = {}): Catalog => ({
   version: 1,
   level: 'beginner',
   words: [
-    { id: 'b1', word: 'happy', oneLiner: 'Feeling joy or pleasure.' },
-    { id: 'b2', word: 'quick', oneLiner: 'Moving with speed.' },
+    { id: 'b1', word: 'happy', oneLiner: 'Feeling joy or pleasure.', example: 'She felt happy all morning.' },
+    { id: 'b2', word: 'quick', oneLiner: 'Moving with speed.', example: 'A quick walk cleared his mind.' },
   ],
   ...overrides,
 });
@@ -24,8 +24,8 @@ describe('validateCatalog', () => {
     const issues = validateCatalog(
       sample({
         words: [
-          { id: 'b1', word: 'happy', oneLiner: 'Feeling joy or pleasure.' },
-          { id: 'b1', word: 'quick', oneLiner: 'Moving with speed.' },
+          { id: 'b1', word: 'happy', oneLiner: 'Feeling joy or pleasure.', example: 'She felt happy all morning.' },
+          { id: 'b1', word: 'quick', oneLiner: 'Moving with speed.', example: 'A quick walk cleared his mind.' },
         ],
       }),
       'beginner',
@@ -37,8 +37,8 @@ describe('validateCatalog', () => {
     const issues = validateCatalog(
       sample({
         words: [
-          { id: 'b1', word: 'happy', oneLiner: 'Feeling joy or pleasure.' },
-          { id: 'b2', word: 'happy', oneLiner: 'Feeling glad.' },
+          { id: 'b1', word: 'happy', oneLiner: 'Feeling joy or pleasure.', example: 'She felt happy all morning.' },
+          { id: 'b2', word: 'happy', oneLiner: 'Feeling glad.', example: 'They were happy with the news.' },
         ],
       }),
       'beginner',
@@ -50,7 +50,7 @@ describe('validateCatalog', () => {
     const long = 'x'.repeat(81);
     const issues = validateCatalog(
       sample({
-        words: [{ id: 'b1', word: 'long', oneLiner: long }],
+        words: [{ id: 'b1', word: 'long', oneLiner: long, example: 'The long road wound through hills.' }],
       }),
       'beginner',
     );
@@ -75,6 +75,7 @@ describe('validateCatalog', () => {
             id: 'b1',
             word: 'present',
             oneLiner: 'He bestowed public buildings in return for votes..',
+            example: 'They present the award tonight.',
           },
         ],
       }),
@@ -89,15 +90,32 @@ describe('validateCatalog', () => {
       {
         version: 1,
         level: 'intermediate',
-        words: [{ id: 'i1', word: 'dog', oneLiner: 'Informal term for a man.' }],
+        words: [{ id: 'i1', word: 'dog', oneLiner: 'Informal term for a man.', example: 'That dog ran across the yard.' }],
       },
       'intermediate',
       { quality: true },
     );
     expect(issues.some((i) => i.message.includes('ESL-basic'))).toBe(true);
   });
-});
 
+  it('quality mode rejects example missing the lemma', () => {
+    const issues = validateCatalog(
+      sample({
+        words: [
+          {
+            id: 'b1',
+            word: 'happy',
+            oneLiner: 'Feeling joy or pleasure.',
+            example: 'She smiled all afternoon.',
+          },
+        ],
+      }),
+      'beginner',
+      { quality: true },
+    );
+    expect(issues.some((i) => i.path.includes('example'))).toBe(true);
+  });
+});
 describe('validateNoCrossLevelOverlaps', () => {
   it('flags the same lemma in two levels', () => {
     const issues = validateNoCrossLevelOverlaps({
@@ -105,12 +123,12 @@ describe('validateNoCrossLevelOverlaps', () => {
       intermediate: {
         version: 1,
         level: 'intermediate',
-        words: [{ id: 'i1', word: 'happy', oneLiner: 'Feeling joy or pleasure.' }],
+        words: [{ id: 'i1', word: 'happy', oneLiner: 'Feeling joy or pleasure.', example: 'She felt happy all morning.' }],
       },
       hard: {
         version: 1,
         level: 'hard',
-        words: [{ id: 'h1', word: 'ephemeral', oneLiner: 'Lasting a very short time.' }],
+        words: [{ id: 'h1', word: 'ephemeral', oneLiner: 'Lasting a very short time.', example: 'Fame can be ephemeral online.' }],
       },
     });
     expect(issues.some((i) => i.message.includes('happy'))).toBe(true);
