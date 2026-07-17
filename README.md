@@ -37,6 +37,7 @@ npm run content:build-intermediate-hard
 Catalog notes: `content/words/README.md`.
 
 App Store submission notes: `docs/app-store-review-notes.md`.
+CI / TestFlight release: `docs/ci-cd.md`.
 
 ## Where you can run what
 
