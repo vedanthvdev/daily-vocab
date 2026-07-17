@@ -56,5 +56,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ],
   extra: {
     splashBackground: '#F7F3EA',
+    eas: {
+      projectId: 'af5bc403-7c2e-4c6f-8f5e-5b2d52cde2a0',
+    },
   },
 });
