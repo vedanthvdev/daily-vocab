@@ -222,4 +222,36 @@ describe('ensureTodaysWord', () => {
     });
     expect(next.state.example).toBe('A quick lunch kept him going.');
   });
+
+  it('re-rolls when a locked word no longer belongs to the selected level', () => {
+    // Simulates a re-tier: lemma moved from hard → intermediate, but Hard still
+    // has yesterday's lock for that wordId.
+    const state: DailyState = {
+      level: 'hard',
+      localDate: '2026-07-16',
+      wordId: 'i2',
+      word: 'persist',
+      oneLiner: 'To continue.',
+      example: 'Symptoms may persist for days.',
+      byLevel: {
+        hard: {
+          wordId: 'i2',
+          word: 'persist',
+          oneLiner: 'To continue.',
+          example: 'Symptoms may persist for days.',
+        },
+      },
+    };
+    const next = ensureTodaysWord({
+      level: 'hard',
+      catalog,
+      state,
+      now: new Date('2026-07-16T12:00:00.000Z'),
+      randomInt: () => 0,
+      timeZone: 'UTC',
+    });
+    expect(next.state.level).toBe('hard');
+    expect(next.state.wordId).toBe('h1');
+    expect(catalog.hard.some((w) => w.id === next.state.wordId)).toBe(true);
+  });
 });
