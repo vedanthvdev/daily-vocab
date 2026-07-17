@@ -139,54 +139,65 @@ export function HomeScreen({ onOpenHistory }: Props) {
         }
 
         if (!preference && nativeToday) {
-          const stamped = ensureTodaysWord({
-            level: nativeToday.level,
-            catalog: catalogs,
-            packs: packsForLevel(nativeToday.level),
-            shownYearByWordId: savedShown,
-            state: nativeToday,
-            now: new Date(),
-            randomInt,
-          });
-          setLevel(nativeToday.level);
-          setToday(stamped.state);
-          setShown(stamped.shownYearByWordId);
-          await Promise.all([
-            saveLevel(nativeToday.level),
-            saveDailyState(stamped.state),
-            saveShownYearByWordId(stamped.shownYearByWordId),
-            syncShownYears(stamped.shownYearByWordId),
-            syncWidgetState({
-              state: stamped.state,
+          try {
+            const stamped = ensureTodaysWord({
               level: nativeToday.level,
-              reload: false,
-            }),
-          ]);
+              catalog: catalogs,
+              packs: packsForLevel(nativeToday.level),
+              shownYearByWordId: savedShown,
+              state: nativeToday,
+              now: new Date(),
+              randomInt,
+            });
+            setLevel(nativeToday.level);
+            setToday(stamped.state);
+            setShown(stamped.shownYearByWordId);
+            await Promise.all([
+              saveLevel(nativeToday.level),
+              saveDailyState(stamped.state),
+              saveShownYearByWordId(stamped.shownYearByWordId),
+              syncShownYears(stamped.shownYearByWordId),
+              syncWidgetState({
+                state: stamped.state,
+                level: nativeToday.level,
+                reload: false,
+              }),
+            ]);
+          } catch {
+            setShown(savedShown);
+          }
           return;
         }
 
         if (!preference) return;
 
-        const next = ensureTodaysWord({
-          level: preference,
-          catalog: catalogs,
-          packs: packsForLevel(preference),
-          shownYearByWordId: savedShown,
-          state: prior,
-          now: new Date(),
-          randomInt,
-        });
-        if (cancelled) return;
-        setLevel(preference);
-        setToday(next.state);
-        setShown(next.shownYearByWordId);
-        await Promise.all([
-          saveDailyState(next.state),
-          saveLevel(preference),
-          saveShownYearByWordId(next.shownYearByWordId),
-          syncShownYears(next.shownYearByWordId),
-          syncWidgetState({ state: next.state, level: preference, reload: true }),
-        ]);
+        try {
+          const next = ensureTodaysWord({
+            level: preference,
+            catalog: catalogs,
+            packs: packsForLevel(preference),
+            shownYearByWordId: savedShown,
+            state: prior,
+            now: new Date(),
+            randomInt,
+          });
+          if (cancelled) return;
+          setLevel(preference);
+          setToday(next.state);
+          setShown(next.shownYearByWordId);
+          await Promise.all([
+            saveDailyState(next.state),
+            saveLevel(preference),
+            saveShownYearByWordId(next.shownYearByWordId),
+            syncShownYears(next.shownYearByWordId),
+            syncWidgetState({ state: next.state, level: preference, reload: true }),
+          ]);
+        } catch {
+          setLevel(preference);
+          setShown(savedShown);
+        }
+      } catch {
+        setShown({});
       } finally {
         if (!cancelled) setReady(true);
       }
@@ -232,6 +243,7 @@ export function HomeScreen({ onOpenHistory }: Props) {
             reload: true,
           }),
         ]);
+      } catch {
       } finally {
         setBusy(false);
       }
@@ -317,6 +329,9 @@ export function HomeScreen({ onOpenHistory }: Props) {
           </View>
 
           <Text style={[styles.tip, { color: colors.inkMuted }]}>{tip}</Text>
+          <Text style={[styles.privacy, { color: colors.inkMuted }]}>
+            Privacy: words and progress stay on this device. Nothing is uploaded.
+          </Text>
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
@@ -414,6 +429,12 @@ const styles = StyleSheet.create({
     marginTop: 28,
     fontSize: 13,
     lineHeight: 19,
+    fontFamily: fonts.body,
+  },
+  privacy: {
+    marginTop: 14,
+    fontSize: 12,
+    lineHeight: 18,
     fontFamily: fonts.body,
   },
 });

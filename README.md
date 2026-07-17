@@ -36,6 +36,8 @@ npm run content:build-intermediate-hard
 
 Catalog notes: `content/words/README.md`.
 
+App Store submission notes: `docs/app-store-review-notes.md`.
+
 ## Where you can run what
 
 | Environment | What works |

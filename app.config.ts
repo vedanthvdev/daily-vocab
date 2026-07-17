@@ -21,6 +21,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     supportsTablet: true,
     bundleIdentifier: 'com.dailyvocab.app',
     ...(appleTeamId ? { appleTeamId } : {}),
+    infoPlist: {
+      ITSAppUsesNonExemptEncryption: false,
+    },
     entitlements: {
       'com.apple.security.application-groups': ['group.com.dailyvocab.app'],
     },
@@ -37,7 +40,20 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   web: {
     favicon: './assets/favicon.png',
   },
-  plugins: ['expo-font', 'expo-audio', 'expo-asset', '@bacons/apple-targets'],
+  plugins: [
+    'expo-font',
+    [
+      'expo-audio',
+      {
+        microphonePermission: false,
+        recordAudioAndroid: false,
+        enableBackgroundPlayback: false,
+        enableBackgroundRecording: false,
+      },
+    ],
+    'expo-asset',
+    '@bacons/apple-targets',
+  ],
   extra: {
     splashBackground: '#F7F3EA',
   },
