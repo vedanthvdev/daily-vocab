@@ -28,7 +28,13 @@ enum DailyWordStore {
   static let shownKey = "shownYearByWordId"
 
   static var defaults: UserDefaults {
+    // Prefer the App Group; never invent Beginner locks into .standard.
+    // Reads may fall back so a misconfigured extension still renders a placeholder.
     UserDefaults(suiteName: suiteName) ?? .standard
+  }
+
+  static var groupDefaults: UserDefaults? {
+    UserDefaults(suiteName: suiteName)
   }
 
   static func localDateString(now: Date = Date(), timeZone: TimeZone = .current) -> String {
@@ -62,6 +68,7 @@ enum DailyWordStore {
   }
 
   static func saveShownYears(_ map: [String: Int]) {
+    guard let defaults = groupDefaults else { return }
     guard let data = try? JSONSerialization.data(withJSONObject: map),
           let json = String(data: data, encoding: .utf8) else { return }
     defaults.set(json, forKey: shownKey)
@@ -75,6 +82,7 @@ enum DailyWordStore {
   }
 
   static func saveSnapshot(_ snapshot: DailySnapshot) {
+    guard let defaults = groupDefaults else { return }
     guard let data = try? JSONEncoder().encode(snapshot),
           let json = String(data: data, encoding: .utf8) else { return }
     defaults.set(json, forKey: snapshotKey)
@@ -151,7 +159,10 @@ enum DailyWordStore {
       saveShownYears(shown)
       return existing
     }
-    let level = defaults.string(forKey: levelKey) ?? existing?.level ?? "beginner"
+    // Do not invent a Beginner lock before the user picks a level in the app.
+    guard let level = defaults.string(forKey: levelKey) ?? existing?.level else {
+      return nil
+    }
     let words = loadCatalog(level: level, bundle: bundle)
     guard let next = ensureTodaysWord(level: level, words: words, state: existing, now: now) else {
       return existing

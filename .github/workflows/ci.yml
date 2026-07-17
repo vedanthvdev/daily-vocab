@@ -36,4 +36,9 @@ jobs:
         run: npm test
 
       - name: Validate content catalogs
-        run: npm run content:validate
+        run: npm run content:validate:strict
+
+      - name: Verify widget content sync
+        run: |
+          npm run content:sync
+          git diff --exit-code -- content/words targets/DayinkWidget/assets modules/widget-bridge/android/src/main/assets/words

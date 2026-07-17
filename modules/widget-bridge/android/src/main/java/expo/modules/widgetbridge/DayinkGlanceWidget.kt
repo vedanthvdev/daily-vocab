@@ -25,7 +25,8 @@ class DayinkGlanceWidget : GlanceAppWidget() {
     val snapshot = DailyWordStore.resolveForWidget(context)
     val word = snapshot?.word ?: "Dayink"
     val oneLiner = snapshot?.oneLiner ?: "Open the app and pick a level"
-    val level = snapshot?.level ?: "beginner"
+    val level = snapshot?.level
+    val levelLabel = level?.uppercase() ?: "TODAY"
 
     val dayPanel = Color(0xE6E6EDE0)
     val nightPanel = Color(0xE01F2824)
@@ -36,12 +37,14 @@ class DayinkGlanceWidget : GlanceAppWidget() {
     val dayAccent = when (level) {
       "intermediate" -> Color(0xFFE0A278)
       "hard" -> Color(0xFFE0909C)
-      else -> Color(0xFF7BC4A0)
+      "beginner" -> Color(0xFF7BC4A0)
+      else -> Color(0xFF8A9A90)
     }
     val nightAccent = when (level) {
       "intermediate" -> Color(0xFFEBB892)
       "hard" -> Color(0xFFE6A0AA)
-      else -> Color(0xFFA8D4B4)
+      "beginner" -> Color(0xFFA8D4B4)
+      else -> Color(0xFFB7C2B9)
     }
 
     provideContent {
@@ -54,7 +57,7 @@ class DayinkGlanceWidget : GlanceAppWidget() {
         horizontalAlignment = Alignment.Start,
       ) {
         Text(
-          text = level.uppercase(),
+          text = levelLabel,
           style = TextStyle(
             fontWeight = FontWeight.Bold,
             fontSize = 11.sp,

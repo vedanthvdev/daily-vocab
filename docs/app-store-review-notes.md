@@ -35,7 +35,7 @@ Catalogs are enrichment vocabulary for teens/adults learning English. Prefer **1
 
 ## Build checklist
 
-1. `npm test` and `npm run content:validate`
+1. `npm test` and `npm run content:validate:strict`
 2. `npm run content:sync`
 3. Fresh iOS prebuild with Apple Team ID
 4. Confirm widget target is in the archive

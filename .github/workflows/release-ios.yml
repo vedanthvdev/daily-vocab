@@ -36,7 +36,7 @@ jobs:
         run: npm test
 
       - name: Validate content catalogs
-        run: npm run content:validate
+        run: npm run content:validate:strict
 
   ios-testflight:
     name: ios-testflight

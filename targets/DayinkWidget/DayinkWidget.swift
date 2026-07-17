@@ -35,7 +35,7 @@ struct DayinkProvider: TimelineProvider {
       date: date,
       word: snapshot?.word ?? "Dayink",
       oneLiner: snapshot?.oneLiner ?? "Pick a level in the app",
-      level: snapshot?.level ?? "beginner"
+      level: snapshot?.level ?? ""
     )
   }
 }
@@ -124,9 +124,11 @@ struct DayinkWidgetView: View {
       }
     default:
       VStack(alignment: .leading, spacing: 7) {
-        Text(levelLabel)
-          .font(.system(.caption2, design: .rounded).weight(.bold))
-          .foregroundStyle(levelTint)
+        if !entry.level.isEmpty {
+          Text(levelLabel)
+            .font(.system(.caption2, design: .rounded).weight(.bold))
+            .foregroundStyle(levelTint)
+        }
         Text(entry.word)
           .font(.system(.title2, design: .serif).weight(.bold))
           .foregroundStyle(primaryText)
