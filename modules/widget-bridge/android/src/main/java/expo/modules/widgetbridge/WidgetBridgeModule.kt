@@ -1,15 +1,24 @@
 package expo.modules.widgetbridge
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
+import android.speech.tts.TextToSpeech
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 import org.json.JSONObject
+import java.util.Locale
 
 class WidgetBridgeModule : Module() {
   private val prefsName = "dayink_widget"
   private val snapshotKey = "dailySnapshot"
   private val levelKey = "activeLevel"
   private val shownKey = "shownYearByWordId"
+  private val mainHandler = Handler(Looper.getMainLooper())
+
+  private var tts: TextToSpeech? = null
+  private var ttsReady = false
+  private var pendingSpeak: Pair<String, String?>? = null
 
   override fun definition() = ModuleDefinition {
     Name("WidgetBridge")
@@ -76,5 +85,73 @@ class WidgetBridgeModule : Module() {
       val context = appContext.reactContext ?: return@AsyncFunction
       DayinkWidgetUpdater.requestUpdate(context)
     }
+
+    AsyncFunction("speakWord") { text: String, language: String? ->
+      val context = appContext.reactContext ?: return@AsyncFunction
+      val trimmed = text.trim()
+      if (trimmed.isEmpty()) return@AsyncFunction
+      runOnMain {
+        ensureTts(context)
+        if (ttsReady) {
+          doSpeak(trimmed, language)
+        } else {
+          pendingSpeak = trimmed to language
+        }
+      }
+    }
+
+    AsyncFunction("stopSpeaking") {
+      runOnMain {
+        pendingSpeak = null
+        tts?.stop()
+      }
+    }
+
+    OnDestroy {
+      runOnMain {
+        tts?.shutdown()
+        tts = null
+        ttsReady = false
+        pendingSpeak = null
+      }
+    }
+  }
+
+  private fun runOnMain(block: () -> Unit) {
+    if (Looper.myLooper() == Looper.getMainLooper()) {
+      block()
+    } else {
+      mainHandler.post(block)
+    }
+  }
+
+  private fun ensureTts(context: Context) {
+    if (tts != null) return
+    tts = TextToSpeech(context.applicationContext) { status ->
+      runOnMain {
+        ttsReady = status == TextToSpeech.SUCCESS
+        val pending = pendingSpeak
+        pendingSpeak = null
+        if (ttsReady && pending != null) {
+          doSpeak(pending.first, pending.second)
+        }
+      }
+    }
+  }
+
+  private fun doSpeak(text: String, language: String?) {
+    val engine = tts ?: return
+    val locale = when {
+      language?.startsWith("en-GB", ignoreCase = true) == true -> Locale.UK
+      language?.startsWith("en-US", ignoreCase = true) == true -> Locale.US
+      language?.startsWith("en", ignoreCase = true) == true -> Locale.US
+      else -> Locale.UK
+    }
+    val result = engine.setLanguage(locale)
+    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+      engine.language = Locale.US
+    }
+    engine.setSpeechRate(0.9f)
+    engine.speak(text, TextToSpeech.QUEUE_FLUSH, null, "dayink-word")
   }
 }

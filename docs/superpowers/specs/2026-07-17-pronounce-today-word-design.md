@@ -26,7 +26,7 @@ Users learning vocabulary need to hear how today’s word is said. Dayink stays 
 
 | Topic | Choice |
 | --- | --- |
-| Engine | `expo-speech` → iOS `AVSpeechSynthesizer` / Android `TextToSpeech` |
+| Engine | WidgetBridge OS TTS (`AVSpeechSynthesizer` / Android `TextToSpeech`) — not `expo-speech` (native module failed to register in this Expo host) |
 | Scope | Home Today card only (when `today` is set) |
 | Utterance | The locked `today.word` string only |
 | Language | Prefer available `en-GB`, then `en-US`, else device default |
@@ -48,11 +48,11 @@ Users learning vocabulary need to hear how today’s word is said. Dayink stays 
 HomeScreen (today.word)
   → SpeakWordButton
   → speakWord(word)  // src/audio/speakWord.ts
-  → expo-speech Speech.speak / Speech.stop
+  → WidgetBridge.speakWord (on-device TTS)
 ```
 
-- Add dependency `expo-speech` (Expo SDK 57-compatible version).
-- No App Group / widget bridge changes.
+- Pronunciation uses the existing WidgetBridge native module (AVSpeechSynthesizer / Android TextToSpeech).
+- No App Group / widget timeline changes beyond optional future reuse.
 - No catalog schema changes.
 
 ## Privacy / Store
