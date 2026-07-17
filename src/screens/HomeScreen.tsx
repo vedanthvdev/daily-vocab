@@ -1,24 +1,28 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { playJelly } from '../audio/playJelly';
 import { BrandedLoader } from '../components/BrandedLoader';
 import { LevelButton } from '../components/LevelButton';
-import { catalogs } from '../domain/catalog';
+import { catalogs, packsForLevel } from '../domain/catalog';
 import { ensureTodaysWord } from '../domain/ensureTodaysWord';
 import { formatLocalDate } from '../domain/localDate';
+import type { ShownYearByWordId } from '../domain/shownYear';
 import type { DailyState, Level } from '../domain/types';
 import {
   readDailySnapshot,
+  syncShownYears,
   syncWidgetState,
   type DailySnapshot,
 } from '../native/widgetBridge';
 import {
   loadDailyState,
   loadLevel,
+  loadShownYearByWordId,
   saveDailyState,
   saveLevel,
+  saveShownYearByWordId,
 } from '../storage/appPreferences';
 import { fonts } from '../theme/typography';
 import { useThemeColors } from '../theme/useThemeColors';
@@ -93,21 +97,27 @@ function levelAccent(
   }
 }
 
-export function HomeScreen() {
+type Props = {
+  onOpenHistory: (shown: ShownYearByWordId) => void;
+};
+
+export function HomeScreen({ onOpenHistory }: Props) {
   const colors = useThemeColors();
   const [ready, setReady] = useState(false);
   const [level, setLevel] = useState<Level | null>(null);
   const [today, setToday] = useState<DailyState | null>(null);
+  const [shown, setShown] = useState<ShownYearByWordId>({});
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const [savedLevel, savedState, nativeSnapshot] = await Promise.all([
+        const [savedLevel, savedState, nativeSnapshot, savedShown] = await Promise.all([
           loadLevel(),
           loadDailyState(),
           readDailySnapshot(),
+          loadShownYearByWordId(),
         ]);
         if (cancelled) return;
 
@@ -124,17 +134,30 @@ export function HomeScreen() {
           savedLevel ?? nativeToday?.level ?? savedToday?.level ?? null;
 
         if (!preference && !nativeToday) {
+          setShown(savedShown);
           return;
         }
 
         if (!preference && nativeToday) {
+          const stamped = ensureTodaysWord({
+            level: nativeToday.level,
+            catalog: catalogs,
+            packs: packsForLevel(nativeToday.level),
+            shownYearByWordId: savedShown,
+            state: nativeToday,
+            now: new Date(),
+            randomInt,
+          });
           setLevel(nativeToday.level);
-          setToday(nativeToday);
+          setToday(stamped.state);
+          setShown(stamped.shownYearByWordId);
           await Promise.all([
             saveLevel(nativeToday.level),
-            saveDailyState(nativeToday),
+            saveDailyState(stamped.state),
+            saveShownYearByWordId(stamped.shownYearByWordId),
+            syncShownYears(stamped.shownYearByWordId),
             syncWidgetState({
-              state: nativeToday,
+              state: stamped.state,
               level: nativeToday.level,
               reload: false,
             }),
@@ -147,17 +170,22 @@ export function HomeScreen() {
         const next = ensureTodaysWord({
           level: preference,
           catalog: catalogs,
+          packs: packsForLevel(preference),
+          shownYearByWordId: savedShown,
           state: prior,
           now: new Date(),
           randomInt,
         });
         if (cancelled) return;
         setLevel(preference);
-        setToday(next);
+        setToday(next.state);
+        setShown(next.shownYearByWordId);
         await Promise.all([
-          saveDailyState(next),
+          saveDailyState(next.state),
           saveLevel(preference),
-          syncWidgetState({ state: next, level: preference, reload: true }),
+          saveShownYearByWordId(next.shownYearByWordId),
+          syncShownYears(next.shownYearByWordId),
+          syncWidgetState({ state: next.state, level: preference, reload: true }),
         ]);
       } finally {
         if (!cancelled) setReady(true);
@@ -173,25 +201,33 @@ export function HomeScreen() {
       if (busy) return;
       setBusy(true);
       try {
-        const prior = await loadDailyState();
+        const [prior, savedShown] = await Promise.all([
+          loadDailyState(),
+          loadShownYearByWordId(),
+        ]);
         const rolled = ensureTodaysWord({
           level: nextLevel,
           catalog: catalogs,
+          packs: packsForLevel(nextLevel),
+          shownYearByWordId: savedShown,
           state: prior,
           now: new Date(),
           randomInt,
         });
         const levelChanged = level !== nextLevel;
         setLevel(nextLevel);
-        setToday(rolled);
+        setToday(rolled.state);
+        setShown(rolled.shownYearByWordId);
         if (levelChanged) {
           void playJelly();
         }
         await Promise.all([
           saveLevel(nextLevel),
-          saveDailyState(rolled),
+          saveDailyState(rolled.state),
+          saveShownYearByWordId(rolled.shownYearByWordId),
+          syncShownYears(rolled.shownYearByWordId),
           syncWidgetState({
-            state: rolled,
+            state: rolled.state,
             level: nextLevel,
             reload: true,
           }),
@@ -228,7 +264,12 @@ export function HomeScreen() {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
-          <Text style={[styles.brand, { color: colors.ink }]}>Daily Vocab</Text>
+          <View style={styles.topRow}>
+            <Text style={[styles.brand, { color: colors.ink }]}>Daily Vocab</Text>
+            <Pressable onPress={() => onOpenHistory(shown)} hitSlop={10}>
+              <Text style={[styles.historyLink, { color: colors.inkMuted }]}>History</Text>
+            </Pressable>
+          </View>
           <Text style={[styles.subtitle, { color: colors.inkMuted }]}>
             One word a day. Pick your pace.
           </Text>
@@ -296,10 +337,21 @@ const styles = StyleSheet.create({
     paddingTop: 24,
     paddingBottom: 36,
   },
+  topRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
   brand: {
     fontSize: 40,
     fontFamily: fonts.display,
     letterSpacing: -1,
+    flexShrink: 1,
+  },
+  historyLink: {
+    fontSize: 15,
+    fontFamily: fonts.bodySemi,
   },
   subtitle: {
     marginTop: 8,

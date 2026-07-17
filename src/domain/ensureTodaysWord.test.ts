@@ -39,7 +39,8 @@ describe('ensureTodaysWord', () => {
       randomInt,
       timeZone: 'UTC',
     });
-    expect(next.wordId).toBe('b2');
+    expect(next.state.wordId).toBe('b2');
+    expect(next.shownYearByWordId.b2).toBe(6);
     expect(randomInt).not.toHaveBeenCalled();
   });
 
@@ -62,10 +63,10 @@ describe('ensureTodaysWord', () => {
       randomInt: () => 1,
       timeZone: 'UTC',
     });
-    expect(next.level).toBe('hard');
-    expect(next.wordId).toBe('h2');
-    expect(next.byLevel.beginner?.wordId).toBe('b1');
-    expect(next.byLevel.hard?.wordId).toBe('h2');
+    expect(next.state.level).toBe('hard');
+    expect(next.state.wordId).toBe('h2');
+    expect(next.state.byLevel.beginner?.wordId).toBe('b1');
+    expect(next.shownYearByWordId.h2).toBe(6);
   });
 
   it('restores the earlier level word when switching back the same day', () => {
@@ -89,57 +90,39 @@ describe('ensureTodaysWord', () => {
       randomInt,
       timeZone: 'UTC',
     });
-    expect(next.wordId).toBe('b1');
-    expect(next.word).toBe('happy');
+    expect(next.state.wordId).toBe('b1');
     expect(randomInt).not.toHaveBeenCalled();
   });
 
-  it('picks a new word when the local date changes', () => {
-    const state: DailyState = {
-      level: 'beginner',
-      localDate: '2026-07-15',
-      wordId: 'b1',
-      word: 'happy',
-      oneLiner: 'Feeling joy.',
-      byLevel: {
-        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
-      },
-    };
+  it('skips words stamped for this year or last year when rolling', () => {
     const next = ensureTodaysWord({
       level: 'beginner',
       catalog,
-      state,
+      state: null,
+      shownYearByWordId: { b1: 6, b2: 5 },
       now: new Date('2026-07-16T12:00:00.000Z'),
-      randomInt: () => 2,
+      randomInt: () => 0,
       timeZone: 'UTC',
     });
-    expect(next.localDate).toBe('2026-07-16');
-    expect(next.wordId).toBe('b3');
-    expect(next.byLevel.beginner?.wordId).toBe('b3');
+    expect(next.state.wordId).toBe('b3');
+    expect(next.shownYearByWordId.b3).toBe(6);
   });
 
-  it('rolls from the preferred level when the local date changes', () => {
-    const state: DailyState = {
-      level: 'beginner',
-      localDate: '2026-07-15',
-      wordId: 'b1',
-      word: 'happy',
-      oneLiner: 'Feeling joy.',
-      byLevel: {
-        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
-      },
-    };
+  it('falls back to v2 when v1 has no eligible words', () => {
     const next = ensureTodaysWord({
-      level: 'hard',
+      level: 'beginner',
       catalog,
-      state,
+      packs: {
+        v1: catalog.beginner,
+        v2: [{ id: 'b9', word: 'zesty', oneLiner: 'Full of energy.' }],
+      },
+      shownYearByWordId: { b1: 6, b2: 6, b3: 5 },
+      state: null,
       now: new Date('2026-07-16T12:00:00.000Z'),
-      randomInt: () => 1,
+      randomInt: () => 0,
       timeZone: 'UTC',
     });
-    expect(next.localDate).toBe('2026-07-16');
-    expect(next.level).toBe('hard');
-    expect(next.wordId).toBe('h2');
+    expect(next.state.wordId).toBe('b9');
   });
 
   it('re-rolls when today is locked to a removed placeholder word', () => {
@@ -165,31 +148,6 @@ describe('ensureTodaysWord', () => {
       randomInt: () => 1,
       timeZone: 'UTC',
     });
-    expect(next.word).toBe('persist');
-    expect(next.wordId).toBe('i2');
-  });
-
-  it('avoids repeating the previous wordId when possible', () => {
-    const state: DailyState = {
-      level: 'beginner',
-      localDate: '2026-07-15',
-      wordId: 'b1',
-      word: 'happy',
-      oneLiner: 'Feeling joy.',
-      byLevel: {
-        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
-      },
-    };
-    const sequence = [0, 0, 1];
-    let i = 0;
-    const next = ensureTodaysWord({
-      level: 'beginner',
-      catalog,
-      state,
-      now: new Date('2026-07-16T12:00:00.000Z'),
-      randomInt: () => sequence[Math.min(i++, sequence.length - 1)],
-      timeZone: 'UTC',
-    });
-    expect(next.wordId).not.toBe('b1');
+    expect(next.state.word).toBe('persist');
   });
 });

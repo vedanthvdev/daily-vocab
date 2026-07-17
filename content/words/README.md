@@ -1,6 +1,6 @@
 # Word catalogs
 
-Each level file (`beginner.json`, `intermediate.json`, `hard.json`) holds exactly **1000** entries shaped as `{ id, word, oneLiner }` with `oneLiner` ≤ 80 characters.
+Each level file (`beginner.json`, `intermediate.json`, `hard.json`) holds exactly **1000** entries shaped as `{ id, word, oneLiner }` with `oneLiner` ≤ 80 characters. The top-level `words` array is pack **v1**; optional `packs.v2` can hold overflow for when v1 has no eligible words left (shown-year skip window).
 
 These lists grow English vocabulary — not teach English from scratch. Levels do not share headwords.
 

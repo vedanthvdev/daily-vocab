@@ -7,6 +7,7 @@ public class WidgetBridgeModule: Module {
   private let suiteName = "group.com.dailyvocab.app"
   private let snapshotKey = "dailySnapshot"
   private let levelKey = "activeLevel"
+  private let shownKey = "shownYearByWordId"
 
   public func definition() -> ModuleDefinition {
     Name("WidgetBridge")
@@ -36,6 +37,12 @@ public class WidgetBridgeModule: Module {
     AsyncFunction("setActiveLevel") { (level: String) in
       let defaults = UserDefaults(suiteName: self.suiteName) ?? .standard
       defaults.set(level, forKey: self.levelKey)
+      defaults.synchronize()
+    }
+
+    AsyncFunction("setShownYears") { (json: String) in
+      let defaults = UserDefaults(suiteName: self.suiteName) ?? .standard
+      defaults.set(json, forKey: self.shownKey)
       defaults.synchronize()
     }
 

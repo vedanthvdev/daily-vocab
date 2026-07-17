@@ -10,6 +10,7 @@ type WidgetBridgeNative = {
   setActiveLevel(level: string): Promise<void>;
   getDailySnapshot(): Promise<DailySnapshot | null>;
   reloadWidgets(): Promise<void>;
+  setShownYears?(json: string): Promise<void>;
 };
 
 const WidgetBridgeModule =

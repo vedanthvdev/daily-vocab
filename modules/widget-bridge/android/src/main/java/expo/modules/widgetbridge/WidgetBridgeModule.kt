@@ -9,6 +9,7 @@ class WidgetBridgeModule : Module() {
   private val prefsName = "dailyvocab_widget"
   private val snapshotKey = "dailySnapshot"
   private val levelKey = "activeLevel"
+  private val shownKey = "shownYearByWordId"
 
   override fun definition() = ModuleDefinition {
     Name("WidgetBridge")
@@ -46,6 +47,14 @@ class WidgetBridgeModule : Module() {
       context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
         .edit()
         .putString(levelKey, level)
+        .commit()
+    }
+
+    AsyncFunction("setShownYears") { json: String ->
+      val context = appContext.reactContext ?: return@AsyncFunction
+      context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
+        .edit()
+        .putString(shownKey, json)
         .commit()
     }
 

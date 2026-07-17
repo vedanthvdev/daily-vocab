@@ -41,6 +41,14 @@ export async function syncWidgetState(options: {
   }
 }
 
+export async function syncShownYears(shown: Record<string, number>): Promise<void> {
+  if (!WidgetBridgeModule?.setShownYears) return;
+  try {
+    await WidgetBridgeModule.setShownYears(JSON.stringify(shown));
+  } catch {
+  }
+}
+
 export async function pushDailySnapshot(state: DailyState): Promise<void> {
   await syncWidgetState({ state, reload: true });
 }
