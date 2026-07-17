@@ -1,12 +1,11 @@
 import type { ExpoConfig, ConfigContext } from 'expo/config';
 
 /**
- * Set EXPO_APPLE_TEAM_ID on your Mac (or put appleTeamId below) so
- * @bacons/apple-targets / Xcode signing can resolve your team.
- * Find it in Xcode → Settings → Accounts → Team ID (10 characters).
+ * Apple Team ID (Membership details on developer.apple.com).
+ * Override with EXPO_APPLE_TEAM_ID / APPLE_TEAM_ID if needed.
  */
 const appleTeamId =
-  process.env.EXPO_APPLE_TEAM_ID || process.env.APPLE_TEAM_ID || undefined;
+  process.env.EXPO_APPLE_TEAM_ID || process.env.APPLE_TEAM_ID || '5365T47XWN';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
@@ -21,7 +20,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ios: {
     supportsTablet: true,
     bundleIdentifier: 'com.dayink.app',
-    ...(appleTeamId ? { appleTeamId } : {}),
+    appleTeamId,
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
     },
