@@ -170,7 +170,7 @@ object DailyWordStore {
       saveShownYears(context, shown)
       return existing
     }
-    val level = prefs.getString(LEVEL_KEY, null) ?: existing?.level ?: "beginner"
+    val level = prefs.getString(LEVEL_KEY, null) ?: existing?.level ?: return null
     val words = loadCatalog(context, level)
     val next = ensureTodaysWord(context, level, words, existing) ?: return existing
     if (next.wordId != existing?.wordId || next.localDate != existing.localDate) {

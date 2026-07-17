@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { AppState, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { playJelly } from '../audio/playJelly';
@@ -7,7 +7,7 @@ import { BrandedLoader } from '../components/BrandedLoader';
 import { LevelButton } from '../components/LevelButton';
 import { catalogs, packsForLevel } from '../domain/catalog';
 import { ensureTodaysWord } from '../domain/ensureTodaysWord';
-import { formatLocalDate } from '../domain/localDate';
+import { formatLocalDate, msUntilNextLocalMidnight } from '../domain/localDate';
 import type { ShownYearByWordId } from '../domain/shownYear';
 import type { DailyState, Level } from '../domain/types';
 import {
@@ -98,124 +98,148 @@ function levelAccent(
 }
 
 type Props = {
-  onOpenHistory: (shown: ShownYearByWordId) => void;
+  onOpenHistory: () => void;
+  onShownChange: (shown: ShownYearByWordId) => void;
 };
 
-export function HomeScreen({ onOpenHistory }: Props) {
+export function HomeScreen({ onOpenHistory, onShownChange }: Props) {
   const colors = useThemeColors();
   const [ready, setReady] = useState(false);
   const [level, setLevel] = useState<Level | null>(null);
   const [today, setToday] = useState<DailyState | null>(null);
   const [shown, setShown] = useState<ShownYearByWordId>({});
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const localDateRef = useRef(formatLocalDate(new Date()));
+  const opGenRef = useRef(0);
+  const levelRef = useRef<Level | null>(null);
+  const todayRef = useRef<DailyState | null>(null);
+  const shownRef = useRef<ShownYearByWordId>({});
 
   useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const [savedLevel, savedState, nativeSnapshot, savedShown] = await Promise.all([
-          loadLevel(),
-          loadDailyState(),
-          readDailySnapshot(),
-          loadShownYearByWordId(),
-        ]);
-        if (cancelled) return;
+    levelRef.current = level;
+  }, [level]);
+  useEffect(() => {
+    todayRef.current = today;
+  }, [today]);
+  useEffect(() => {
+    shownRef.current = shown;
+    onShownChange(shown);
+  }, [shown, onShownChange]);
 
-        const todayStr = formatLocalDate(new Date());
-        const nativeToday =
-          nativeSnapshot && nativeSnapshot.localDate === todayStr
-            ? snapshotToState(nativeSnapshot)
-            : null;
-        const savedToday =
-          savedState?.localDate === todayStr ? savedState : null;
-        const prior =
-          mergeDailyStates(savedToday, nativeToday) ?? savedState ?? nativeToday;
-        const preference =
-          savedLevel ?? nativeToday?.level ?? savedToday?.level ?? null;
+  const bootstrap = useCallback(async (opts?: { quiet?: boolean }) => {
+    const gen = ++opGenRef.current;
+    try {
+      const [savedLevel, savedState, nativeSnapshot, savedShown] = await Promise.all([
+        loadLevel(),
+        loadDailyState(),
+        readDailySnapshot(),
+        loadShownYearByWordId(),
+      ]);
+      if (gen !== opGenRef.current) return;
 
-        if (!preference && !nativeToday) {
-          setShown(savedShown);
-          return;
-        }
+      const todayStr = formatLocalDate(new Date());
+      localDateRef.current = todayStr;
+      const nativeToday =
+        nativeSnapshot && nativeSnapshot.localDate === todayStr
+          ? snapshotToState(nativeSnapshot)
+          : null;
+      const savedToday = savedState?.localDate === todayStr ? savedState : null;
+      const prior =
+        mergeDailyStates(savedToday, nativeToday) ?? savedState ?? nativeToday;
+      // Only an explicit saved preference unlocks a day — widgets must not choose for the user.
+      const preference = savedLevel;
 
-        if (!preference && nativeToday) {
-          try {
-            const stamped = ensureTodaysWord({
-              level: nativeToday.level,
-              catalog: catalogs,
-              packs: packsForLevel(nativeToday.level),
-              shownYearByWordId: savedShown,
-              state: nativeToday,
-              now: new Date(),
-              randomInt,
-            });
-            setLevel(nativeToday.level);
-            setToday(stamped.state);
-            setShown(stamped.shownYearByWordId);
-            await Promise.all([
-              saveLevel(nativeToday.level),
-              saveDailyState(stamped.state),
-              saveShownYearByWordId(stamped.shownYearByWordId),
-              syncShownYears(stamped.shownYearByWordId),
-              syncWidgetState({
-                state: stamped.state,
-                level: nativeToday.level,
-                reload: false,
-              }),
-            ]);
-          } catch {
-            setShown(savedShown);
-          }
-          return;
-        }
-
-        if (!preference) return;
-
-        try {
-          const next = ensureTodaysWord({
-            level: preference,
-            catalog: catalogs,
-            packs: packsForLevel(preference),
-            shownYearByWordId: savedShown,
-            state: prior,
-            now: new Date(),
-            randomInt,
-          });
-          if (cancelled) return;
-          setLevel(preference);
-          setToday(next.state);
-          setShown(next.shownYearByWordId);
-          await Promise.all([
-            saveDailyState(next.state),
-            saveLevel(preference),
-            saveShownYearByWordId(next.shownYearByWordId),
-            syncShownYears(next.shownYearByWordId),
-            syncWidgetState({ state: next.state, level: preference, reload: true }),
-          ]);
-        } catch {
-          setLevel(preference);
-          setShown(savedShown);
-        }
-      } catch {
-        setShown({});
-      } finally {
-        if (!cancelled) setReady(true);
+      if (!preference) {
+        setLevel(null);
+        setToday(null);
+        setShown(savedShown);
+        setError(null);
+        return;
       }
-    })();
-    return () => {
-      cancelled = true;
-    };
+
+      const next = ensureTodaysWord({
+        level: preference,
+        catalog: catalogs,
+        packs: packsForLevel(preference),
+        shownYearByWordId: savedShown,
+        state: prior,
+        now: new Date(),
+        randomInt,
+      });
+      await Promise.all([
+        saveDailyState(next.state),
+        saveLevel(preference),
+        saveShownYearByWordId(next.shownYearByWordId),
+        syncShownYears(next.shownYearByWordId),
+        syncWidgetState({ state: next.state, level: preference, reload: true }),
+      ]);
+      if (gen !== opGenRef.current) return;
+      setLevel(preference);
+      setToday(next.state);
+      setShown(next.shownYearByWordId);
+      setError(null);
+    } catch {
+      if (gen !== opGenRef.current) return;
+      if (!opts?.quiet) {
+        setError('Couldn’t load today’s word. Try choosing a level again.');
+      }
+      // Keep last good in-memory history; never wipe on quiet overnight refresh.
+    } finally {
+      if (gen === opGenRef.current) {
+        setReady(true);
+      }
+    }
   }, []);
+
+  useEffect(() => {
+    void bootstrap();
+  }, [bootstrap]);
+
+  useEffect(() => {
+    const refreshIfNewDay = () => {
+      const nowDate = formatLocalDate(new Date());
+      if (nowDate !== localDateRef.current) {
+        void bootstrap({ quiet: true });
+      }
+    };
+
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') refreshIfNewDay();
+    });
+
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const scheduleMidnight = () => {
+      timer = setTimeout(() => {
+        refreshIfNewDay();
+        scheduleMidnight();
+      }, msUntilNextLocalMidnight());
+    };
+    scheduleMidnight();
+
+    return () => {
+      sub.remove();
+      if (timer) clearTimeout(timer);
+    };
+  }, [bootstrap]);
 
   const onSelect = useCallback(
     async (nextLevel: Level) => {
       if (busy) return;
+      const gen = ++opGenRef.current;
+      const snapshot = {
+        level: levelRef.current,
+        today: todayRef.current,
+        shown: shownRef.current,
+      };
       setBusy(true);
+      setError(null);
       try {
         const [prior, savedShown] = await Promise.all([
           loadDailyState(),
           loadShownYearByWordId(),
         ]);
+        if (gen !== opGenRef.current) return;
         const rolled = ensureTodaysWord({
           level: nextLevel,
           catalog: catalogs,
@@ -225,13 +249,6 @@ export function HomeScreen({ onOpenHistory }: Props) {
           now: new Date(),
           randomInt,
         });
-        const levelChanged = level !== nextLevel;
-        setLevel(nextLevel);
-        setToday(rolled.state);
-        setShown(rolled.shownYearByWordId);
-        if (levelChanged) {
-          void playJelly();
-        }
         await Promise.all([
           saveLevel(nextLevel),
           saveDailyState(rolled.state),
@@ -243,12 +260,27 @@ export function HomeScreen({ onOpenHistory }: Props) {
             reload: true,
           }),
         ]);
+        if (gen !== opGenRef.current) return;
+        const levelChanged = snapshot.level !== nextLevel;
+        setLevel(nextLevel);
+        setToday(rolled.state);
+        setShown(rolled.shownYearByWordId);
+        if (levelChanged) {
+          void playJelly();
+        }
       } catch {
+        if (gen !== opGenRef.current) return;
+        setLevel(snapshot.level);
+        setToday(snapshot.today);
+        setShown(snapshot.shown);
+        setError('Couldn’t lock today’s word. Please try again.');
       } finally {
-        setBusy(false);
+        if (gen === opGenRef.current) {
+          setBusy(false);
+        }
       }
     },
-    [busy, level],
+    [busy],
   );
 
   if (!ready) {
@@ -278,7 +310,12 @@ export function HomeScreen({ onOpenHistory }: Props) {
         >
           <View style={styles.topRow}>
             <Text style={[styles.brand, { color: colors.ink }]}>Dayink</Text>
-            <Pressable onPress={() => onOpenHistory(shown)} hitSlop={10}>
+            <Pressable
+              onPress={onOpenHistory}
+              hitSlop={10}
+              accessibilityRole="button"
+              accessibilityLabel="Open history"
+            >
               <Text style={[styles.historyLink, { color: colors.inkMuted }]}>History</Text>
             </Pressable>
           </View>
@@ -327,6 +364,10 @@ export function HomeScreen({ onOpenHistory }: Props) {
               />
             ))}
           </View>
+
+          {error ? (
+            <Text style={[styles.error, { color: colors.hard }]}>{error}</Text>
+          ) : null}
 
           <Text style={[styles.tip, { color: colors.inkMuted }]}>{tip}</Text>
           <Text style={[styles.privacy, { color: colors.inkMuted }]}>
@@ -430,6 +471,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 19,
     fontFamily: fonts.body,
+  },
+  error: {
+    marginTop: 16,
+    fontSize: 14,
+    lineHeight: 20,
+    fontFamily: fonts.bodySemi,
   },
   privacy: {
     marginTop: 14,

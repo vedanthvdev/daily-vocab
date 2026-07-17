@@ -35,7 +35,12 @@ export function HistoryScreen({ shownYearByWordId, onBack }: Props) {
           contentContainerStyle={styles.inner}
           showsVerticalScrollIndicator={false}
         >
-          <Pressable onPress={onBack} hitSlop={12}>
+          <Pressable
+            onPress={onBack}
+            hitSlop={12}
+            accessibilityRole="button"
+            accessibilityLabel="Back to home"
+          >
             <Text style={[styles.back, { color: colors.inkMuted }]}>← Back</Text>
           </Pressable>
           <Text style={[styles.title, { color: colors.ink }]}>History</Text>

@@ -25,28 +25,22 @@ export async function syncWidgetState(options: {
   reload?: boolean;
 }): Promise<void> {
   if (!WidgetBridgeModule) return;
-  try {
-    const snapshot = options.state ? toSnapshot(options.state) : null;
-    const level = options.level ?? null;
-    if (WidgetBridgeModule.syncWidgetState) {
-      await WidgetBridgeModule.syncWidgetState(snapshot, level);
-    } else {
-      if (level) await WidgetBridgeModule.setActiveLevel(level);
-      if (snapshot) await WidgetBridgeModule.setDailySnapshot(snapshot);
-    }
-    if (options.reload !== false && snapshot) {
-      await WidgetBridgeModule.reloadWidgets();
-    }
-  } catch {
+  const snapshot = options.state ? toSnapshot(options.state) : null;
+  const level = options.level ?? null;
+  if (WidgetBridgeModule.syncWidgetState) {
+    await WidgetBridgeModule.syncWidgetState(snapshot, level);
+  } else {
+    if (level) await WidgetBridgeModule.setActiveLevel(level);
+    if (snapshot) await WidgetBridgeModule.setDailySnapshot(snapshot);
+  }
+  if (options.reload !== false && snapshot) {
+    await WidgetBridgeModule.reloadWidgets();
   }
 }
 
 export async function syncShownYears(shown: Record<string, number>): Promise<void> {
   if (!WidgetBridgeModule?.setShownYears) return;
-  try {
-    await WidgetBridgeModule.setShownYears(JSON.stringify(shown));
-  } catch {
-  }
+  await WidgetBridgeModule.setShownYears(JSON.stringify(shown));
 }
 
 export async function pushDailySnapshot(state: DailyState): Promise<void> {

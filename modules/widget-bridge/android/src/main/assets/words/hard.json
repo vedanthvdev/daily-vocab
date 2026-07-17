@@ -310,7 +310,7 @@
     {
       "id": "h062",
       "word": "accoutrement",
-      "oneLiner": "Additional items of dress or equipment, or other items carried or worn by a."
+      "oneLiner": "Extra clothing or equipment worn or carried."
     },
     {
       "id": "h063",
@@ -370,7 +370,7 @@
     {
       "id": "h074",
       "word": "artifice",
-      "oneLiner": "Clever or cunning devices or expedients, especially as used to trick or."
+      "oneLiner": "A clever trick used to deceive someone."
     },
     {
       "id": "h075",
@@ -395,7 +395,7 @@
     {
       "id": "h079",
       "word": "baroque",
-      "oneLiner": "Relating to or denoting a style of European architecture, music, and art of."
+      "oneLiner": "An ornate style of European art, music, and architecture."
     },
     {
       "id": "h080",
@@ -410,7 +410,7 @@
     {
       "id": "h082",
       "word": "bourgeois",
-      "oneLiner": "Of or characteristic of the middle class, typically with reference to its."
+      "oneLiner": "Typical of the middle class and its conventional values."
     },
     {
       "id": "h083",
@@ -485,7 +485,7 @@
     {
       "id": "h097",
       "word": "congenial",
-      "oneLiner": "Pleasant because of a personality, qualities, or interests that are similar to."
+      "oneLiner": "Pleasant because of similar tastes or personality."
     },
     {
       "id": "h098",
@@ -525,7 +525,7 @@
     {
       "id": "h105",
       "word": "culmination",
-      "oneLiner": "The highest or climactic point of something, especially as attained after a."
+      "oneLiner": "The highest or climactic point of something."
     },
     {
       "id": "h106",
@@ -565,7 +565,7 @@
     {
       "id": "h113",
       "word": "default",
-      "oneLiner": "Failure to fulfill an obligation, especially to repay a loan or appear in a."
+      "oneLiner": "Failure to meet an obligation, such as a loan payment."
     },
     {
       "id": "h114",
@@ -640,7 +640,7 @@
     {
       "id": "h128",
       "word": "domicile",
-      "oneLiner": "Formal or Law the country that a person treats as their permanent home, or."
+      "oneLiner": "A person’s permanent home or legal residence."
     },
     {
       "id": "h129",
@@ -1085,7 +1085,7 @@
     {
       "id": "h217",
       "word": "manifesto",
-      "oneLiner": "A public declaration of policy and aims, especially one issued before an."
+      "oneLiner": "A public statement of aims or policy."
     },
     {
       "id": "h218",
@@ -1145,7 +1145,7 @@
     {
       "id": "h229",
       "word": "minimize",
-      "oneLiner": "Reduce (something, especially something unwanted or unpleasant) to the."
+      "oneLiner": "Reduce something to the smallest possible amount."
     },
     {
       "id": "h230",
@@ -1215,7 +1215,7 @@
     {
       "id": "h243",
       "word": "neolithic",
-      "oneLiner": "Relating to or denoting the later part of the Stone Age, when ground or."
+      "oneLiner": "Of the later Stone Age, when polished tools were used."
     },
     {
       "id": "h244",
@@ -1235,12 +1235,12 @@
     {
       "id": "h247",
       "word": "nihilistic",
-      "oneLiner": "Rejecting all religious and moral principles in the belief that life is."
+      "oneLiner": "Rejecting moral and religious beliefs as meaningless."
     },
     {
       "id": "h248",
       "word": "nirvana",
-      "oneLiner": "A transcendent state in which there is neither suffering, desire, nor sense of."
+      "oneLiner": "A state of perfect peace free from desire and suffering."
     },
     {
       "id": "h249",
@@ -1275,7 +1275,7 @@
     {
       "id": "h255",
       "word": "normative",
-      "oneLiner": "Establishing, relating to, or deriving from a standard or norm, especially of."
+      "oneLiner": "Setting or reflecting a standard of correct behavior."
     },
     {
       "id": "h256",
@@ -1290,7 +1290,7 @@
     {
       "id": "h258",
       "word": "nubile",
-      "oneLiner": "Sexually attractive."
+      "oneLiner": "Of marriageable age."
     },
     {
       "id": "h259",
@@ -1365,7 +1365,7 @@
     {
       "id": "h273",
       "word": "officious",
-      "oneLiner": "Assertive of authority in an annoyingly domineering way, especially with."
+      "oneLiner": "Annoyingly eager to give unwanted help or orders."
     },
     {
       "id": "h274",
@@ -1385,12 +1385,12 @@
     {
       "id": "h277",
       "word": "overture",
-      "oneLiner": "An orchestral piece at the beginning of an opera, suite, play, oratorio, or."
+      "oneLiner": "An opening musical piece for an opera or similar work."
     },
     {
       "id": "h278",
       "word": "oxymoron",
-      "oneLiner": "A figure of speech in which apparently contradictory terms appear in."
+      "oneLiner": "A phrase that joins opposite ideas for effect."
     },
     {
       "id": "h279",
@@ -1445,7 +1445,7 @@
     {
       "id": "h289",
       "word": "patina",
-      "oneLiner": "A green or brown film on the surface of bronze or similar metals, produced by."
+      "oneLiner": "A thin film that forms on metal through age or weather."
     },
     {
       "id": "h290",
@@ -1475,7 +1475,7 @@
     {
       "id": "h295",
       "word": "perigee",
-      "oneLiner": "The point in the orbit of the moon or a satellite at which it is nearest to."
+      "oneLiner": "The point in an orbit nearest the Earth."
     },
     {
       "id": "h296",
@@ -1490,7 +1490,7 @@
     {
       "id": "h298",
       "word": "picaresque",
-      "oneLiner": "Relating to an episodic style of fiction dealing with the adventures of a."
+      "oneLiner": "About a roguish hero’s episodic adventures."
     },
     {
       "id": "h299",
@@ -1505,7 +1505,7 @@
     {
       "id": "h301",
       "word": "plunder",
-      "oneLiner": "Steal goods from (a place or person), typically using force and in a time of."
+      "oneLiner": "Steal goods by force, especially in war."
     },
     {
       "id": "h302",
@@ -1530,7 +1530,7 @@
     {
       "id": "h306",
       "word": "portent",
-      "oneLiner": "A sign or warning that something, especially something momentous or."
+      "oneLiner": "A sign that something important is about to happen."
     },
     {
       "id": "h307",
@@ -1660,7 +1660,7 @@
     {
       "id": "h332",
       "word": "putative",
-      "oneLiner": "Generally considered or reputed to be."
+      "oneLiner": "Generally believed or supposed to be true."
     },
     {
       "id": "h333",
@@ -1770,7 +1770,7 @@
     {
       "id": "h354",
       "word": "reputed",
-      "oneLiner": "Generally believed to exist or be something specified, but not definitely the."
+      "oneLiner": "Generally believed to be true, though not confirmed."
     },
     {
       "id": "h355",
@@ -1875,7 +1875,7 @@
     {
       "id": "h375",
       "word": "scurrilous",
-      "oneLiner": "Making or spreading scandalous claims about someone with the intention of."
+      "oneLiner": "Spreading rude or scandalous insults about someone."
     },
     {
       "id": "h376",
@@ -2080,12 +2080,12 @@
     {
       "id": "h416",
       "word": "surrogate",
-      "oneLiner": "A substitute, especially a person deputizing for another in a specific role or."
+      "oneLiner": "A substitute standing in for someone else."
     },
     {
       "id": "h417",
       "word": "susceptibility",
-      "oneLiner": "The state or fact of being likely or liable to be influenced or harmed by a."
+      "oneLiner": "How easily someone or something can be affected."
     },
     {
       "id": "h418",
@@ -2290,7 +2290,7 @@
     {
       "id": "h458",
       "word": "vagrant",
-      "oneLiner": "A person without a settled home or regular work who wanders from place to."
+      "oneLiner": "A person who wanders without a settled home or job."
     },
     {
       "id": "h459",
@@ -2345,7 +2345,7 @@
     {
       "id": "h469",
       "word": "viscosity",
-      "oneLiner": "The state of being thick, sticky, and semifluid in consistency, due to."
+      "oneLiner": "How thick and sticky a fluid is."
     },
     {
       "id": "h470",
@@ -2365,7 +2365,7 @@
     {
       "id": "h473",
       "word": "vivisection",
-      "oneLiner": "The practice of performing operations on live animals for the purpose of."
+      "oneLiner": "Operating on live animals for scientific study."
     },
     {
       "id": "h474",
@@ -2535,7 +2535,7 @@
     {
       "id": "h507",
       "word": "apocrine",
-      "oneLiner": "Producing a secretion in which part of the secreting cell is released with the."
+      "oneLiner": "Of glands that release secretion with part of the cell."
     },
     {
       "id": "h508",
@@ -2805,7 +2805,7 @@
     {
       "id": "h561",
       "word": "casuistry",
-      "oneLiner": "Argumentation that is specious or excessively subtle and intended to be."
+      "oneLiner": "Clever but misleading moral argument."
     },
     {
       "id": "h562",
@@ -3080,7 +3080,7 @@
     {
       "id": "h616",
       "word": "diphthong",
-      "oneLiner": "A vowel sound that starts near the articulatory position for one vowel and."
+      "oneLiner": "A vowel sound that glides from one position to another."
     },
     {
       "id": "h617",
@@ -3105,7 +3105,7 @@
     {
       "id": "h621",
       "word": "doctrine",
-      "oneLiner": "A belief (or system of beliefs) accepted as authoritative by some group or."
+      "oneLiner": "A set of beliefs taught as authoritative truth."
     },
     {
       "id": "h622",
@@ -3125,12 +3125,12 @@
     {
       "id": "h625",
       "word": "dyspepsia",
-      "oneLiner": "A disorder of digestive function characterized by discomfort or heartburn or."
+      "oneLiner": "Indigestion that causes discomfort or heartburn."
     },
     {
       "id": "h626",
       "word": "dystopia",
-      "oneLiner": "State in which the conditions of life are extremely bad as from deprivation or."
+      "oneLiner": "An imagined society where life is extremely bad."
     },
     {
       "id": "h627",
@@ -3265,12 +3265,12 @@
     {
       "id": "h653",
       "word": "eschatology",
-      "oneLiner": "The branch of theology that is concerned with such final things as death and."
+      "oneLiner": "Theology about death, judgment, and the end of time."
     },
     {
       "id": "h654",
       "word": "eschaton",
-      "oneLiner": "Day at the end of time following Armageddon when God will decree the fates of."
+      "oneLiner": "The final day of judgment at the end of time."
     },
     {
       "id": "h655",
@@ -3290,7 +3290,7 @@
     {
       "id": "h658",
       "word": "eunuch",
-      "oneLiner": "A man who has been castrated and is incapable of reproduction."
+      "oneLiner": "A court official in some historical empires."
     },
     {
       "id": "h659",
@@ -3395,7 +3395,7 @@
     {
       "id": "h679",
       "word": "gestalt",
-      "oneLiner": "A configuration or pattern of elements so unified as a whole that it cannot be."
+      "oneLiner": "A whole pattern that is more than the sum of its parts."
     },
     {
       "id": "h680",
@@ -3415,7 +3415,7 @@
     {
       "id": "h683",
       "word": "grommet",
-      "oneLiner": "Fastener consisting of a metal ring for lining a small hole to permit the."
+      "oneLiner": "A metal ring that reinforces a small hole."
     },
     {
       "id": "h684",
@@ -3440,7 +3440,7 @@
     {
       "id": "h688",
       "word": "havelock",
-      "oneLiner": "A cloth covering for a service cap with a flap extending over the back of the."
+      "oneLiner": "A cap cloth with a flap that shades the neck."
     },
     {
       "id": "h689",
@@ -3465,7 +3465,7 @@
     {
       "id": "h693",
       "word": "heteronym",
-      "oneLiner": "Two words are heteronyms if they are spelled the same way but differ in."
+      "oneLiner": "Words spelled alike but said and meaning differently."
     },
     {
       "id": "h694",
@@ -3540,7 +3540,7 @@
     {
       "id": "h708",
       "word": "iconography",
-      "oneLiner": "The images and symbolic representations that are traditionally associated with."
+      "oneLiner": "The traditional images used to represent a subject."
     },
     {
       "id": "h709",
@@ -3860,7 +3860,7 @@
     {
       "id": "h772",
       "word": "microeconomics",
-      "oneLiner": "The branch of economics that studies the economy of consumers or households or."
+      "oneLiner": "Economics focused on households and individual firms."
     },
     {
       "id": "h773",
@@ -4010,7 +4010,7 @@
     {
       "id": "h802",
       "word": "odalisque",
-      "oneLiner": "A woman slave in a harem."
+      "oneLiner": "A woman of a historical Ottoman household."
     },
     {
       "id": "h803",
@@ -4125,7 +4125,7 @@
     {
       "id": "h825",
       "word": "pasquinade",
-      "oneLiner": "A composition that imitates or misrepresents somebody's style, usually in a."
+      "oneLiner": "A mocking piece that ridicules someone’s style."
     },
     {
       "id": "h826",
@@ -4210,7 +4210,7 @@
     {
       "id": "h842",
       "word": "pilaster",
-      "oneLiner": "A rectangular column that usually projects about a third of its width from the."
+      "oneLiner": "A shallow rectangular column attached to a wall."
     },
     {
       "id": "h843",
@@ -4410,7 +4410,7 @@
     {
       "id": "h882",
       "word": "reactance",
-      "oneLiner": "Opposition to the flow of electric current resulting from inductance and."
+      "oneLiner": "Opposition to current from inductance and capacitance."
     },
     {
       "id": "h883",
@@ -4735,7 +4735,7 @@
     {
       "id": "h947",
       "word": "terrapin",
-      "oneLiner": "Any of various edible North American web-footed turtles living in fresh or."
+      "oneLiner": "A North American turtle that lives in fresh or brackish water."
     },
     {
       "id": "h948",
@@ -4765,7 +4765,7 @@
     {
       "id": "h953",
       "word": "tontine",
-      "oneLiner": "A form of life insurance whereby on the death or default of a participant his."
+      "oneLiner": "A shared annuity that grows as other members die."
     },
     {
       "id": "h954",
@@ -4795,7 +4795,7 @@
     {
       "id": "h959",
       "word": "triage",
-      "oneLiner": "Sorting and allocating aid on the basis of need for or likely benefit from."
+      "oneLiner": "Sorting aid by who needs help most urgently."
     },
     {
       "id": "h960",
