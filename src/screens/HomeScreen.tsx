@@ -49,12 +49,31 @@ function snapshotToState(snapshot: DailySnapshot): DailyState | null {
   ) {
     return null;
   }
+  const locked = {
+    wordId: snapshot.wordId,
+    word: snapshot.word,
+    oneLiner: snapshot.oneLiner,
+  };
   return {
     level: snapshot.level,
     localDate: snapshot.localDate,
     wordId: snapshot.wordId,
     word: snapshot.word,
     oneLiner: snapshot.oneLiner,
+    byLevel: { [snapshot.level]: locked },
+  };
+}
+
+function mergeDailyStates(
+  primary: DailyState | null,
+  secondary: DailyState | null,
+): DailyState | null {
+  if (!primary) return secondary;
+  if (!secondary) return primary;
+  if (primary.localDate !== secondary.localDate) return primary;
+  return {
+    ...primary,
+    byLevel: { ...secondary.byLevel, ...primary.byLevel },
   };
 }
 
@@ -97,8 +116,12 @@ export function HomeScreen() {
           nativeSnapshot && nativeSnapshot.localDate === todayStr
             ? snapshotToState(nativeSnapshot)
             : null;
-        const prior = nativeToday ?? savedState;
-        const preference = savedLevel ?? nativeToday?.level ?? null;
+        const savedToday =
+          savedState?.localDate === todayStr ? savedState : null;
+        const prior =
+          mergeDailyStates(savedToday, nativeToday) ?? savedState ?? nativeToday;
+        const preference =
+          savedLevel ?? nativeToday?.level ?? savedToday?.level ?? null;
 
         if (!preference && !nativeToday) {
           return;
@@ -238,7 +261,7 @@ export function HomeScreen() {
           </View>
 
           <Text style={[styles.chooserLabel, { color: colors.inkMuted }]}>
-            Level for tomorrow
+            Choose a level
           </Text>
           <View style={styles.buttons}>
             {LEVELS.map((item, index) => (
