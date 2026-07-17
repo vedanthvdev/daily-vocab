@@ -18,3 +18,8 @@ export type DailyState = {
 };
 
 export type CatalogByLevel = Record<Level, WordEntry[]>;
+
+export type LevelPacks = {
+  v1: WordEntry[];
+  v2: WordEntry[];
+};

@@ -1,8 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { DailyState, Level, LockedWord } from '../domain/types';
+import type { ShownYearByWordId, YearDigit } from '../domain/shownYear';
 
 const LEVEL_KEY = 'dailyvocab.level';
 const STATE_KEY = 'dailyvocab.dailyState';
+const SHOWN_KEY = 'dailyvocab.shownYearByWordId';
 
 function isLevel(value: unknown): value is Level {
   return value === 'beginner' || value === 'intermediate' || value === 'hard';
@@ -16,6 +18,21 @@ function isLockedWord(value: unknown): value is LockedWord {
     typeof locked.word === 'string' &&
     typeof locked.oneLiner === 'string'
   );
+}
+
+function isYearDigit(value: unknown): value is YearDigit {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0 && value <= 9;
+}
+
+function normalizeShownMap(value: unknown): ShownYearByWordId {
+  if (!value || typeof value !== 'object') return {};
+  const out: ShownYearByWordId = {};
+  for (const [wordId, digit] of Object.entries(value as Record<string, unknown>)) {
+    if (typeof wordId === 'string' && wordId.length > 0 && isYearDigit(digit)) {
+      out[wordId] = digit;
+    }
+  }
+  return out;
 }
 
 function normalizeDailyState(value: unknown): DailyState | null {
@@ -81,4 +98,18 @@ export async function loadDailyState(): Promise<DailyState | null> {
 
 export async function saveDailyState(state: DailyState): Promise<void> {
   await AsyncStorage.setItem(STATE_KEY, JSON.stringify(state));
+}
+
+export async function loadShownYearByWordId(): Promise<ShownYearByWordId> {
+  const raw = await AsyncStorage.getItem(SHOWN_KEY);
+  if (!raw) return {};
+  try {
+    return normalizeShownMap(JSON.parse(raw));
+  } catch {
+    return {};
+  }
+}
+
+export async function saveShownYearByWordId(shown: ShownYearByWordId): Promise<void> {
+  await AsyncStorage.setItem(SHOWN_KEY, JSON.stringify(shown));
 }

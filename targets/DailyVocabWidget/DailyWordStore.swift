@@ -25,6 +25,7 @@ enum DailyWordStore {
   static let suiteName = "group.com.dailyvocab.app"
   static let snapshotKey = "dailySnapshot"
   static let levelKey = "activeLevel"
+  static let shownKey = "shownYearByWordId"
 
   static var defaults: UserDefaults {
     UserDefaults(suiteName: suiteName) ?? .standard
@@ -37,6 +38,34 @@ enum DailyWordStore {
     formatter.timeZone = timeZone
     formatter.dateFormat = "yyyy-MM-dd"
     return formatter.string(from: now)
+  }
+
+  static func yearDigit(now: Date = Date()) -> Int {
+    Calendar.current.component(.year, from: now) % 10
+  }
+
+  static func loadShownYears() -> [String: Int] {
+    guard let json = defaults.string(forKey: shownKey),
+          let data = json.data(using: .utf8),
+          let object = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+      return [:]
+    }
+    var map: [String: Int] = [:]
+    for (key, value) in object {
+      if let number = value as? Int {
+        map[key] = number
+      } else if let number = value as? NSNumber {
+        map[key] = number.intValue
+      }
+    }
+    return map
+  }
+
+  static func saveShownYears(_ map: [String: Int]) {
+    guard let data = try? JSONSerialization.data(withJSONObject: map),
+          let json = String(data: data, encoding: .utf8) else { return }
+    defaults.set(json, forKey: shownKey)
+    defaults.synchronize()
   }
 
   static func loadSnapshot() -> DailySnapshot? {
@@ -53,7 +82,6 @@ enum DailyWordStore {
   }
 
   static func loadCatalog(level: String, bundle: Bundle = .main) -> [CatalogWord] {
-    // Files live in target assets/ and are copied as bundle resources.
     if let url = bundle.url(forResource: level, withExtension: "json"),
        let data = try? Data(contentsOf: url),
        let file = try? JSONDecoder().decode(CatalogFile.self, from: data) {
@@ -62,7 +90,6 @@ enum DailyWordStore {
     return []
   }
 
-  /// Mirrors TypeScript `ensureTodaysWord` persistence rules.
   static func ensureTodaysWord(
     level: String,
     words: [CatalogWord],
@@ -72,23 +99,40 @@ enum DailyWordStore {
   ) -> DailySnapshot? {
     let today = localDateString(now: now)
     if let state, state.localDate == today {
+      var shown = loadShownYears()
+      shown[state.wordId] = yearDigit(now: now)
+      saveShownYears(shown)
       return state
     }
     guard !words.isEmpty else { return nil }
 
-    var index = randomInt(words.count)
-    if words.count > 1, let previous = state?.wordId {
+    var shown = loadShownYears()
+    let current = yearDigit(now: now)
+    let previous = (current + 9) % 10
+    var pool = words.filter { word in
+      guard let stamp = shown[word.id] else { return true }
+      return stamp != current && stamp != previous
+    }
+    if pool.isEmpty {
+      pool = words.filter { $0.id != state?.wordId }
+      if pool.isEmpty { pool = words }
+    }
+
+    var index = randomInt(pool.count)
+    if pool.count > 1, let previousId = state?.wordId {
       var guardCount = 0
-      while words[index].id == previous && guardCount < 8 {
-        index = randomInt(words.count)
+      while pool[index].id == previousId && guardCount < 8 {
+        index = randomInt(pool.count)
         guardCount += 1
       }
-      if words[index].id == previous {
-        index = (index + 1) % words.count
+      if pool[index].id == previousId {
+        index = (index + 1) % pool.count
       }
     }
 
-    let entry = words[index]
+    let entry = pool[index]
+    shown[entry.id] = current
+    saveShownYears(shown)
     return DailySnapshot(
       level: level,
       localDate: today,
@@ -102,6 +146,9 @@ enum DailyWordStore {
     let existing = loadSnapshot()
     let today = localDateString(now: now)
     if let existing, existing.localDate == today {
+      var shown = loadShownYears()
+      shown[existing.wordId] = yearDigit(now: now)
+      saveShownYears(shown)
       return existing
     }
     let level = defaults.string(forKey: levelKey) ?? existing?.level ?? "beginner"

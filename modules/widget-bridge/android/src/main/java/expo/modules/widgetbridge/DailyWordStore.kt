@@ -4,6 +4,7 @@ import android.content.Context
 import org.json.JSONArray
 import org.json.JSONObject
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
@@ -27,11 +28,44 @@ object DailyWordStore {
   const val PREFS = "dailyvocab_widget"
   const val SNAPSHOT_KEY = "dailySnapshot"
   const val LEVEL_KEY = "activeLevel"
+  const val SHOWN_KEY = "shownYearByWordId"
 
   fun localDateString(now: Date = Date(), timeZone: TimeZone = TimeZone.getDefault()): String {
     val fmt = SimpleDateFormat("yyyy-MM-dd", Locale.US)
     fmt.timeZone = timeZone
     return fmt.format(now)
+  }
+
+  fun yearDigit(now: Date = Date()): Int {
+    val cal = Calendar.getInstance()
+    cal.time = now
+    return cal.get(Calendar.YEAR) % 10
+  }
+
+  fun loadShownYears(context: Context): MutableMap<String, Int> {
+    val raw = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+      .getString(SHOWN_KEY, null) ?: return mutableMapOf()
+    return runCatching {
+      val obj = JSONObject(raw)
+      val map = mutableMapOf<String, Int>()
+      val keys = obj.keys()
+      while (keys.hasNext()) {
+        val key = keys.next()
+        map[key] = obj.getInt(key)
+      }
+      map
+    }.getOrDefault(mutableMapOf())
+  }
+
+  fun saveShownYears(context: Context, map: Map<String, Int>) {
+    val obj = JSONObject()
+    for ((key, value) in map) {
+      obj.put(key, value)
+    }
+    context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+      .edit()
+      .putString(SHOWN_KEY, obj.toString())
+      .commit()
   }
 
   fun loadSnapshot(context: Context): DailySnapshot? {
@@ -73,6 +107,7 @@ object DailyWordStore {
   }
 
   fun ensureTodaysWord(
+    context: Context,
     level: String,
     words: List<CatalogWord>,
     state: DailySnapshot?,
@@ -80,25 +115,42 @@ object DailyWordStore {
     randomInt: (Int) -> Int = { Random.nextInt(it) },
   ): DailySnapshot? {
     val today = localDateString(now)
+    val digit = yearDigit(now)
     if (state != null && state.localDate == today) {
+      val shown = loadShownYears(context)
+      shown[state.wordId] = digit
+      saveShownYears(context, shown)
       return state
     }
     if (words.isEmpty()) return null
 
-    var index = randomInt(words.size)
+    val shown = loadShownYears(context)
+    val previousDigit = (digit + 9) % 10
+    var pool = words.filter { word ->
+      val stamp = shown[word.id]
+      stamp == null || (stamp != digit && stamp != previousDigit)
+    }
+    if (pool.isEmpty()) {
+      pool = words.filter { it.id != state?.wordId }
+      if (pool.isEmpty()) pool = words
+    }
+
+    var index = randomInt(pool.size)
     val previous = state?.wordId
-    if (words.size > 1 && previous != null) {
+    if (pool.size > 1 && previous != null) {
       var guard = 0
-      while (words[index].id == previous && guard < 8) {
-        index = randomInt(words.size)
+      while (pool[index].id == previous && guard < 8) {
+        index = randomInt(pool.size)
         guard += 1
       }
-      if (words[index].id == previous) {
-        index = (index + 1) % words.size
+      if (pool[index].id == previous) {
+        index = (index + 1) % pool.size
       }
     }
 
-    val entry = words[index]
+    val entry = pool[index]
+    shown[entry.id] = digit
+    saveShownYears(context, shown)
     return DailySnapshot(
       level = level,
       localDate = today,
@@ -113,11 +165,14 @@ object DailyWordStore {
     val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
     val today = localDateString()
     if (existing != null && existing.localDate == today) {
+      val shown = loadShownYears(context)
+      shown[existing.wordId] = yearDigit()
+      saveShownYears(context, shown)
       return existing
     }
     val level = prefs.getString(LEVEL_KEY, null) ?: existing?.level ?: "beginner"
     val words = loadCatalog(context, level)
-    val next = ensureTodaysWord(level, words, existing) ?: return existing
+    val next = ensureTodaysWord(context, level, words, existing) ?: return existing
     if (next.wordId != existing?.wordId || next.localDate != existing.localDate) {
       saveSnapshot(context, next)
     }

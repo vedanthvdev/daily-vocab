@@ -24,5 +24,8 @@ export default {
     const raw = memory.get('dailySnapshot');
     return raw ? (JSON.parse(raw) as DailySnapshot) : null;
   },
+  async setShownYears(json: string): Promise<void> {
+    memory.set('shownYearByWordId', json);
+  },
   async reloadWidgets(): Promise<void> {},
 };

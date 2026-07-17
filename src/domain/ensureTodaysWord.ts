@@ -1,13 +1,32 @@
-import type { CatalogByLevel, DailyState, Level, LockedWord, WordEntry } from './types';
+import type {
+  CatalogByLevel,
+  DailyState,
+  Level,
+  LevelPacks,
+  LockedWord,
+  WordEntry,
+} from './types';
 import { formatLocalDate } from './localDate';
+import {
+  filterEligibleWords,
+  type ShownYearByWordId,
+  stampShownWord,
+} from './shownYear';
 
 export type EnsureTodaysWordInput = {
   level: Level;
   catalog: CatalogByLevel;
+  packs?: LevelPacks;
+  shownYearByWordId?: ShownYearByWordId;
   state: DailyState | null;
   now: Date;
   randomInt: (maxExclusive: number) => number;
   timeZone?: string;
+};
+
+export type EnsureTodaysWordResult = {
+  state: DailyState;
+  shownYearByWordId: ShownYearByWordId;
 };
 
 function isPlaceholderWord(locked: Pick<LockedWord, 'word' | 'oneLiner'>): boolean {
@@ -65,21 +84,52 @@ function pickEntry(
   return words[index];
 }
 
-export function ensureTodaysWord(input: EnsureTodaysWordInput): DailyState {
-  const { level, catalog, state, now, randomInt, timeZone } = input;
+function selectPool(
+  packs: LevelPacks | undefined,
+  fallback: WordEntry[],
+  shown: ShownYearByWordId,
+  now: Date,
+  previousId: string | undefined,
+): WordEntry[] {
+  const v1 = packs?.v1 ?? fallback;
+  const v2 = packs?.v2 ?? [];
+  const eligibleV1 = filterEligibleWords(v1, shown, now);
+  if (eligibleV1.length > 0) return eligibleV1;
+  const eligibleV2 = filterEligibleWords(v2, shown, now);
+  if (eligibleV2.length > 0) return eligibleV2;
+  const combined = [...v1, ...v2];
+  if (combined.length === 0) return fallback;
+  if (previousId && combined.length > 1) {
+    const withoutPrevious = combined.filter((entry) => entry.id !== previousId);
+    if (withoutPrevious.length > 0) return withoutPrevious;
+  }
+  return combined;
+}
+
+export function ensureTodaysWord(input: EnsureTodaysWordInput): EnsureTodaysWordResult {
+  const {
+    level,
+    catalog,
+    packs,
+    shownYearByWordId = {},
+    state,
+    now,
+    randomInt,
+    timeZone,
+  } = input;
   const today = formatLocalDate(now, timeZone);
+  let shown = { ...shownYearByWordId };
 
   const byLevel: Partial<Record<Level, LockedWord>> =
     state && state.localDate === today ? { ...state.byLevel } : {};
 
   const existing = byLevel[level];
   if (existing && isUsableLockedWord(existing, catalog)) {
-    return flatten(today, level, existing, byLevel);
-  }
-
-  const words = catalog[level];
-  if (!words?.length) {
-    throw new Error(`Catalog for level "${level}" is empty`);
+    shown = stampShownWord(shown, existing.wordId, now);
+    return {
+      state: flatten(today, level, existing, byLevel),
+      shownYearByWordId: shown,
+    };
   }
 
   const previousId =
@@ -89,12 +139,22 @@ export function ensureTodaysWord(input: EnsureTodaysWordInput): DailyState {
         ? state.wordId
         : undefined;
 
-  const entry = pickEntry(words, previousId, randomInt);
+  const pool = selectPool(packs, catalog[level] ?? [], shown, now, previousId);
+  if (!pool.length) {
+    throw new Error(`Catalog for level "${level}" is empty`);
+  }
+
+  const entry = pickEntry(pool, previousId, randomInt);
   const locked: LockedWord = {
     wordId: entry.id,
     word: entry.word,
     oneLiner: entry.oneLiner,
   };
   byLevel[level] = locked;
-  return flatten(today, level, locked, byLevel);
+  shown = stampShownWord(shown, locked.wordId, now);
+
+  return {
+    state: flatten(today, level, locked, byLevel),
+    shownYearByWordId: shown,
+  };
 }
