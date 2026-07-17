@@ -34,3 +34,5 @@ npm run content:sync
 Sources: `content/sources/intermediate-pool.json`, `hard-pool.json`, `gre-definitions-subset.json`.
 
 `npm run content:generate` skips all three curated catalogs so placeholders cannot overwrite them.
+
+After bulk rebuilds, run `npm run content:scrub` to repair truncated oneLiners and strip ESL-basic headwords from intermediate/hard.

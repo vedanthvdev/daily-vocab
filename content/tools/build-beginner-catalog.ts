@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 /**
- * Builds beginner.json for vocabulary enrichment (fluent speakers expanding range),
- * not ESL basics. Source: Vocabulary.com Top 1000, with short glosses capped at 80 chars.
+ * Builds beginner.json for vocabulary enrichment for people who know English
+ * but are not yet fluent. Source: Vocabulary.com Top 1000, glosses capped at 80 chars.
  *
  * Usage: npx tsx content/tools/build-beginner-catalog.ts
  */
