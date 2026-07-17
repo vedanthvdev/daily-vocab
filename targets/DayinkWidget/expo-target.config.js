@@ -1,10 +1,10 @@
 /** @type {import('@bacons/apple-targets/app.plugin').ConfigFunction} */
 module.exports = (config) => ({
   type: 'widget',
-  name: 'DailyVocabWidget',
-  displayName: 'Daily Vocab',
+  name: 'DayinkWidget',
+  displayName: 'Dayink',
   deploymentTarget: '17.0',
-  bundleIdentifier: '.DailyVocabWidget',
+  bundleIdentifier: '.DayinkWidget',
   frameworks: ['SwiftUI', 'WidgetKit'],
   colors: {
     $accent: {
@@ -19,7 +19,7 @@ module.exports = (config) => ({
   entitlements: {
     'com.apple.security.application-groups':
       config.ios?.entitlements?.['com.apple.security.application-groups'] ?? [
-        'group.com.dailyvocab.app',
+        'group.com.dayink.app',
       ],
   },
 });

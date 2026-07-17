@@ -257,8 +257,8 @@ export function HomeScreen({ onOpenHistory }: Props) {
 
   const tip =
     Platform.OS === 'ios'
-      ? 'Tip: add the Daily Vocab widget to your Lock Screen.'
-      : 'Tip: add the Daily Vocab widget to your home screen (lock screen where supported).';
+      ? 'Tip: add the Dayink widget to your Lock Screen.'
+      : 'Tip: add the Dayink widget to your home screen (lock screen where supported).';
 
   const accent = levelAccent(today?.level ?? level, colors);
   const lockedLabel = today ? LEVEL_LABEL[today.level] : null;
@@ -277,7 +277,7 @@ export function HomeScreen({ onOpenHistory }: Props) {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.topRow}>
-            <Text style={[styles.brand, { color: colors.ink }]}>Daily Vocab</Text>
+            <Text style={[styles.brand, { color: colors.ink }]}>Dayink</Text>
             <Pressable onPress={() => onOpenHistory(shown)} hitSlop={10}>
               <Text style={[styles.historyLink, { color: colors.inkMuted }]}>History</Text>
             </Pressable>

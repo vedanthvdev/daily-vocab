@@ -1,16 +1,16 @@
 import SwiftUI
 import WidgetKit
 
-struct DailyVocabEntry: TimelineEntry {
+struct DayinkEntry: TimelineEntry {
   let date: Date
   let word: String
   let oneLiner: String
   let level: String
 }
 
-struct DailyVocabProvider: TimelineProvider {
-  func placeholder(in context: Context) -> DailyVocabEntry {
-    DailyVocabEntry(
+struct DayinkProvider: TimelineProvider {
+  func placeholder(in context: Context) -> DayinkEntry {
+    DayinkEntry(
       date: Date(),
       word: "happy",
       oneLiner: "Feeling joy or pleasure.",
@@ -18,32 +18,32 @@ struct DailyVocabProvider: TimelineProvider {
     )
   }
 
-  func getSnapshot(in context: Context, completion: @escaping (DailyVocabEntry) -> Void) {
+  func getSnapshot(in context: Context, completion: @escaping (DayinkEntry) -> Void) {
     completion(makeEntry(at: Date()))
   }
 
-  func getTimeline(in context: Context, completion: @escaping (Timeline<DailyVocabEntry>) -> Void) {
+  func getTimeline(in context: Context, completion: @escaping (Timeline<DayinkEntry>) -> Void) {
     let now = Date()
     let midnight = DailyWordStore.nextMidnight(from: now)
     let timeline = Timeline(entries: [makeEntry(at: now)], policy: .after(midnight))
     completion(timeline)
   }
 
-  private func makeEntry(at date: Date) -> DailyVocabEntry {
+  private func makeEntry(at date: Date) -> DayinkEntry {
     let snapshot = DailyWordStore.resolveForWidget(now: date)
-    return DailyVocabEntry(
+    return DayinkEntry(
       date: date,
-      word: snapshot?.word ?? "Daily Vocab",
+      word: snapshot?.word ?? "Dayink",
       oneLiner: snapshot?.oneLiner ?? "Pick a level in the app",
       level: snapshot?.level ?? "beginner"
     )
   }
 }
 
-struct DailyVocabWidgetView: View {
+struct DayinkWidgetView: View {
   @Environment(\.widgetFamily) var family
   @Environment(\.colorScheme) var colorScheme
-  var entry: DailyVocabEntry
+  var entry: DayinkEntry
 
   var body: some View {
     let padded = content
@@ -180,15 +180,15 @@ struct DailyVocabWidgetView: View {
 }
 
 @main
-struct DailyVocabWidget: Widget {
-  let kind = "DailyVocabWidget"
+struct DayinkWidget: Widget {
+  let kind = "DayinkWidget"
 
   var body: some WidgetConfiguration {
-    StaticConfiguration(kind: kind, provider: DailyVocabProvider()) { entry in
-      DailyVocabWidgetView(entry: entry)
-        .widgetURL(URL(string: "dailyvocab://today"))
+    StaticConfiguration(kind: kind, provider: DayinkProvider()) { entry in
+      DayinkWidgetView(entry: entry)
+        .widgetURL(URL(string: "dayink://today"))
     }
-    .configurationDisplayName("Daily Vocab")
+    .configurationDisplayName("Dayink")
     .description("One word a day with a short meaning.")
     .supportedFamilies([
       .accessoryRectangular,

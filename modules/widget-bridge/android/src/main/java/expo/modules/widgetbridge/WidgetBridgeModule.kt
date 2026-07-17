@@ -6,7 +6,7 @@ import expo.modules.kotlin.modules.ModuleDefinition
 import org.json.JSONObject
 
 class WidgetBridgeModule : Module() {
-  private val prefsName = "dailyvocab_widget"
+  private val prefsName = "dayink_widget"
   private val snapshotKey = "dailySnapshot"
   private val levelKey = "activeLevel"
   private val shownKey = "shownYearByWordId"
@@ -74,7 +74,7 @@ class WidgetBridgeModule : Module() {
 
     AsyncFunction("reloadWidgets") {
       val context = appContext.reactContext ?: return@AsyncFunction
-      DailyVocabWidgetUpdater.requestUpdate(context)
+      DayinkWidgetUpdater.requestUpdate(context)
     }
   }
 }

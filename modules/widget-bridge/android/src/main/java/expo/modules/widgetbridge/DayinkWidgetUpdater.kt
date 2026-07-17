@@ -2,7 +2,7 @@ package expo.modules.widgetbridge
 
 import android.content.Context
 
-object DailyVocabWidgetUpdater {
+object DayinkWidgetUpdater {
   fun requestUpdate(context: Context) {
     MidnightWordWorker.enqueueImmediate(context)
     MidnightWordWorker.schedule(context)

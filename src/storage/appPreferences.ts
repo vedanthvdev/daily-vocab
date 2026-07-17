@@ -2,9 +2,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { DailyState, Level, LockedWord } from '../domain/types';
 import type { ShownYearByWordId, YearDigit } from '../domain/shownYear';
 
-const LEVEL_KEY = 'dailyvocab.level';
-const STATE_KEY = 'dailyvocab.dailyState';
-const SHOWN_KEY = 'dailyvocab.shownYearByWordId';
+const LEVEL_KEY = 'dayink.level';
+const STATE_KEY = 'dayink.dailyState';
+const SHOWN_KEY = 'dayink.shownYearByWordId';
 
 function isLevel(value: unknown): value is Level {
   return value === 'beginner' || value === 'intermediate' || value === 'hard';

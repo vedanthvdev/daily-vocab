@@ -22,13 +22,13 @@ The release job starts the EAS build with `--no-wait`. Watch build/submit progre
 
    Commit the generated `extra.eas.projectId` in `app.config.ts` when `eas init` writes it.
 
-2. **Apple credentials in EAS** — for bundle id `com.dailyvocab.app`:
+2. **Apple credentials in EAS** — for bundle id `com.dayink.app`:
 
    ```bash
    npx eas-cli@21.0.2 credentials
    ```
 
-   Configure App Store distribution certificates/profiles and App Store Connect API key access as prompted so non-interactive CI can build and submit.
+   Configure App Store distribution certificates/profiles and App Store Connect API key access as prompted so non-interactive CI can build and submit for bundle id `com.dayink.app`.
 
 3. **GitHub secret** — create repository secret `EXPO_TOKEN` (Expo access token with permission to build and submit).
 

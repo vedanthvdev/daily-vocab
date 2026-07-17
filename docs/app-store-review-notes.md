@@ -4,7 +4,7 @@ Short notes for App Store Connect and submission builds.
 
 ## What to tell reviewers
 
-Daily Vocab is an offline vocabulary utility. Pick Beginner, Intermediate, or Hard to lock one word for today. History lists words unlocked this year. On iOS, add the Daily Vocab Lock Screen widget after choosing a level.
+Dayink is an offline vocabulary utility. Pick Beginner, Intermediate, or Hard to lock one word for today. History lists words unlocked this year. On iOS, add the Dayink Lock Screen widget after choosing a level.
 
 No account, no network features, no purchases.
 

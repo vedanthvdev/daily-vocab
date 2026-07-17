@@ -4,7 +4,7 @@ import WidgetKit
 #endif
 
 public class WidgetBridgeModule: Module {
-  private let suiteName = "group.com.dailyvocab.app"
+  private let suiteName = "group.com.dayink.app"
   private let snapshotKey = "dailySnapshot"
   private let levelKey = "activeLevel"
   private let shownKey = "shownYearByWordId"
@@ -59,7 +59,7 @@ public class WidgetBridgeModule: Module {
     AsyncFunction("reloadWidgets") {
       #if canImport(WidgetKit)
       if #available(iOS 14.0, *) {
-        WidgetCenter.shared.reloadTimelines(ofKind: "DailyVocabWidget")
+        WidgetCenter.shared.reloadTimelines(ofKind: "DayinkWidget")
         WidgetCenter.shared.reloadAllTimelines()
       }
       #endif

@@ -35,7 +35,7 @@ export function BrandedLoader() {
       end={{ x: 0.9, y: 1 }}
       style={styles.root}
     >
-      <Text style={[styles.brand, { color: colors.ink }]}>Daily Vocab</Text>
+      <Text style={[styles.brand, { color: colors.ink }]}>Dayink</Text>
       <Text style={[styles.caption, { color: colors.inkMuted }]}>
         Loading today’s word…
       </Text>

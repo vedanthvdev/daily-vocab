@@ -20,9 +20,9 @@ struct CatalogFile: Codable {
   let words: [CatalogWord]
 }
 
-/// Shared with the React Native host via App Group `group.com.dailyvocab.app`.
+/// Shared with the React Native host via App Group `group.com.dayink.app`.
 enum DailyWordStore {
-  static let suiteName = "group.com.dailyvocab.app"
+  static let suiteName = "group.com.dayink.app"
   static let snapshotKey = "dailySnapshot"
   static let levelKey = "activeLevel"
   static let shownKey = "shownYearByWordId"
