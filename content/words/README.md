@@ -7,8 +7,8 @@ These lists grow English vocabulary — not teach English from scratch. Levels d
 ## Levels
 
 - **Beginner** — knows English but is not yet fluent; builds a stronger everyday and academic word stock.
-- **Intermediate** — already comfortable with beginner words; learns precise, “fancy” words they might not use day to day.
-- **Hard** — already has a strong vocabulary and wants rarer, more exact wording.
+- **Intermediate** — already comfortable with beginner words; learns precise, fancy words they might not use day to day.
+- **Hard** — already has a strong vocabulary and wants rarer, elegant, professor-tier wording.
 
 ## Beginner
 
@@ -20,19 +20,32 @@ npm run content:build-beginner
 
 Source: `content/sources/vocabulary-com-top-1000.json`.
 
-## Intermediate and hard
+## Intermediate
 
-Built from GRE enrichment pools (Magoosh basic/common → intermediate; Magoosh advanced / Manhattan / rarer GRE → hard), with short glosses from curated GRE notes and WordNet fallbacks. Pools exclude beginner headwords and each other.
+Fancy-but-usable enrichment (precise day-to-day upgrades), below hard’s rare literary tier.
 
 ```bash
 npm install --no-save wordpos
-npm run content:build-intermediate-hard
-npm run content:validate:strict
-npm run content:sync
+npm run content:build-intermediate-fancy
 ```
 
-Sources: `content/sources/intermediate-pool.json`, `hard-pool.json`, `gre-definitions-subset.json`.
+Source: `content/sources/intermediate-fancy-pool.json`.
 
-`npm run content:generate` skips all three curated catalogs so placeholders cannot overwrite them.
+## Hard
+
+Elegant, rare “wow” words — literary and professor-tier vocabulary.
+
+```bash
+npm install --no-save wordpos
+npm run content:build-hard-wow
+```
+
+Source: `content/sources/hard-wow-pool.json`.
+
+## Notes
+
+Build **hard before intermediate** if regenerating both, so intermediate can exclude hard headwords.
+
+`npm run content:generate` skips all three curated catalogs.
 
 After bulk rebuilds, run `npm run content:scrub` to repair truncated oneLiners and strip ESL-basic headwords from intermediate/hard.

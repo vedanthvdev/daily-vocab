@@ -43,6 +43,8 @@
     "content:generate": "tsx content/tools/generate-full-catalogs.ts",
     "content:build-beginner": "tsx content/tools/build-beginner-catalog.ts",
     "content:build-intermediate-hard": "tsx content/tools/build-intermediate-hard-catalogs.ts",
+    "content:build-intermediate-fancy": "tsx content/tools/build-intermediate-fancy-catalog.ts",
+    "content:build-hard-wow": "tsx content/tools/build-hard-wow-catalog.ts",
     "content:scrub": "tsx content/tools/scrub-catalog-quality.ts",
     "content:sync-android": "mkdir -p modules/widget-bridge/android/src/main/assets/words && cp content/words/*.json modules/widget-bridge/android/src/main/assets/words/",
     "content:validate:strict": "tsx content/tools/validate-catalog.ts --strict-count",
