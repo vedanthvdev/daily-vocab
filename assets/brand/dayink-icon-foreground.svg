@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Dayink foreground">
+  <g transform="translate(512 512) scale(0.72) translate(-512 -512)">
+    <path fill="#3D8F6A" d="M512 96c0 0-64 88-64 136c0 35.3 28.7 64 64 64s64-28.7 64-64c0-48-64-136-64-136z"/>
+    <line x1="512" y1="296" x2="512" y2="360" stroke="#3D8F6A" stroke-width="28" stroke-linecap="round"/>
+    <path fill="#F6F1E8" d="M496 368C368 368 264 440 248 544C232 656 320 776 448 808C480 824 496 792 496 728Z"/>
+    <path fill="#E7EFE4" d="M528 368C656 368 760 440 776 544C792 656 704 776 576 808C544 824 528 792 528 728Z"/>
+    <path fill="none" stroke="#1A2620" stroke-width="14" stroke-linecap="round" opacity="0.32" d="M336 496c48-16 96-8 144 24"/>
+    <path fill="none" stroke="#1A2620" stroke-width="14" stroke-linecap="round" opacity="0.28" d="M320 592c56-16 112-8 160 32"/>
+    <path fill="none" stroke="#1A2620" stroke-width="14" stroke-linecap="round" opacity="0.32" d="M688 496c-48-16-96-8-144 24"/>
+    <path fill="none" stroke="#1A2620" stroke-width="14" stroke-linecap="round" opacity="0.28" d="M704 592c-56-16-112-8-160 32"/>
+    <circle cx="512" cy="392" r="28" fill="#3D8F6A"/>
+  </g>
+</svg>

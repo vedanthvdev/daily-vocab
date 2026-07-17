@@ -31,7 +31,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   android: {
     package: 'com.dayink.app',
     adaptiveIcon: {
-      backgroundColor: '#F7F3EA',
+      backgroundColor: '#1A2620',
       foregroundImage: './assets/android-icon-foreground.png',
       backgroundImage: './assets/android-icon-background.png',
       monochromeImage: './assets/android-icon-monochrome.png',

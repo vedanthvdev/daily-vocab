@@ -48,3 +48,6 @@ yarn-error.*
 .claude/
 AGENTS.md
 CLAUDE.md
+
+# brainstorm / visual companion sessions
+.superpowers/
