@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { playJelly } from '../audio/playJelly';
 import { BrandedLoader } from '../components/BrandedLoader';
 import { LevelButton } from '../components/LevelButton';
+import { SpeakWordButton } from '../components/SpeakWordButton';
 import { catalogs, packsForLevel } from '../domain/catalog';
 import { ensureTodaysWord } from '../domain/ensureTodaysWord';
 import { formatLocalDate, msUntilNextLocalMidnight } from '../domain/localDate';
@@ -335,9 +336,12 @@ export function HomeScreen({ onOpenHistory, onShownChange }: Props) {
             <View style={[styles.accentBar, { backgroundColor: accent }]} />
             {today ? (
               <>
-                <Text style={[styles.todayLabel, { color: colors.inkMuted }]}>
-                  Today · {lockedLabel}
-                </Text>
+                <View style={styles.cardHeader}>
+                  <Text style={[styles.todayLabel, { color: colors.inkMuted }]}>
+                    Today · {lockedLabel}
+                  </Text>
+                  <SpeakWordButton word={today.word} />
+                </View>
                 <Text style={[styles.word, { color: colors.ink }]}>{today.word}</Text>
                 <Text style={[styles.oneLiner, { color: colors.tip }]}>
                   {today.oneLiner}
@@ -431,7 +435,14 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: 5,
   },
+  cardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 8,
+  },
   todayLabel: {
+    flexShrink: 1,
     fontSize: 12,
     fontFamily: fonts.bodySemi,
     textTransform: 'uppercase',
