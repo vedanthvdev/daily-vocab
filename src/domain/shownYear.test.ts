@@ -9,9 +9,9 @@ import {
 import type { Level, WordEntry } from './types';
 
 const words: WordEntry[] = [
-  { id: 'b1', word: 'alpha', oneLiner: 'First.' },
-  { id: 'b2', word: 'bravo', oneLiner: 'Second.' },
-  { id: 'b3', word: 'charlie', oneLiner: 'Third.' },
+  { id: 'b1', word: 'alpha', oneLiner: 'First.', example: 'Alpha led the pack today.' },
+  { id: 'b2', word: 'bravo', oneLiner: 'Second.', example: 'Bravo was his call sign.' },
+  { id: 'b3', word: 'charlie', oneLiner: 'Third.', example: 'Charlie joined the team late.' },
 ];
 
 describe('shownYear', () => {

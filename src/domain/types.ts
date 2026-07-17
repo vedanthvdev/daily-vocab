@@ -6,6 +6,7 @@ export type LockedWord = {
   wordId: string;
   word: string;
   oneLiner: string;
+  example: string;
 };
 
 export type DailyState = {
@@ -14,6 +15,7 @@ export type DailyState = {
   wordId: string;
   word: string;
   oneLiner: string;
+  example: string;
   byLevel: Partial<Record<Level, LockedWord>>;
 };
 
