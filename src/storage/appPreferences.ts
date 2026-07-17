@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import type { DailyState, Level } from '../domain/types';
+import type { DailyState, Level, LockedWord } from '../domain/types';
 
 const LEVEL_KEY = 'dailyvocab.level';
 const STATE_KEY = 'dailyvocab.dailyState';
@@ -8,16 +8,55 @@ function isLevel(value: unknown): value is Level {
   return value === 'beginner' || value === 'intermediate' || value === 'hard';
 }
 
-function isDailyState(value: unknown): value is DailyState {
+function isLockedWord(value: unknown): value is LockedWord {
   if (!value || typeof value !== 'object') return false;
-  const state = value as Record<string, unknown>;
+  const locked = value as Record<string, unknown>;
   return (
-    isLevel(state.level) &&
-    typeof state.localDate === 'string' &&
-    typeof state.wordId === 'string' &&
-    typeof state.word === 'string' &&
-    typeof state.oneLiner === 'string'
+    typeof locked.wordId === 'string' &&
+    typeof locked.word === 'string' &&
+    typeof locked.oneLiner === 'string'
   );
+}
+
+function normalizeDailyState(value: unknown): DailyState | null {
+  if (!value || typeof value !== 'object') return null;
+  const state = value as Record<string, unknown>;
+  if (
+    !isLevel(state.level) ||
+    typeof state.localDate !== 'string' ||
+    typeof state.wordId !== 'string' ||
+    typeof state.word !== 'string' ||
+    typeof state.oneLiner !== 'string'
+  ) {
+    return null;
+  }
+
+  const byLevel: Partial<Record<Level, LockedWord>> = {};
+  if (state.byLevel && typeof state.byLevel === 'object') {
+    for (const [key, locked] of Object.entries(state.byLevel as Record<string, unknown>)) {
+      if (isLevel(key) && isLockedWord(locked)) {
+        byLevel[key] = locked;
+      }
+    }
+  }
+
+  const active: LockedWord = {
+    wordId: state.wordId,
+    word: state.word,
+    oneLiner: state.oneLiner,
+  };
+  if (!byLevel[state.level]) {
+    byLevel[state.level] = active;
+  }
+
+  return {
+    localDate: state.localDate,
+    level: state.level,
+    wordId: state.wordId,
+    word: state.word,
+    oneLiner: state.oneLiner,
+    byLevel,
+  };
 }
 
 export async function loadLevel(): Promise<Level | null> {
@@ -34,7 +73,7 @@ export async function loadDailyState(): Promise<DailyState | null> {
   if (!raw) return null;
   try {
     const parsed: unknown = JSON.parse(raw);
-    return isDailyState(parsed) ? parsed : null;
+    return normalizeDailyState(parsed);
   } catch {
     return null;
   }

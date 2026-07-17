@@ -19,13 +19,16 @@ const catalog: CatalogByLevel = {
 };
 
 describe('ensureTodaysWord', () => {
-  it('returns the same wordId for the same day and level without re-rolling', () => {
+  it('returns the same word for the same day and level without re-rolling', () => {
     const state: DailyState = {
       level: 'beginner',
       localDate: '2026-07-16',
       wordId: 'b2',
       word: 'quick',
       oneLiner: 'Moving fast.',
+      byLevel: {
+        beginner: { wordId: 'b2', word: 'quick', oneLiner: 'Moving fast.' },
+      },
     };
     const randomInt = vi.fn(() => 0);
     const next = ensureTodaysWord({
@@ -36,7 +39,58 @@ describe('ensureTodaysWord', () => {
       randomInt,
       timeZone: 'UTC',
     });
-    expect(next).toEqual(state);
+    expect(next.wordId).toBe('b2');
+    expect(randomInt).not.toHaveBeenCalled();
+  });
+
+  it('switches to another level word immediately without clearing the first', () => {
+    const state: DailyState = {
+      level: 'beginner',
+      localDate: '2026-07-16',
+      wordId: 'b1',
+      word: 'happy',
+      oneLiner: 'Feeling joy.',
+      byLevel: {
+        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
+      },
+    };
+    const next = ensureTodaysWord({
+      level: 'hard',
+      catalog,
+      state,
+      now: new Date('2026-07-16T12:00:00.000Z'),
+      randomInt: () => 1,
+      timeZone: 'UTC',
+    });
+    expect(next.level).toBe('hard');
+    expect(next.wordId).toBe('h2');
+    expect(next.byLevel.beginner?.wordId).toBe('b1');
+    expect(next.byLevel.hard?.wordId).toBe('h2');
+  });
+
+  it('restores the earlier level word when switching back the same day', () => {
+    const state: DailyState = {
+      level: 'hard',
+      localDate: '2026-07-16',
+      wordId: 'h2',
+      word: 'laconic',
+      oneLiner: 'Using few words.',
+      byLevel: {
+        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
+        hard: { wordId: 'h2', word: 'laconic', oneLiner: 'Using few words.' },
+      },
+    };
+    const randomInt = vi.fn(() => 2);
+    const next = ensureTodaysWord({
+      level: 'beginner',
+      catalog,
+      state,
+      now: new Date('2026-07-16T12:00:00.000Z'),
+      randomInt,
+      timeZone: 'UTC',
+    });
+    expect(next.wordId).toBe('b1');
+    expect(next.word).toBe('happy');
     expect(randomInt).not.toHaveBeenCalled();
   });
 
@@ -47,6 +101,9 @@ describe('ensureTodaysWord', () => {
       wordId: 'b1',
       word: 'happy',
       oneLiner: 'Feeling joy.',
+      byLevel: {
+        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
+      },
     };
     const next = ensureTodaysWord({
       level: 'beginner',
@@ -58,27 +115,7 @@ describe('ensureTodaysWord', () => {
     });
     expect(next.localDate).toBe('2026-07-16');
     expect(next.wordId).toBe('b3');
-  });
-
-  it('keeps the same word when the level changes the same day', () => {
-    const state: DailyState = {
-      level: 'beginner',
-      localDate: '2026-07-16',
-      wordId: 'b1',
-      word: 'happy',
-      oneLiner: 'Feeling joy.',
-    };
-    const randomInt = vi.fn(() => 1);
-    const next = ensureTodaysWord({
-      level: 'hard',
-      catalog,
-      state,
-      now: new Date('2026-07-16T12:00:00.000Z'),
-      randomInt,
-      timeZone: 'UTC',
-    });
-    expect(next).toEqual(state);
-    expect(randomInt).not.toHaveBeenCalled();
+    expect(next.byLevel.beginner?.wordId).toBe('b3');
   });
 
   it('rolls from the preferred level when the local date changes', () => {
@@ -88,6 +125,9 @@ describe('ensureTodaysWord', () => {
       wordId: 'b1',
       word: 'happy',
       oneLiner: 'Feeling joy.',
+      byLevel: {
+        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
+      },
     };
     const next = ensureTodaysWord({
       level: 'hard',
@@ -102,27 +142,31 @@ describe('ensureTodaysWord', () => {
     expect(next.wordId).toBe('h2');
   });
 
-  it('returns locked state even when the preferred catalog is empty', () => {
+  it('re-rolls when today is locked to a removed placeholder word', () => {
     const state: DailyState = {
-      level: 'beginner',
+      level: 'intermediate',
       localDate: '2026-07-16',
-      wordId: 'b1',
-      word: 'happy',
-      oneLiner: 'Feeling joy.',
-    };
-    const emptyHard: CatalogByLevel = {
-      ...catalog,
-      hard: [],
+      wordId: 'i0038',
+      word: 'intermediate-word-38',
+      oneLiner: 'Practice intermediate word number 38.',
+      byLevel: {
+        intermediate: {
+          wordId: 'i0038',
+          word: 'intermediate-word-38',
+          oneLiner: 'Practice intermediate word number 38.',
+        },
+      },
     };
     const next = ensureTodaysWord({
-      level: 'hard',
-      catalog: emptyHard,
+      level: 'intermediate',
+      catalog,
       state,
       now: new Date('2026-07-16T12:00:00.000Z'),
-      randomInt: () => 0,
+      randomInt: () => 1,
       timeZone: 'UTC',
     });
-    expect(next).toEqual(state);
+    expect(next.word).toBe('persist');
+    expect(next.wordId).toBe('i2');
   });
 
   it('avoids repeating the previous wordId when possible', () => {
@@ -132,6 +176,9 @@ describe('ensureTodaysWord', () => {
       wordId: 'b1',
       word: 'happy',
       oneLiner: 'Feeling joy.',
+      byLevel: {
+        beginner: { wordId: 'b1', word: 'happy', oneLiner: 'Feeling joy.' },
+      },
     };
     const sequence = [0, 0, 1];
     let i = 0;

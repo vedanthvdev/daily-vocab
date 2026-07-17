@@ -2,12 +2,19 @@ import type { Level, WordEntry } from '../../content/tools/catalogSchema';
 
 export type { Level, WordEntry };
 
-export type DailyState = {
-  level: Level;
-  localDate: string;
+export type LockedWord = {
   wordId: string;
   word: string;
   oneLiner: string;
+};
+
+export type DailyState = {
+  localDate: string;
+  level: Level;
+  wordId: string;
+  word: string;
+  oneLiner: string;
+  byLevel: Partial<Record<Level, LockedWord>>;
 };
 
 export type CatalogByLevel = Record<Level, WordEntry[]>;
