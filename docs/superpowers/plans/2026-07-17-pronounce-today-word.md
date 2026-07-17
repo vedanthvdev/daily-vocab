@@ -4,9 +4,9 @@
 
 **Goal:** Add an offline OS text-to-speech speaker on the Home Today word card.
 
-**Architecture:** Thin `speakWord()` wrapper around `expo-speech`, a small `SpeakWordButton` in the Today card, language preference `en-GB` → `en-US` → default. No widget/History changes.
+**Architecture:** Thin `speakWord()` wrapper around WidgetBridge OS TTS, a small `SpeakWordButton` in the Today card, language preference `en-GB` → `en-US` → default. No widget/History changes.
 
-**Tech Stack:** Expo 57, React Native, `expo-speech`, existing Home theme colors.
+**Tech Stack:** Expo 57, React Native, WidgetBridge (`AVSpeechSynthesizer` / Android `TextToSpeech`), existing Home theme colors.
 
 ---
 
@@ -14,11 +14,13 @@
 
 | File | Responsibility |
 | --- | --- |
-| `src/audio/speakWord.ts` | Stop + speak word; pick English locale |
-| `src/audio/speakWord.test.ts` | Unit tests for locale preference / empty input |
+| `src/audio/speakWord.ts` | Stop + speak via WidgetBridge OS TTS |
+| `src/audio/speakWordLocale.ts` | Locale preference helper (unit-tested; used if we list voices later) |
+| `src/audio/speakWord.test.ts` | Unit tests for locale preference |
 | `src/components/SpeakWordButton.tsx` | Subtle speaker control |
 | `src/screens/HomeScreen.tsx` | Place button on Today card when `today` is set |
-| `package.json` / lockfile | Add `expo-speech` |
+| `modules/widget-bridge/**` | Native `speakWord` / `stopSpeaking` |
+| `package.json` / lockfile | No `expo-speech` (failed to register in this host) |
 | `docs/app-store-review-notes.md` | One-line offline system-voice note |
 
 ---

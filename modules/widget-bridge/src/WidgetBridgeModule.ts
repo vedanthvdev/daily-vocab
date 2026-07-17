@@ -11,6 +11,8 @@ type WidgetBridgeNative = {
   getDailySnapshot(): Promise<DailySnapshot | null>;
   reloadWidgets(): Promise<void>;
   setShownYears?(json: string): Promise<void>;
+  speakWord?(text: string, language: string | null): Promise<void>;
+  stopSpeaking?(): Promise<void>;
 };
 
 const WidgetBridgeModule =

@@ -19,7 +19,11 @@ export function SpeakWordButton({ word }: Props) {
       accessibilityLabel="Pronounce today’s word"
       style={({ pressed }) => [styles.hit, pressed && styles.pressed]}
     >
-      <Text style={[styles.icon, { color: colors.inkMuted }]} importantForAccessibility="no">
+      <Text
+        style={[styles.icon, { color: colors.inkMuted }]}
+        accessible={false}
+        importantForAccessibility="no"
+      >
         🔊
       </Text>
     </Pressable>
