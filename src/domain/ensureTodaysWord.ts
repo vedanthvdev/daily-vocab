@@ -36,6 +36,15 @@ function isPlaceholderWord(locked: Pick<LockedWord, 'word' | 'oneLiner'>): boole
   );
 }
 
+function findInLevelCatalog(
+  catalog: CatalogByLevel,
+  level: Level,
+  wordId: string,
+): WordEntry | null {
+  return catalog[level]?.find((entry) => entry.id === wordId) ?? null;
+}
+
+/** Still used when hydrating metadata if the lemma moved levels. */
 function findInCatalog(catalog: CatalogByLevel, wordId: string): WordEntry | null {
   for (const level of Object.keys(catalog) as Level[]) {
     const hit = catalog[level]?.find((entry) => entry.id === wordId);
@@ -44,9 +53,14 @@ function findInCatalog(catalog: CatalogByLevel, wordId: string): WordEntry | nul
   return null;
 }
 
-function isUsableLockedWord(locked: LockedWord, catalog: CatalogByLevel): boolean {
+function isUsableLockedWord(
+  locked: LockedWord,
+  catalog: CatalogByLevel,
+  level: Level,
+): boolean {
   if (isPlaceholderWord(locked)) return false;
-  return findInCatalog(catalog, locked.wordId) !== null;
+  // Must still belong to the selected level (re-tiers can move lemmas).
+  return findInLevelCatalog(catalog, level, locked.wordId) !== null;
 }
 
 function flatten(
@@ -110,13 +124,18 @@ function selectPool(
 function hydrateLocked(
   locked: LockedWord,
   catalog: CatalogByLevel,
+  level: Level,
 ): LockedWord {
-  if (locked.example?.trim()) return locked;
-  const entry = findInCatalog(catalog, locked.wordId);
-  if (entry?.example) {
-    return { ...locked, example: entry.example };
-  }
-  return locked;
+  const entry =
+    findInLevelCatalog(catalog, level, locked.wordId) ??
+    findInCatalog(catalog, locked.wordId);
+  if (!entry) return locked;
+  return {
+    ...locked,
+    word: entry.word,
+    oneLiner: entry.oneLiner,
+    example: entry.example || locked.example || '',
+  };
 }
 
 export function ensureTodaysWord(input: EnsureTodaysWordInput): EnsureTodaysWordResult {
@@ -138,9 +157,13 @@ export function ensureTodaysWord(input: EnsureTodaysWordInput): EnsureTodaysWord
 
   const existingRaw = byLevel[level];
   const existing = existingRaw
-    ? hydrateLocked(existingRaw, catalog)
+    ? hydrateLocked(existingRaw, catalog, level)
     : undefined;
-  if (existing && isUsableLockedWord(existing, catalog) && existing.example?.trim()) {
+  if (
+    existing &&
+    isUsableLockedWord(existing, catalog, level) &&
+    existing.example?.trim()
+  ) {
     byLevel[level] = existing;
     shown = stampShownWord(shown, existing.wordId, now);
     return {
