@@ -20,10 +20,10 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 
-class DailyVocabGlanceWidget : GlanceAppWidget() {
+class DayinkGlanceWidget : GlanceAppWidget() {
   override suspend fun provideGlance(context: Context, id: GlanceId) {
     val snapshot = DailyWordStore.resolveForWidget(context)
-    val word = snapshot?.word ?: "Daily Vocab"
+    val word = snapshot?.word ?: "Dayink"
     val oneLiner = snapshot?.oneLiner ?: "Open the app and pick a level"
     val level = snapshot?.level ?: "beginner"
 
@@ -86,8 +86,8 @@ class DailyVocabGlanceWidget : GlanceAppWidget() {
   }
 }
 
-class DailyVocabGlanceWidgetReceiver : GlanceAppWidgetReceiver() {
-  override val glanceAppWidget: GlanceAppWidget = DailyVocabGlanceWidget()
+class DayinkGlanceWidgetReceiver : GlanceAppWidgetReceiver() {
+  override val glanceAppWidget: GlanceAppWidget = DayinkGlanceWidget()
 
   companion object {
     @JvmStatic

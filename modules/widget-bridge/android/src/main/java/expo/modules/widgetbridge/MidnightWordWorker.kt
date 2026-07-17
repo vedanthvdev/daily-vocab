@@ -20,13 +20,13 @@ class MidnightWordWorker(
 ) : CoroutineWorker(appContext, params) {
   override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
     DailyWordStore.resolveForWidget(applicationContext)
-    DailyVocabGlanceWidget().updateAll(applicationContext)
+    DayinkGlanceWidget().updateAll(applicationContext)
     Result.success()
   }
 
   companion object {
-    private const val UNIQUE = "dailyvocab_midnight"
-    private const val UNIQUE_NOW = "dailyvocab_update_now"
+    private const val UNIQUE = "dayink_midnight"
+    private const val UNIQUE_NOW = "dayink_update_now"
 
     fun enqueueImmediate(context: Context) {
       val req = OneTimeWorkRequestBuilder<MidnightWordWorker>().build()

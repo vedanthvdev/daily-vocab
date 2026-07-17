@@ -1,16 +1,12 @@
-# Add the Daily Vocab widget
+# Add the Dayink widget
 
-## iOS
+## iPhone Lock Screen
 
-1. Install Daily Vocab and pick Beginner, Intermediate, or Hard.
-2. Touch and hold the Lock Screen → Customize → Lock Screen.
-3. Tap a widget area → add **Daily Vocab**.
-4. You should see today’s word and one-line meaning.
+1. Install Dayink and pick Beginner, Intermediate, or Hard.
+2. Lock Screen → Customize.
+3. Tap a widget area → add **Dayink**.
 
 ## Android
 
-1. Install Daily Vocab and pick a level.
-2. Long-press the home screen → Widgets → **Daily Vocab**.
-3. Place the widget. On launchers that support it, you can also place it on the lock screen / keyguard.
-
-The word changes around local midnight. Switching levels shows that level’s word for today right away; each level keeps its own word until the next day.
+1. Install Dayink and pick a level.
+2. Long-press the home screen → Widgets → **Dayink**.

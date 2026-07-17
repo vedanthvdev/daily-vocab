@@ -1,4 +1,4 @@
-# Daily Vocab
+# Dayink
 
 Simple Expo (React Native) app: pick **Beginner / Intermediate / Hard**, then see one random word per day on the lock screen with a one-line explanation.
 
@@ -59,16 +59,16 @@ npx expo prebuild -p ios
 npx expo run:ios
 ```
 
-Then: **Lock Screen → Customize → add Daily Vocab**.
+Then: **Lock Screen → Customize → add Dayink**.
 
 ## Native widgets
 
-iOS WidgetKit target: `targets/DailyVocabWidget/` (`@bacons/apple-targets`).
+iOS WidgetKit target: `targets/DayinkWidget/` (`@bacons/apple-targets`).
 
 ```bash
 npm run content:sync
 npx expo run:android              # Linux/Mac with Android SDK
 ```
 
-Details: `targets/DailyVocabWidget/README.md`  
+Details: `targets/DayinkWidget/README.md`  
 Learner tip copy: `docs/widget-setup.md`.

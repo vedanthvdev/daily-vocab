@@ -25,7 +25,7 @@ data class CatalogWord(
 )
 
 object DailyWordStore {
-  const val PREFS = "dailyvocab_widget"
+  const val PREFS = "dayink_widget"
   const val SNAPSHOT_KEY = "dailySnapshot"
   const val LEVEL_KEY = "activeLevel"
   const val SHOWN_KEY = "shownYearByWordId"

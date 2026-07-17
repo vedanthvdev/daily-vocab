@@ -10,26 +10,27 @@ const appleTeamId =
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: 'Daily Vocab',
-  slug: 'daily-vocab',
+  name: 'Dayink',
+  slug: 'dayink',
+  owner: 'chintuvedanth',
   version: '1.0.0',
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
-  scheme: 'dailyvocab',
+  scheme: 'dayink',
   ios: {
     supportsTablet: true,
-    bundleIdentifier: 'com.dailyvocab.app',
+    bundleIdentifier: 'com.dayink.app',
     ...(appleTeamId ? { appleTeamId } : {}),
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
     },
     entitlements: {
-      'com.apple.security.application-groups': ['group.com.dailyvocab.app'],
+      'com.apple.security.application-groups': ['group.com.dayink.app'],
     },
   },
   android: {
-    package: 'com.dailyvocab.app',
+    package: 'com.dayink.app',
     adaptiveIcon: {
       backgroundColor: '#F7F3EA',
       foregroundImage: './assets/android-icon-foreground.png',
@@ -57,7 +58,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   extra: {
     splashBackground: '#F7F3EA',
     eas: {
-      projectId: 'af5bc403-7c2e-4c6f-8f5e-5b2d52cde2a0',
+      projectId: '7d212128-d3cb-4dc5-8e49-c2859c0a3179',
     },
   },
 });

@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name           = 'WidgetBridge'
   s.version        = '1.0.0'
-  s.summary        = 'Daily Vocab widget bridge (App Group + reload)'
-  s.description    = 'Shared storage and WidgetKit reload for Daily Vocab'
+  s.summary        = 'Dayink widget bridge (App Group + reload)'
+  s.description    = 'Shared storage and WidgetKit reload for Dayink'
   s.author         = ''
   s.homepage       = 'https://docs.expo.dev/modules/'
   s.platforms      = {

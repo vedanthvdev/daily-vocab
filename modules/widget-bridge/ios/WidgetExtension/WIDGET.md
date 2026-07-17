@@ -2,7 +2,7 @@
 
 The Lock Screen / home widget now lives under the Expo Apple Targets folder:
 
-`targets/DailyVocabWidget/`
+`targets/DayinkWidget/`
 
 That target is linked by `@bacons/apple-targets` during:
 
@@ -10,9 +10,9 @@ That target is linked by `@bacons/apple-targets` during:
 npx expo prebuild -p ios
 ```
 
-Open Xcode (`xed ios`) and look for `expo:targets/DailyVocabWidget`.
+Open Xcode (`xed ios`) and look for `expo:targets/DayinkWidget`.
 
-Word catalogs are copied into `targets/DailyVocabWidget/assets/`. After regenerating content:
+Word catalogs are copied into `targets/DayinkWidget/assets/`. After regenerating content:
 
 ```bash
 npm run content:sync-ios-widget

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
   <application>
     <receiver
-      android:name=".DailyVocabGlanceWidgetReceiver"
+      android:name=".DayinkGlanceWidgetReceiver"
       android:exported="true"
       android:label="@string/widget_name">
       <intent-filter>
@@ -9,7 +9,7 @@
       </intent-filter>
       <meta-data
         android:name="android.appwidget.provider"
-        android:resource="@xml/daily_vocab_widget_info" />
+        android:resource="@xml/dayink_widget_info" />
     </receiver>
   </application>
 </manifest>
