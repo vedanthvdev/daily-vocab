@@ -50,7 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     factory.startReactNative(
       withModuleName: "main",
       in: window,
-      launchOptions: appDelegate.launchOptionsForScene
+      launchOptions: nil
     )
 
     for context in connectionOptions.urlContexts {
@@ -117,17 +117,6 @@ function stripAppDelegateStartup(src) {
     );
   }
 
-  if (!/launchOptionsForScene/.test(next)) {
-    next = next.replace(
-      /(public class AppDelegate:[^\n]+\{\n)/,
-      `$1  /// Captured for SceneDelegate React Native startup.\n  var launchOptionsForScene: [UIApplication.LaunchOptionsKey: Any]?\n\n`,
-    );
-    next = next.replace(
-      /(didFinishLaunchingWithOptions launchOptions:[^\n]+\{)/,
-      `$1\n    launchOptionsForScene = launchOptions`,
-    );
-  }
-
   return next;
 }
 
@@ -171,8 +160,12 @@ function withIosSceneLifecycle(config) {
     const projectName = IOSConfig.XcodeUtils.getProjectName(cfg.modRequest.projectRoot);
     const filePath = `${projectName}/SceneDelegate.swift`;
     if (!project.hasFile(filePath)) {
-      const appTarget = project.getFirstTarget();
-      project.addSourceFile(filePath, {}, appTarget?.uuid);
+      const targetUuid = project.getFirstTarget()?.uuid;
+      const groupKey =
+        project.findPBXGroupKey({ name: projectName }) ||
+        project.findPBXGroupKey({ path: projectName });
+      // Third arg is the PBX group key; target belongs in options.
+      project.addSourceFile(filePath, targetUuid ? { target: targetUuid } : undefined, groupKey);
     }
     return cfg;
   });
