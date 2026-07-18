@@ -33,7 +33,7 @@ Release jobs start EAS with `--no-wait`. Watch build/submit progress at [expo.de
 3. **Google Play credentials in EAS** — for package `com.dayink.app` (Play Console account: `chintudon123@gmail.com`):
 
    1. Create the Play app (if missing): Play Console → Create app → **Dayink**, package **`com.dayink.app`**, free.
-   2. Publish `docs/privacy-policy.html` to a public HTTPS URL (e.g. GitHub Pages) and set it as the Privacy policy URL in Play Console.
+   2. Set Privacy policy URL in Play Console to `https://vedanthvdev.github.io/daily-vocab/privacy-policy.html` (GitHub Pages from `docs/privacy-policy.html`).
    3. Complete Data safety (“no data collected”), content rating, and at least two phone screenshots so internal testing can ship. See [play-store-listing.md](./play-store-listing.md).
    4. Create a Google Cloud **service account** + JSON key; enable **Google Play Android Developer API**; invite that service account email in Play Console → Users and permissions with rights to create/manage releases and testing tracks. Guide: [expo/fyi creating-google-service-account](https://github.com/expo/fyi/blob/main/creating-google-service-account.md).
    5. Upload the JSON into EAS:
