@@ -8,5 +8,4 @@
     android:initialLayout="@android:layout/simple_list_item_1"
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen|keyguard"
-    android:previewDescription="@string/widget_description"
     android:description="@string/widget_description" />
