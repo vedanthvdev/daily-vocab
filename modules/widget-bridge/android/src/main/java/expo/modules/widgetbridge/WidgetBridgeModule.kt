@@ -24,7 +24,7 @@ class WidgetBridgeModule : Module() {
     Name("WidgetBridge")
 
     AsyncFunction("syncWidgetState") { snapshot: Map<String, String>?, level: String? ->
-      val context = appContext.reactContext ?: return@AsyncFunction
+      val context = appContext.reactContext ?: return@AsyncFunction null
       val editor = context.getSharedPreferences(prefsName, Context.MODE_PRIVATE).edit()
       if (snapshot != null) {
         val json = JSONObject()
@@ -37,10 +37,11 @@ class WidgetBridgeModule : Module() {
         editor.putString(levelKey, level)
       }
       editor.commit()
+      null
     }
 
     AsyncFunction("setDailySnapshot") { snapshot: Map<String, String> ->
-      val context = appContext.reactContext ?: return@AsyncFunction
+      val context = appContext.reactContext ?: return@AsyncFunction null
       val json = JSONObject()
       for ((key, value) in snapshot) {
         json.put(key, value)
@@ -49,22 +50,25 @@ class WidgetBridgeModule : Module() {
         .edit()
         .putString(snapshotKey, json.toString())
         .commit()
+      null
     }
 
     AsyncFunction("setActiveLevel") { level: String ->
-      val context = appContext.reactContext ?: return@AsyncFunction
+      val context = appContext.reactContext ?: return@AsyncFunction null
       context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
         .edit()
         .putString(levelKey, level)
         .commit()
+      null
     }
 
     AsyncFunction("setShownYears") { json: String ->
-      val context = appContext.reactContext ?: return@AsyncFunction
+      val context = appContext.reactContext ?: return@AsyncFunction null
       context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
         .edit()
         .putString(shownKey, json)
         .commit()
+      null
     }
 
     AsyncFunction("getDailySnapshot") {
@@ -82,14 +86,15 @@ class WidgetBridgeModule : Module() {
     }
 
     AsyncFunction("reloadWidgets") {
-      val context = appContext.reactContext ?: return@AsyncFunction
+      val context = appContext.reactContext ?: return@AsyncFunction null
       DayinkWidgetUpdater.requestUpdate(context)
+      null
     }
 
     AsyncFunction("speakWord") { text: String, language: String? ->
-      val context = appContext.reactContext ?: return@AsyncFunction
+      val context = appContext.reactContext ?: return@AsyncFunction null
       val trimmed = text.trim()
-      if (trimmed.isEmpty()) return@AsyncFunction
+      if (trimmed.isEmpty()) return@AsyncFunction null
       runOnMain {
         ensureTts(context)
         if (ttsReady) {
@@ -98,6 +103,7 @@ class WidgetBridgeModule : Module() {
           pendingSpeak = trimmed to language
         }
       }
+      null
     }
 
     AsyncFunction("stopSpeaking") {
@@ -105,6 +111,7 @@ class WidgetBridgeModule : Module() {
         pendingSpeak = null
         tts?.stop()
       }
+      null
     }
 
     OnDestroy {

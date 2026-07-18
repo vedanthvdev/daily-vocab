@@ -1,6 +1,8 @@
 plugins {
   id 'com.android.library'
   id 'expo-module-gradle-plugin'
+  // Kotlin 2.0+ requires the Compose compiler plugin when compose is enabled.
+  id 'org.jetbrains.kotlin.plugin.compose'
 }
 
 group = 'expo.modules.widgetbridge'
