@@ -69,7 +69,7 @@ Better: publish `docs/privacy-policy.html` via GitHub Pages and reuse that site 
 
 **Marketing URL:** leave blank (optional)
 
-**Privacy Policy URL:** publish `docs/privacy-policy.html` then set that public HTTPS URL (required).
+**Privacy Policy URL:** `https://vedanthvdev.github.io/daily-vocab/privacy-policy.html` (GitHub Pages from `docs/privacy-policy.html`).
 
 ## App Privacy (nutrition labels)
 
